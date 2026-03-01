@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Approach – XLeratorAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="XLeratorAI's Responsible AI Process Framework — process-first, outcome-driven AI acceleration grounded in SIPOC, Lean Six Sigma, and responsible AI principles." />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+
+    /* Framework block layout */
+    .framework-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .framework-block:last-of-type { border-bottom: none; }
+    .framework-block.flip { direction: rtl; }
+    .framework-block.flip > * { direction: ltr; }
+
+    .framework-text h3 {
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .framework-text p {
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+    .framework-text ul, .framework-text ol {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .framework-text ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 10px 14px;
+      background: var(--bg-alt);
+      border-radius: 8px;
+      border-left: 3px solid var(--blue);
+    }
+    .framework-text ol li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .framework-text ol li:last-child { border-bottom: none; }
+    .step-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── SVG DIAGRAM CARDS ── */
+    .diagram-card {
+      background: var(--card);
+      border: 1px solid var(--border-blue);
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-md), 0 0 40px rgba(31,123,255,0.06);
+    }
+    .diagram-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* Diagram 1 – Layered Stack */
+    .stack-diagram { display: flex; flex-direction: column; gap: 10px; }
+    .stack-layer {
+      border-radius: 12px;
+      padding: 18px 20px;
+      position: relative;
+    }
+    .stack-layer.top {
+      background: linear-gradient(135deg, rgba(31,123,255,0.12), rgba(0,153,204,0.08));
+      border: 1.5px solid rgba(31,123,255,0.3);
+    }
+    .stack-layer.mid {
+      background: linear-gradient(135deg, rgba(31,123,255,0.07), rgba(0,153,204,0.04));
+      border: 1.5px solid rgba(31,123,255,0.2);
+    }
+    .stack-layer.bot {
+      background: rgba(0,0,0,0.03);
+      border: 1.5px solid var(--border);
+    }
+    .stack-layer-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .stack-layer-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .stack-layer-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .stack-mini-block {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(31,123,255,0.18);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.68rem;
+      color: var(--text-mid);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    /* Diagram 2 – SIPOC */
+    .sipoc-diagram { overflow-x: auto; }
+    .sipoc-table {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      min-width: 340px;
+    }
+    .sipoc-col { display: flex; flex-direction: column; gap: 6px; }
+    .sipoc-header {
+      background: var(--blue);
+      color: #fff;
+      border-radius: 8px;
+      padding: 8px 6px;
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+    .sipoc-header.accent { background: linear-gradient(135deg, var(--blue), var(--cyan)); }
+    .sipoc-item {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 7px;
+      font-size: 0.62rem;
+      color: var(--muted);
+      line-height: 1.4;
+      text-align: center;
+    }
+    .sipoc-item.ai-tag {
+      background: rgba(31,123,255,0.06);
+      border-color: rgba(31,123,255,0.2);
+      color: var(--blue);
+      font-weight: 600;
+    }
+    .sipoc-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--blue);
+      padding-top: 6px;
+    }
+
+    /* Diagram 3 – Venn */
+    .venn-diagram {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .venn-row {
+      display: flex;
+      gap: 0;
+      width: 100%;
+    }
+    .venn-circle {
+      flex: 1;
+      border-radius: 14px;
+      padding: 16px 14px;
+    }
+    .venn-circle.left {
+      background: rgba(31,123,255,0.08);
+      border: 1.5px solid rgba(31,123,255,0.25);
+      border-radius: 14px 0 0 14px;
+    }
+    .venn-circle.right {
+      background: rgba(0,153,204,0.08);
+      border: 1.5px solid rgba(0,153,204,0.25);
+      border-radius: 0 14px 14px 0;
+    }
+    .venn-overlap {
+      background: linear-gradient(135deg, rgba(31,123,255,0.15), rgba(0,153,204,0.15));
+      border: 1.5px solid rgba(31,123,255,0.3);
+      border-radius: 14px;
+      padding: 14px;
+      text-align: center;
+      width: 100%;
+    }
+    .venn-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+      display: block;
+    }
+    .venn-items {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .venn-items li {
+      font-size: 0.65rem;
+      color: var(--muted);
+      padding: 3px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      background: transparent !important;
+      border-left: none !important;
+      border-radius: 0 !important;
+    }
+    .venn-overlap .venn-items li { color: var(--blue); font-weight: 600; }
+
+    /* Diagram 4 – Guardrails */
+    .guardrails-diagram {
+      display: grid;
+      grid-template-areas:
+        "top top top"
+        "left center right"
+        "bot bot bot";
+      gap: 8px;
+    }
+    .gr-top { grid-area: top; }
+    .gr-left { grid-area: left; }
+    .gr-center { grid-area: center; }
+    .gr-right { grid-area: right; }
+    .gr-bot { grid-area: bot; }
+    .gr-pill {
+      background: rgba(31,123,255,0.08);
+      border: 1.5px solid rgba(31,123,255,0.2);
+      border-radius: 10px;
+      padding: 10px 12px;
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .gr-center-box {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      border-radius: 14px;
+      padding: 20px 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: #fff;
+    }
+    .gr-center-box .icon { font-size: 1.4rem; }
+    .gr-center-box span {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    /* Outcomes grid */
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .outcome-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .outcome-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .outcome-card:hover { border-color: var(--border-blue); transform: translateY(-3px); box-shadow: var(--shadow-blue); }
+    .outcome-card:hover::before { opacity: 1; }
+    .outcome-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+    .outcome-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .outcome-card p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+
+    /* Engagement steps (horizontal flow) */
+    .engage-steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      margin-top: 48px;
+      position: relative;
+    }
+    .engage-steps::before {
+      content: '';
+      position: absolute;
+      top: 27px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--border-blue), var(--blue), var(--border-blue), transparent);
+    }
+    .engage-step { text-align: center; padding: 0 8px; position: relative; }
+    .engage-num {
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--blue);
+      margin: 0 auto 16px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 20px rgba(31,123,255,0.1);
+    }
+    .engage-step h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .engage-step p { font-size: 0.72rem; color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .framework-block { grid-template-columns: 1fr; gap: 32px; }
+      .framework-block.flip { direction: ltr; }
+      .engage-steps { grid-template-columns: 1fr; gap: 20px; }
+      .engage-steps::before { display: none; }
+      .sipoc-table { grid-template-columns: 1fr; }
+      .guardrails-diagram { grid-template-areas: "top" "left" "center" "right" "bot"; grid-template-columns: 1fr; }
+      .venn-row { flex-direction: column; }
+      .venn-circle.left { border-radius: 14px 14px 0 0; }
+      .venn-circle.right { border-radius: 0 0 14px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="img/logo-main.png" alt="XLeratorAI" />
+      </a>
+      <nav class="main-nav">
+        <a href="solutions.html">Solutions</a>
+        <a href="lab.html">Lab &amp; Products</a>
+        <a href="success.html">Client Success</a>
+        <a href="about.html">About</a>
+        <a href="approach.html" class="active">Our Approach</a>
+        <a href="board.html">Board</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="btn-cta">Schedule a Session ↗</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ PAGE HERO ══ -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="section-label">Our Approach</div>
+        <h1>XLeratorAI's Responsible AI<br />Process Framework</h1>
+        <p style="max-width:640px;">
+          We help organizations identify, prioritize, and implement AI where it matters most — inside
+          the processes that drive cost, quality, speed, and customer experience. Our approach is
+          process-first, outcome-driven, and grounded in responsible AI principles.
+        </p>
+        <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn-primary">Start a Working Session</a>
+          <a href="lab.html" class="btn-ghost">Explore Our Products →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FRAMEWORK SECTIONS ══ -->
+    <section class="section">
+      <div class="section-inner">
+
+        <!-- 1. Process-First Philosophy -->
+        <div class="framework-block">
+          <div class="framework-text">
+            <div class="section-label">Foundation</div>
+            <h3>Process-first, outcome-driven AI</h3>
+            <p>
+              XLeratorAI begins with the work itself — not the technology. We identify processes that
+              involve many people, take a long time, or carry operational risk. Using proven methods,
+              we then apply AI where it can safely and meaningfully improve outcomes.
+              <strong>Technology is the enabler. Business impact is the goal.</strong>
+            </p>
+            <ul>
+              <li><strong>Business outcomes:</strong> faster cycle times, higher quality, reduced risk, better customer experience.</li>
+              <li><strong>Process-first framework:</strong> discover high-impact processes, analyze with SIPOC + Lean, design responsible AI interventions.</li>
+              <li><strong>Enabling capabilities:</strong> data readiness, model selection, governance, change management.</li>
+            </ul>
+          </div>
+          <div class="diagram-card">
+            <span class="diagram-label">How XLeratorAI Drives Responsible AI Adoption</span>
+            <div class="stack-diagram">
+              <div class="stack-layer top">
+                <div class="stack-layer-title">🎯 Business Outcomes</div>
+                <div class="stack-layer-sub">Faster cycle times · Higher quality · Reduced risk · Better customer experience</div>
+              </div>
+              <div style="text-align:center;font-size:0.8rem;color:var(--blue);line-height:1;">▲</div>
+              <div class="stack-layer mid">
+                <div class="stack-layer-title">⚙️ Process-First AI Framework</div>
+                <div class="stack-layer-blocks">
+                  <div class="stack-mini-block">Discover high-impact processes</div>
+                  <div class="stack-mini-block">Analyze with SIPOC + Lean</div>
+                  <div class="stack-mini-block">Design responsible AI interventions</div>
+                </div>
+              </div>
+              <div style="text-align:center;font-size:0.8rem;color:var(--blue);line-height:1;">▲</div>
+              <div class="stack-layer bot">
+                <div class="stack-layer-title">🔧 Enabling Capabilities</div>
+                <div class="stack-layer-sub">Data readiness · Model selection · Governance · Change management</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. SIPOC + AI -->
+        <div class="framework-block flip">
+          <div class="framework-text">
+            <div class="section-label">SIPOC + AI</div>
+            <h3>Using SIPOC to reveal AI opportunities</h3>
+            <p>
+              SIPOC gives a fast, structured view of how work flows across your organization.
+              We evaluate Inputs, Process steps, and Outputs through an AI opportunity lens —
+              identifying where automation, augmentation, or intelligence can reduce effort,
+              improve quality, and accelerate delivery.
+            </p>
+            <ul>
+              <li><strong>Inputs (I):</strong> document ingestion, classification, data extraction, quality checks.</li>
+              <li><strong>Process (P):</strong> decision support, workflow orchestration, generative drafting, anomaly detection.</li>
+              <li><strong>Outputs (O):</strong> personalized communications, summaries, quality review and consistency checks.</li>
+            </ul>
+          </div>
+          <div class="diagram-card">
+            <span class="diagram-label">SIPOC with AI Opportunity Overlays</span>
+            <div class="sipoc-diagram">
+              <div class="sipoc-table">
+                <div class="sipoc-col">
+                  <div class="sipoc-header">S<br/><span style="font-weight:400;font-size:0.6rem;">Suppliers</span></div>
+                  <div class="sipoc-item">Internal teams</div>
+                  <div class="sipoc-item">External partners</div>
+                  <div class="sipoc-item">Systems &amp; data sources</div>
+                </div>
+                <div class="sipoc-col">
+                  <div class="sipoc-header accent">I<br/><span style="font-weight:400;font-size:0.6rem;">Inputs</span></div>
+                  <div class="sipoc-item ai-tag">🤖 Doc ingestion &amp; classification</div>
+                  <div class="sipoc-item ai-tag">🤖 Data extraction (NLP / OCR)</div>
+                  <div class="sipoc-item ai-tag">🤖 Quality checks</div>
+                </div>
+                <div class="sipoc-col">
+                  <div class="sipoc-header accent">P<br/><span style="font-weight:400;font-size:0.6rem;">Process</span></div>
+                  <div class="sipoc-item ai-tag">🤖 Decision support</div>
+                  <div class="sipoc-item ai-tag">🤖 Workflow orchestration</div>
+                  <div class="sipoc-item ai-tag">🤖 Generative drafting</div>
+                </div>
+                <div class="sipoc-col">
+                  <div class="sipoc-header accent">O<br/><span style="font-weight:400;font-size:0.6rem;">Outputs</span></div>
+                  <div class="sipoc-item ai-tag">🤖 Personalized comms</div>
+                  <div class="sipoc-item ai-tag">🤖 Summaries &amp; reports</div>
+                  <div class="sipoc-item ai-tag">🤖 Quality review</div>
+                </div>
+                <div class="sipoc-col">
+                  <div class="sipoc-header">C<br/><span style="font-weight:400;font-size:0.6rem;">Customers</span></div>
+                  <div class="sipoc-item">End customers</div>
+                  <div class="sipoc-item">Internal stakeholders</div>
+                  <div class="sipoc-item">Executive leadership</div>
+                </div>
+              </div>
+              <div style="margin-top:12px;padding:10px 12px;background:rgba(31,123,255,0.05);border-radius:8px;border:1px dashed rgba(31,123,255,0.25);">
+                <p style="font-size:0.65rem;color:var(--blue);font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;margin:0;text-align:center;">
+                  🤖 AI Opportunity Zones: Inputs · Process · Outputs
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Lean Six Sigma + AI -->
+        <div class="framework-block">
+          <div class="framework-text">
+            <div class="section-label">Lean + AI</div>
+            <h3>Lean Six Sigma plus AI: a modern improvement engine</h3>
+            <p>
+              Lean Six Sigma identifies waste, variation, and bottlenecks. AI provides new tools to
+              address them. Together, they create a modern improvement engine that delivers measurable,
+              sustainable gains — not "AI for AI's sake," but AI anchored in proven process improvement
+              methods and measurable outcomes.
+            </p>
+            <ul>
+              <li><strong>Lean Six Sigma:</strong> reduce waste, reduce variation, improve flow.</li>
+              <li><strong>AI enablement:</strong> automate repetitive tasks, enhance decisions, generate content at scale.</li>
+              <li><strong>Combined impact:</strong> faster cycle times, fewer errors, better experience.</li>
+            </ul>
+          </div>
+          <div class="diagram-card">
+            <span class="diagram-label">Lean Six Sigma + AI = Accelerated Improvement</span>
+            <div class="venn-diagram">
+              <div class="venn-row">
+                <div class="venn-circle left">
+                  <span class="venn-title">📐 Lean Six Sigma</span>
+                  <ul class="venn-items">
+                    <li>Reduce waste</li>
+                    <li>Reduce variation</li>
+                    <li>Improve flow</li>
+                    <li>Eliminate bottlenecks</li>
+                  </ul>
+                </div>
+                <div class="venn-circle right">
+                  <span class="venn-title">🤖 AI Enablement</span>
+                  <ul class="venn-items">
+                    <li>Automate tasks</li>
+                    <li>Enhance decisions</li>
+                    <li>Generate content</li>
+                    <li>Detect anomalies</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="venn-overlap">
+                <span class="venn-title">⚡ AI-Accelerated Process Improvement</span>
+                <ul class="venn-items" style="display:flex;flex-direction:row;flex-wrap:wrap;gap:6px;justify-content:center;">
+                  <li style="background:rgba(31,123,255,0.08)!important;border-radius:20px!important;padding:3px 10px!important;border-bottom:none!important;">Faster cycle times</li>
+                  <li style="background:rgba(31,123,255,0.08)!important;border-radius:20px!important;padding:3px 10px!important;border-bottom:none!important;">Fewer errors</li>
+                  <li style="background:rgba(31,123,255,0.08)!important;border-radius:20px!important;padding:3px 10px!important;border-bottom:none!important;">Better experience</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Responsible AI Guardrails -->
+        <div class="framework-block flip">
+          <div class="framework-text">
+            <div class="section-label">Responsible AI</div>
+            <h3>Responsible AI guardrails built into every engagement</h3>
+            <p>
+              Every AI opportunity is evaluated through a responsibility lens. We ensure transparency,
+              privacy, and appropriate human oversight — so AI enhances your operations without
+              compromising trust or compliance.
+            </p>
+            <ul>
+              <li><strong>Ethical use:</strong> aligned with your organizational values and policies.</li>
+              <li><strong>Data privacy &amp; security:</strong> protection of sensitive information by design.</li>
+              <li><strong>Transparency &amp; explainability:</strong> clear understanding of how AI supports decisions.</li>
+              <li><strong>Human-in-the-loop:</strong> defined roles for human review, override, and accountability.</li>
+            </ul>
+          </div>
+          <div class="diagram-card">
+            <span class="diagram-label">Responsible AI Guardrails Framework</span>
+            <div class="guardrails-diagram">
+              <div class="gr-top gr-pill">🏛️ Ethical Use — Aligned with organizational values and policies</div>
+              <div class="gr-left gr-pill" style="writing-mode:horizontal-tb;flex-direction:column;text-align:center;padding:16px 8px;">
+                🔒 Data Privacy &amp; Security
+              </div>
+              <div class="gr-center gr-center-box">
+                <span class="icon">🤖</span>
+                <span>AI in the<br/>Process</span>
+              </div>
+              <div class="gr-right gr-pill" style="writing-mode:horizontal-tb;flex-direction:column;text-align:center;padding:16px 8px;">
+                👁️ Transparency &amp; Explainability
+              </div>
+              <div class="gr-bot gr-pill">🧑‍💼 Human-in-the-Loop — Defined roles for review, override &amp; accountability</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ ENGAGEMENT MODEL ══ -->
+    <section class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">Engagement Model</div>
+        <h2 style="color:var(--white);margin-bottom:16px;">How we work with you — from discovery to scale.</h2>
+        <p style="max-width:600px;">
+          We follow a structured, repeatable model that reduces risk and accelerates value.
+          We start small, measure impact, and scale what works — building internal capability along the way.
+        </p>
+        <div class="engage-steps">
+          <div class="engage-step">
+            <div class="engage-num">1</div>
+            <h4>Identify Candidate Processes</h4>
+            <p>High volume, high complexity, long cycle time, or high risk.</p>
+          </div>
+          <div class="engage-step">
+            <div class="engage-num">2</div>
+            <h4>Map SIPOC &amp; Current State</h4>
+            <p>Understand suppliers, inputs, process steps, outputs, and customers.</p>
+          </div>
+          <div class="engage-step">
+            <div class="engage-num">3</div>
+            <h4>Assess AI Opportunities</h4>
+            <p>Score opportunities in I–P–O by impact, feasibility, and risk.</p>
+          </div>
+          <div class="engage-step">
+            <div class="engage-num">4</div>
+            <h4>Design Target-State Process</h4>
+            <p>Define new workflows, AI controls, and human roles.</p>
+          </div>
+          <div class="engage-step">
+            <div class="engage-num">5</div>
+            <h4>Pilot, Measure &amp; Scale</h4>
+            <p>Validate outcomes, then expand to additional processes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ EXPECTED OUTCOMES ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-label">Expected Outcomes</div>
+        <h2 style="color:var(--white);margin-bottom:12px;">Tangible results. Measurable impact.</h2>
+        <p style="max-width:580px;margin-bottom:0;">
+          XLeratorAI's Responsible AI Process Framework is designed to deliver real benefits
+          while strengthening governance and trust — not just technology for technology's sake.
+        </p>
+        <div class="outcomes-grid">
+          <div class="outcome-card">
+            <span class="outcome-icon">⚡</span>
+            <h4>Faster Cycle Times</h4>
+            <p>Reduced end-to-end processing time for complex, multi-party workflows — often by 2–3×.</p>
+          </div>
+          <div class="outcome-card">
+            <span class="outcome-icon">✅</span>
+            <h4>Higher Quality &amp; Consistency</h4>
+            <p>Fewer errors and more consistent decisions and communications across all process steps.</p>
+          </div>
+          <div class="outcome-card">
+            <span class="outcome-icon">👥</span>
+            <h4>Better Employee Experience</h4>
+            <p>Less time on low-value, repetitive tasks. More time on judgment, relationships, and strategy.</p>
+          </div>
+          <div class="outcome-card">
+            <span class="outcome-icon">🌟</span>
+            <h4>Improved Customer Experience</h4>
+            <p>Faster responses, clearer communication, and more tailored outputs at every touchpoint.</p>
+          </div>
+          <div class="outcome-card">
+            <span class="outcome-icon">🛡️</span>
+            <h4>Stronger Governance</h4>
+            <p>AI embedded within a controlled, auditable process framework — not bolted on after the fact.</p>
+          </div>
+          <div class="outcome-card">
+            <span class="outcome-icon">📉</span>
+            <h4>Lower Operational Cost</h4>
+            <p>Sustainable efficiency gains without sacrificing quality, compliance, or the human element.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══ -->
+    <section class="section" style="padding:80px 32px;">
+      <div class="cta-banner">
+        <h2>Ready to apply this framework to your organization?</h2>
+        <p>Schedule a working session and we'll map your highest-impact process opportunities together.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-primary">Schedule a Working Session</a>
+          <a href="solutions.html" class="btn-ghost">Explore Solutions →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="img/logo-main.png" alt="XLeratorAI" />
+          <p>AI-powered accelerators that transform complex business processes into fast, scalable, executive-ready solutions.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <a href="solutions.html">AI Solutions</a>
+          <a href="solutions.html">AI Staffing</a>
+          <a href="solutions.html">AI Products</a>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="lab.html">AI PMO Accelerator</a>
+          <a href="lab.html">AI Strategy Accelerator</a>
+          <a href="lab.html">The Lab</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="approach.html">Our Approach</a>
+          <a href="board.html">Board</a>
+          <a href="success.html">Client Success</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 XLeratorAI. All rights reserved.</p>
+        <p>Built with speed. Delivered with clarity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
