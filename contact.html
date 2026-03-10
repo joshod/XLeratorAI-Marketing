@@ -17,18 +17,57 @@
     <div class="nav-container">
       <a href="index.html" class="logo"><img src="img/logo-main.png" alt="XLeratorAI" /></a>
       <nav class="main-nav">
-        <a href="solutions.html">Solutions</a>
-        <a href="lab.html">Lab &amp; Products</a>
-        <a href="success.html">Client Success</a>
-        <a href="approach.html">Our Approach</a>
-        <a href="data-hosting.html">Data &amp; Hosting</a>
-        <a href="about.html">About</a>
-        <a href="board.html">Board</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">Solutions <span class="nav-arrow"></span></span>
+          <div class="nav-dropdown-menu">
+            <a href="solutions.html">Solutions<span class="dropdown-desc">AI solutions, staffing &amp; products</span></a>
+            <a href="lab.html">Lab &amp; Products<span class="dropdown-desc">PMO &amp; Strategy Accelerators</span></a>
+            <a href="data-hosting.html">Data &amp; Hosting<span class="dropdown-desc">Security, compliance &amp; infrastructure</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">Why XLeratorAI <span class="nav-arrow"></span></span>
+          <div class="nav-dropdown-menu">
+            <a href="approach.html">Our Approach<span class="dropdown-desc">How we accelerate outcomes</span></a>
+            <a href="success.html">Client Success<span class="dropdown-desc">Case studies &amp; results</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">Company <span class="nav-arrow"></span></span>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About<span class="dropdown-desc">Our team &amp; mission</span></a>
+            <a href="board.html">Board<span class="dropdown-desc">Advisory board &amp; investors</span></a>
+          </div>
+        </div>
+        <a href="survey.html">Are You Ready?</a>
         <a href="contact.html" class="active">Contact</a>
       </nav>
-      <a href="contact.html" class="btn-cta">Schedule a Session ↗</a>
+      <a href="contact.html" class="btn-cta">Schedule a Session</a>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-group-label">Solutions</span>
+      <a href="solutions.html">Solutions</a>
+      <a href="lab.html">Lab &amp; Products</a>
+      <a href="data-hosting.html">Data &amp; Hosting</a>
+    </div>
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-group-label">Why XLeratorAI</span>
+      <a href="approach.html">Our Approach</a>
+      <a href="success.html">Client Success</a>
+    </div>
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-group-label">Company</span>
+      <a href="about.html">About</a>
+      <a href="board.html">Board</a>
+    </div>
+    <a href="survey.html">Are You Ready?</a>
+    <a href="contact.html" class="mobile-nav-cta">Schedule a Session</a>
+  </div>
 
   <main>
     <section class="page-hero">
