@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfNVYUsAAAAAL4xCxiuymHeMoyO1R93Wl8gcE5W" async defer></script>
   <style>
     .survey-hero {
       padding: 140px 32px 64px;
@@ -251,6 +252,7 @@
         <a href="lab.html">Lab &amp; Products</a>
         <a href="success.html">Client Success</a>
         <a href="approach.html">Our Approach</a>
+        <a href="data-hosting.html">Data &amp; Hosting</a>
         <a href="about.html">About</a>
         <a href="board.html">Board</a>
         <a href="contact.html">Contact</a>
@@ -353,7 +355,20 @@
           <div class="recs-heading">Recommended Improvements</div>
           <div id="recommendationsList"></div>
 
-          <div class="restart-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <!-- Email Report -->
+          <div id="emailReportSection" style="margin-top:32px;padding:28px;background:linear-gradient(135deg, rgba(31,123,255,0.06) 0%, rgba(0,153,204,0.04) 100%);border:1px solid rgba(31,123,255,0.15);border-radius:14px;text-align:center;">
+            <p style="margin:0 0 4px;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue);">Save Your Results</p>
+            <h3 style="margin:0 0 8px;color:var(--text);font-size:1.1rem;">Email this report to yourself</h3>
+            <p style="margin:0 0 16px;font-size:0.88rem;color:var(--muted);">Get a branded copy of your scores and recommendations — reply anytime to ask our team questions.</p>
+            <div id="emailReportForm" style="display:flex;gap:8px;max-width:480px;margin:0 auto;flex-wrap:wrap;">
+              <input type="text" id="reportName" placeholder="Your name" style="flex:1;min-width:120px;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;background:var(--card);" />
+              <input type="email" id="reportEmail" placeholder="Your work email" style="flex:1.5;min-width:180px;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-size:0.9rem;font-family:inherit;background:var(--card);" />
+              <button type="button" id="emailReportBtn" onclick="emailReport()" class="btn-primary" style="white-space:nowrap;padding:12px 24px;">Send Report →</button>
+            </div>
+            <div id="emailReportStatus" style="display:none;margin-top:12px;padding:10px 16px;border-radius:8px;font-size:0.88rem;"></div>
+          </div>
+
+          <div class="restart-row" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px;">
             <button type="button" onclick="downloadWord()" class="btn-primary" style="margin-top:8px;">⬇ Download Word Report</button>
             <button type="button" onclick="location.reload()" class="btn-ghost" style="margin-top:8px;">↺ Restart Assessment</button>
           </div>
@@ -361,11 +376,12 @@
 
         <div class="cta-banner" style="margin-top:32px;">
           <h2>Ready to close the gaps?</h2>
-          <p>Our team can help you build a compliant, scalable AI data governance framework — fast.</p>
+          <p>Our team can help you build a compliant, scalable AI data governance framework — fast. Schedule a working session and we'll create a tailored 30-day remediation roadmap for your organization.</p>
           <div class="cta-actions">
-            <a href="contact.html" class="btn-primary">Schedule a Working Session</a>
+            <a href="contact.html" class="btn-primary">Schedule a Working Session →</a>
             <a href="lab.html" class="btn-ghost">Explore the Lab →</a>
           </div>
+          <p style="margin-top:16px;font-size:0.82rem;color:var(--muted);">Every inquiry gets a response from a senior team member within <strong>1 business day.</strong></p>
         </div>
       </div>
 
@@ -395,6 +411,7 @@
           <h4>Company</h4>
           <a href="about.html">About</a>
           <a href="approach.html">Our Approach</a>
+          <a href="data-hosting.html">Data &amp; Hosting</a>
           <a href="board.html">Board</a>
           <a href="success.html">Client Success</a>
           <a href="contact.html">Contact</a>
@@ -22988,6 +23005,8 @@ var __async = (__this, __arguments, generator) => {
 
   </script>
   <script>
+    var RECAPTCHA_SITE_KEY = '6LfNVYUsAAAAAL4xCxiuymHeMoyO1R93Wl8gcE5W';
+
     const questions = [
       { id:'q1', framework:'NIST', text:"Does your company maintain a documented inventory of datasets used for training and testing AI models?", options:["No Documentation (1)","Informal Records (4)","Structured Inventory (7)","Automated Lineage (10)"] },
       { id:'q2', framework:'NIST', text:"How frequently are your AI data sources audited for bias or representativeness?", options:["Never (1)","Ad-hoc (4)","Annually (7)","Continuous Monitoring (10)"] },
@@ -23234,6 +23253,84 @@ var __async = (__this, __arguments, generator) => {
       a.href=URL.createObjectURL(buf);
       a.download=`XLeratorAI_Compliance_Gap_Report_${selectedIndustry.replace(/\s+/g,'_')}_${new Date().toISOString().slice(0,10)}.docx`;
       a.click();
+    }
+
+    async function emailReport() {
+      const nameInput = document.getElementById('reportName');
+      const emailInput = document.getElementById('reportEmail');
+      const btn = document.getElementById('emailReportBtn');
+      const statusEl = document.getElementById('emailReportStatus');
+
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+
+      if (!email) {
+        showEmailStatus('Please enter your email address.', true);
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showEmailStatus('Please enter a valid email address.', true);
+        return;
+      }
+
+      // Gather recommendations from the rendered list
+      const recEls = document.querySelectorAll('#recommendationsList .rec-item');
+      const recommendations = Array.from(recEls).map(el => {
+        const textEl = el.querySelector('.rec-text');
+        if (!textEl) return null;
+        const strong = textEl.querySelector('strong');
+        return {
+          title: strong ? strong.textContent.replace(/:$/, '') : '',
+          text: textEl.textContent.replace(strong ? strong.textContent : '', '').trim()
+        };
+      }).filter(Boolean);
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      statusEl.style.display = 'none';
+
+      try {
+        const recaptchaToken = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'survey_report' });
+
+        const res = await fetch('/api/survey', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            recaptchaToken: recaptchaToken,
+            company: document.getElementById('companyName').value.trim(),
+            industry: selectedIndustry,
+            nistScore: document.getElementById('nistScore').innerText,
+            euScore: document.getElementById('euScore').innerText,
+            recommendations: recommendations
+          })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          showEmailStatus('Report sent! Check your inbox — reply anytime to ask us questions.', false);
+          nameInput.value = '';
+          emailInput.value = '';
+        } else {
+          showEmailStatus(data.error || 'Something went wrong. Please try again.', true);
+        }
+      } catch (err) {
+        showEmailStatus('Network error. Please try again or download your report instead.', true);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send Report →';
+      }
+    }
+
+    function showEmailStatus(msg, isError) {
+      const el = document.getElementById('emailReportStatus');
+      el.style.display = 'block';
+      el.textContent = msg;
+      el.style.background = isError ? 'rgba(220,53,69,0.1)' : 'rgba(31,123,255,0.1)';
+      el.style.color = isError ? '#dc3545' : '#1f7bff';
+      el.style.border = isError ? '1px solid rgba(220,53,69,0.2)' : '1px solid rgba(31,123,255,0.2)';
     }
 
   </script>

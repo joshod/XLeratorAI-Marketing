@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfNVYUsAAAAAL4xCxiuymHeMoyO1R93Wl8gcE5W" async defer></script>
 </head>
 <body>
 
@@ -20,6 +21,7 @@
         <a href="lab.html">Lab &amp; Products</a>
         <a href="success.html">Client Success</a>
         <a href="approach.html">Our Approach</a>
+        <a href="data-hosting.html">Data &amp; Hosting</a>
         <a href="about.html">About</a>
         <a href="board.html">Board</a>
         <a href="contact.html" class="active">Contact</a>
@@ -84,73 +86,77 @@
           </div>
 
           <div class="contact-form">
-            <div style="margin-bottom:28px;">
-              <h3 style="color:var(--white);margin-bottom:6px;">Send us a message</h3>
-              <p style="font-size:0.88rem;">Fill out the form and we'll be in touch within one business day.</p>
-            </div>
+            <form id="contactForm" novalidate>
+              <div style="margin-bottom:28px;">
+                <h3 style="color:var(--white);margin-bottom:6px;">Send us a message</h3>
+                <p style="font-size:0.88rem;">Fill out the form and we'll be in touch within one business day.</p>
+              </div>
 
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">Full Name</label>
-                <input id="name" type="text" placeholder="Jane Smith" />
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="name">Full Name <span style="color:var(--blue-bright)">*</span></label>
+                  <input id="name" name="name" type="text" placeholder="Jane Smith" required />
+                </div>
+                <div class="form-field">
+                  <label for="title">Title / Role</label>
+                  <input id="title" name="title" type="text" placeholder="CIO, PMO Director, etc." />
+                </div>
               </div>
-              <div class="form-field">
-                <label for="title">Title / Role</label>
-                <input id="title" type="text" placeholder="CIO, PMO Director, etc." />
-              </div>
-            </div>
 
-            <div class="form-row">
-              <div class="form-field">
-                <label for="company">Company</label>
-                <input id="company" type="text" placeholder="Your organization" />
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="company">Company <span style="color:var(--blue-bright)">*</span></label>
+                  <input id="company" name="company" type="text" placeholder="Your organization" required />
+                </div>
+                <div class="form-field">
+                  <label for="size">Company Size</label>
+                  <select id="size" name="size">
+                    <option value="" disabled selected>Select range</option>
+                    <option>Under 100 employees</option>
+                    <option>100–500 employees</option>
+                    <option>500–2,000 employees</option>
+                    <option>2,000–10,000 employees</option>
+                    <option>10,000+ employees</option>
+                  </select>
+                </div>
               </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="email">Work Email <span style="color:var(--blue-bright)">*</span></label>
+                  <input id="email" name="email" type="email" placeholder="jane@company.com" required />
+                </div>
+                <div class="form-field">
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
+                </div>
+              </div>
+
               <div class="form-field">
-                <label for="size">Company Size</label>
-                <select id="size">
-                  <option value="" disabled selected>Select range</option>
-                  <option>Under 100 employees</option>
-                  <option>100–500 employees</option>
-                  <option>500–2,000 employees</option>
-                  <option>2,000–10,000 employees</option>
-                  <option>10,000+ employees</option>
+                <label for="interest">What are you interested in?</label>
+                <select id="interest" name="interest">
+                  <option value="" disabled selected>Select one</option>
+                  <option>AI PMO Accelerator Demo</option>
+                  <option>AI Strategy Accelerator Demo</option>
+                  <option>Custom AI Solution</option>
+                  <option>AI Staffing</option>
+                  <option>Discovery Call / General Inquiry</option>
+                  <option>Careers / Joining the Team</option>
+                  <option>Board / Investor Inquiry</option>
                 </select>
               </div>
-            </div>
 
-            <div class="form-row">
               <div class="form-field">
-                <label for="email">Work Email</label>
-                <input id="email" type="email" placeholder="jane@company.com" />
+                <label for="message">Tell us about your situation <span style="color:var(--blue-bright)">*</span></label>
+                <textarea id="message" name="message" rows="5" placeholder="Describe the process or challenge you're looking to solve — the messier the better. We thrive on complexity." required></textarea>
               </div>
-              <div class="form-field">
-                <label for="phone">Phone</label>
-                <input id="phone" type="tel" placeholder="(555) 555-5555" />
-              </div>
-            </div>
 
-            <div class="form-field">
-              <label for="interest">What are you interested in?</label>
-              <select id="interest">
-                <option value="" disabled selected>Select one</option>
-                <option>AI PMO Accelerator Demo</option>
-                <option>AI Strategy Accelerator Demo</option>
-                <option>Custom AI Solution</option>
-                <option>AI Staffing</option>
-                <option>Discovery Call / General Inquiry</option>
-                <option>Careers / Joining the Team</option>
-                <option>Board / Investor Inquiry</option>
-              </select>
-            </div>
+              <div id="formStatus" style="display:none;margin-bottom:16px;padding:14px 18px;border-radius:10px;font-size:0.9rem;"></div>
 
-            <div class="form-field">
-              <label for="message">Tell us about your situation</label>
-              <textarea id="message" rows="5" placeholder="Describe the process or challenge you're looking to solve — the messier the better. We thrive on complexity."></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:15px;">
-              Send Message →
-            </button>
+              <button type="submit" id="submitBtn" class="btn-primary" style="width:100%;justify-content:center;padding:15px;">
+                Send Message →
+              </button>
+            </form>
           </div>
 
         </div>
@@ -182,6 +188,7 @@
           <h4>Company</h4>
           <a href="about.html">About</a>
           <a href="approach.html">Our Approach</a>
+          <a href="data-hosting.html">Data &amp; Hosting</a>
           <a href="board.html">Board</a>
           <a href="success.html">Client Success</a>
           <a href="contact.html">Contact</a>
@@ -195,5 +202,82 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+  var RECAPTCHA_SITE_KEY = '6LfNVYUsAAAAAL4xCxiuymHeMoyO1R93Wl8gcE5W';
+
+  (function() {
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('submitBtn');
+    const status = document.getElementById('formStatus');
+
+    function showStatus(msg, isError) {
+      status.style.display = 'block';
+      status.textContent = msg;
+      status.style.background = isError ? 'rgba(220,53,69,0.12)' : 'rgba(31,123,255,0.12)';
+      status.style.color = isError ? '#dc3545' : '#1f7bff';
+      status.style.border = isError ? '1px solid rgba(220,53,69,0.25)' : '1px solid rgba(31,123,255,0.25)';
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      status.style.display = 'none';
+
+      // Client-side validation
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const company = form.company.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !company || !message) {
+        showStatus('Please fill in all required fields.', true);
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showStatus('Please enter a valid email address.', true);
+        return;
+      }
+
+      // Disable button and show loading state
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      try {
+        // Get reCAPTCHA token
+        const recaptchaToken = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact' });
+
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            title: form.title.value.trim(),
+            company: company,
+            size: form.size.value,
+            email: email,
+            phone: form.phone.value.trim(),
+            interest: form.interest.value,
+            message: message,
+            recaptchaToken: recaptchaToken
+          })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          showStatus('Message sent! Check your inbox for a confirmation. We\'ll be in touch within one business day.', false);
+          form.reset();
+        } else {
+          showStatus(data.error || 'Something went wrong. Please try again.', true);
+        }
+      } catch (err) {
+        showStatus('Network error. Please check your connection and try again, or email us directly at info@xleratorai.com.', true);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Send Message →';
+      }
+    });
+  })();
+  </script>
 </body>
 </html>

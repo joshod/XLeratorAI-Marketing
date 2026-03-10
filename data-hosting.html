@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data & Hosting – XLeratorAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Flexible deployment options for XLeratorAI accelerators — choose your AI layer, data storage, and hosting model. Your data, your rules, our flexibility." />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+
+    /* Framework block layout (from approach.html) */
+    .framework-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 64px 0;
+    }
+    .framework-text h3 {
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .framework-text p {
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+    .framework-text ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .framework-text ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 10px 14px;
+      background: var(--bg-alt);
+      border-radius: 8px;
+      border-left: 3px solid var(--blue);
+    }
+
+    /* Diagram cards */
+    .diagram-card {
+      background: var(--card);
+      border: 1px solid var(--border-blue);
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: var(--shadow-md), 0 0 40px rgba(31,123,255,0.06);
+    }
+    .diagram-label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* Stack diagram */
+    .stack-diagram { display: flex; flex-direction: column; gap: 10px; }
+    .stack-layer {
+      border-radius: 12px;
+      padding: 18px 20px;
+      position: relative;
+    }
+    .stack-layer.top {
+      background: linear-gradient(135deg, rgba(31,123,255,0.12), rgba(0,153,204,0.08));
+      border: 1.5px solid rgba(31,123,255,0.3);
+    }
+    .stack-layer.mid {
+      background: linear-gradient(135deg, rgba(31,123,255,0.07), rgba(0,153,204,0.04));
+      border: 1.5px solid rgba(31,123,255,0.2);
+    }
+    .stack-layer.bot {
+      background: rgba(0,0,0,0.03);
+      border: 1.5px solid var(--border);
+    }
+    .stack-layer-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .stack-layer-sub {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .stack-layer-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .stack-mini-block {
+      background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(31,123,255,0.18);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.68rem;
+      color: var(--text-mid);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    /* Outcomes grid */
+    .outcomes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .outcome-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .outcome-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .outcome-card:hover { border-color: var(--border-blue); transform: translateY(-3px); box-shadow: var(--shadow-blue); }
+    .outcome-card:hover::before { opacity: 1; }
+    .outcome-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+    .outcome-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .outcome-card p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+
+    /* Comparison table */
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 40px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+    .comparison-table th {
+      background: var(--blue);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 14px 18px;
+      text-align: left;
+    }
+    .comparison-table th:first-child {
+      background: var(--bg-dark);
+    }
+    .comparison-table td {
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    .comparison-table td:first-child {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+    }
+    .comparison-table tr:hover td {
+      background: var(--blue-glow);
+    }
+
+    @media (max-width: 900px) {
+      .framework-block { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .comparison-table { display: block; overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><img src="img/logo-main.png" alt="XLeratorAI" /></a>
+      <nav class="main-nav">
+        <a href="solutions.html">Solutions</a>
+        <a href="lab.html">Lab &amp; Products</a>
+        <a href="success.html">Client Success</a>
+        <a href="approach.html">Our Approach</a>
+        <a href="data-hosting.html" class="active">Data &amp; Hosting</a>
+        <a href="about.html">About</a>
+        <a href="board.html">Board</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="btn-cta">Schedule a Session ↗</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ PAGE HERO ══ -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="section-label">Data &amp; Hosting</div>
+        <h1>Your Data. Your Rules.<br />Our Flexibility.</h1>
+        <p style="max-width:640px;">
+          Every organization has different data policies, compliance requirements, and infrastructure
+          preferences. XLeratorAI accelerators are built on a modular architecture that lets you choose
+          exactly how your data is handled, where your AI runs, and what persists — without changing
+          the product you receive.
+        </p>
+        <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;">
+          <a href="contact.html" class="btn-primary">Schedule an Architecture Review</a>
+          <a href="approach.html" class="btn-ghost">Explore Our Approach →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ ARCHITECTURE OVERVIEW ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="framework-block">
+          <div class="framework-text">
+            <div class="section-label">Architecture</div>
+            <h3>Three independent layers. One stateless application.</h3>
+            <p>
+              Every XLeratorAI accelerator separates concerns into three independently configurable layers.
+              The application itself is stateless — the same secure codebase regardless of how you deploy it.
+              This means your organization can change its AI provider or data strategy without rebuilding
+              the product.
+            </p>
+            <ul>
+              <li><strong>Application Layer:</strong> A single, stateless accelerator. No data persists in the application itself — it processes, delivers, and moves on.</li>
+              <li><strong>AI / LLM Layer:</strong> Choose where inference runs — cloud API, your enterprise tenant, or fully on-premises. Same functionality, different trust boundaries.</li>
+              <li><strong>Data / Storage Layer:</strong> Choose what persists and where — from zero retention to a fully structured data warehouse under your control.</li>
+            </ul>
+          </div>
+          <div class="diagram-card">
+            <span class="diagram-label">Accelerator Architecture</span>
+            <div class="stack-diagram">
+              <div class="stack-layer top">
+                <div class="stack-layer-title">🖥️ Application Layer</div>
+                <div class="stack-layer-sub">Stateless &amp; secure. Same codebase for every deployment model.</div>
+              </div>
+              <div style="text-align:center;font-size:0.8rem;color:var(--blue);line-height:1;">▼</div>
+              <div class="stack-layer mid">
+                <div class="stack-layer-title">🤖 AI / LLM Layer</div>
+                <div class="stack-layer-blocks">
+                  <div class="stack-mini-block">Cloud API</div>
+                  <div class="stack-mini-block">Enterprise Platform</div>
+                  <div class="stack-mini-block">Local / Private</div>
+                </div>
+              </div>
+              <div style="text-align:center;font-size:0.8rem;color:var(--blue);line-height:1;">▼</div>
+              <div class="stack-layer bot">
+                <div class="stack-layer-title">🗄️ Data / Storage Layer</div>
+                <div class="stack-layer-blocks">
+                  <div class="stack-mini-block">No Storage</div>
+                  <div class="stack-mini-block">Client Storage</div>
+                  <div class="stack-mini-block">Data Warehouse</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ AI LAYER OPTIONS ══ -->
+    <section class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">AI / LLM Layer</div>
+        <h2>Choose how AI processes your data.</h2>
+        <p style="max-width:700px;">
+          The AI layer handles all inference and generation. Every option delivers the same accelerator
+          functionality — the difference is where the model runs and who manages it.
+        </p>
+        <div class="grid three" style="margin-top:40px;">
+
+          <div class="card">
+            <div class="icon-circle">☁️</div>
+            <div class="product-tag">Default</div>
+            <h3>Cloud API</h3>
+            <p>
+              Managed AI services operated by XLeratorAI. Fastest to deploy, lowest onboarding friction.
+              Ideal for organizations comfortable with cloud-based AI services and standard data processing agreements.
+            </p>
+            <ul class="product-features">
+              <li>Fastest deployment — days, not weeks</li>
+              <li>Managed and maintained by XLeratorAI</li>
+              <li>Standard data processing agreement (DPA)</li>
+              <li>Lowest upfront investment</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="icon-circle">🏢</div>
+            <div class="product-tag">Enterprise</div>
+            <h3>Enterprise AI Platform</h3>
+            <p>
+              Microsoft Azure AI Foundry or equivalent enterprise platforms. AI runs within your cloud
+              tenant — data never leaves your security boundary. Ideal for organizations with existing
+              enterprise cloud agreements and data residency requirements.
+            </p>
+            <ul class="product-features">
+              <li>Data stays within your cloud tenant</li>
+              <li>Leverages existing enterprise agreements</li>
+              <li>Meets data residency and sovereignty requirements</li>
+              <li>Client IT team manages model access and policies</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="icon-circle">🔒</div>
+            <div class="product-tag">Air-Gapped</div>
+            <h3>Local / Private Models</h3>
+            <p>
+              Ollama or similar local model runners. Complete air-gapped operation — zero data leaves
+              the network. Ideal for defense, regulated industries, or organizations with strict
+              zero-trust policies.
+            </p>
+            <ul class="product-features">
+              <li>Complete air-gapped operation</li>
+              <li>Zero data leaves the network</li>
+              <li>Full client control over model selection and updates</li>
+              <li>Supports zero-trust and classified environments</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ DATA LAYER OPTIONS ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-label">Data / Storage Layer</div>
+        <h2>Choose what persists — and where.</h2>
+        <p style="max-width:700px;">
+          The data layer is completely independent from the AI layer. Whether you use cloud AI or local
+          models, you have full control over what data is stored, where it lives, and who has access.
+        </p>
+        <div class="grid three" style="margin-top:40px;">
+
+          <div class="card">
+            <div class="icon-circle">⚡</div>
+            <h3>Stateless Operation</h3>
+            <p>
+              Data is processed in-memory only. Nothing persists after the session ends. Ideal for
+              initial evaluations, sensitive ad-hoc analysis, or organizations that prohibit
+              data retention entirely.
+            </p>
+            <ul class="product-features">
+              <li>Zero data retention</li>
+              <li>Session-scoped processing only</li>
+              <li>No database provisioning required</li>
+              <li>Simplest compliance posture</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="icon-circle">🗃️</div>
+            <h3>Client-Managed Storage</h3>
+            <p>
+              SQLite on client infrastructure or cloud object storage such as AWS S3 or Azure Blob.
+              Your organization owns, controls, and has full visibility into all stored data — no
+              third-party custody.
+            </p>
+            <ul class="product-features">
+              <li>Client owns and controls all data</li>
+              <li>SQLite, AWS S3, or Azure Blob options</li>
+              <li>Full audit trail and access logging</li>
+              <li>Encryption at rest and in transit</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="icon-circle">📊</div>
+            <h3>Dedicated Data Warehouse</h3>
+            <p>
+              XLeratorAI provides the schema and data model; your organization provisions the database.
+              Enables structured analytics, historical trending, and cross-accelerator reporting
+              for portfolio-level intelligence.
+            </p>
+            <ul class="product-features">
+              <li>XLeratorAI-designed schema and data model</li>
+              <li>Client-provisioned database infrastructure</li>
+              <li>Cross-accelerator analytics and reporting</li>
+              <li>Historical trending and benchmarking</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECURITY & COMPLIANCE ══ -->
+    <section class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">Security &amp; Compliance</div>
+        <h2>Built for the conversations your security team needs to have.</h2>
+        <p style="max-width:700px;">
+          Every deployment model is designed with enterprise security standards in mind. We don't ask
+          you to lower your bar — we meet it.
+        </p>
+        <div class="outcomes-grid">
+
+          <div class="outcome-card">
+            <span class="outcome-icon">🔐</span>
+            <h4>Encryption at Rest &amp; In Transit</h4>
+            <p>All data encrypted using industry-standard AES-256 at rest and TLS 1.2+ in transit, regardless of deployment model.</p>
+          </div>
+
+          <div class="outcome-card">
+            <span class="outcome-icon">🌍</span>
+            <h4>Data Residency Control</h4>
+            <p>Choose where your data lives — region, country, or on-premises. Every deployment model supports data sovereignty requirements.</p>
+          </div>
+
+          <div class="outcome-card">
+            <span class="outcome-icon">📋</span>
+            <h4>Audit Trails &amp; Logging</h4>
+            <p>Complete audit trails for all AI interactions, data access, and administrative actions. Export-ready for compliance reviews and regulatory audits.</p>
+          </div>
+
+          <div class="outcome-card">
+            <span class="outcome-icon">🛡️</span>
+            <h4>Zero-Trust Compatible</h4>
+            <p>Accelerators operate as stateless applications with no implicit trust. Fully compatible with zero-trust network architectures and segmented environments.</p>
+          </div>
+
+          <div class="outcome-card">
+            <span class="outcome-icon">✅</span>
+            <h4>SOC 2 Awareness</h4>
+            <p>Architecture designed with SOC 2 Type II controls in mind. We provide documentation to support your compliance assessments and vendor reviews.</p>
+          </div>
+
+          <div class="outcome-card">
+            <span class="outcome-icon">🔏</span>
+            <h4>GDPR &amp; Privacy-Ready</h4>
+            <p>Data minimization by design. Configurable retention policies and right-to-deletion supported across all storage options.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ DEPLOYMENT CONSIDERATIONS ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-label">Deployment Considerations</div>
+        <h2>Different choices. Clear trade-offs.</h2>
+        <p style="max-width:700px;">
+          Every combination of AI layer and data layer has different implications for cost, onboarding
+          timeline, and ongoing support. Here is a transparent view of what to expect across AI layer options.
+        </p>
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Dimension</th>
+              <th>Cloud API</th>
+              <th>Enterprise Platform</th>
+              <th>Local / Private</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Deployment Timeline</td>
+              <td>Days</td>
+              <td>2–4 weeks</td>
+              <td>4–8 weeks</td>
+            </tr>
+            <tr>
+              <td>Onboarding Complexity</td>
+              <td>Low</td>
+              <td>Moderate</td>
+              <td>Higher</td>
+            </tr>
+            <tr>
+              <td>Relative Cost</td>
+              <td>Lowest initial</td>
+              <td>Moderate</td>
+              <td>Highest initial</td>
+            </tr>
+            <tr>
+              <td>Ongoing Management</td>
+              <td>XLeratorAI-managed</td>
+              <td>Shared responsibility</td>
+              <td>Client-managed</td>
+            </tr>
+            <tr>
+              <td>Data Boundary</td>
+              <td>XLeratorAI cloud</td>
+              <td>Client cloud tenant</td>
+              <td>Client network</td>
+            </tr>
+            <tr>
+              <td>Best For</td>
+              <td>Fast start, evaluation</td>
+              <td>Enterprise compliance</td>
+              <td>Regulated / air-gapped</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:24px;font-size:0.88rem;color:var(--muted);">
+          These are general guidelines. Every engagement begins with an architecture review to determine
+          the right combination for your organization. Pricing is determined after understanding your
+          specific requirements, data landscape, and compliance needs.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ CTA BANNER ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="cta-banner">
+          <h2>Let's design the right architecture for your organization.</h2>
+          <p>
+            Schedule a 30-minute architecture review. We'll walk through your data policies, compliance
+            requirements, and infrastructure — and recommend the deployment model that fits.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn-primary">Schedule an Architecture Review</a>
+            <a href="solutions.html" class="btn-ghost">Explore Solutions →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="img/logo-main.png" alt="XLeratorAI" class="footer-logo" />
+          <p>AI-powered accelerators that transform complex business processes into fast, scalable, executive-ready solutions.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <a href="solutions.html">AI Solutions</a>
+          <a href="solutions.html">AI Staffing</a>
+          <a href="solutions.html">AI Products</a>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="lab.html">AI PMO Accelerator</a>
+          <a href="lab.html">AI Strategy Accelerator</a>
+          <a href="lab.html">The Lab</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="approach.html">Our Approach</a>
+          <a href="data-hosting.html">Data &amp; Hosting</a>
+          <a href="board.html">Board</a>
+          <a href="success.html">Client Success</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 XLeratorAI. All rights reserved.</p>
+        <p>Built with speed. Delivered with clarity.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
