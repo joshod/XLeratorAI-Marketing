@@ -33,3 +33,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Quiz slide-in toast — appears after scrolling ~25% of the page
+(function() {
+  var toast = document.getElementById('quizToast');
+  var closeBtn = document.getElementById('quizToastClose');
+  if (!toast) return;
+
+  // Don't show on the survey page itself
+  if (window.location.pathname.indexOf('survey') !== -1) return;
+
+  // Respect dismissal for 7 days
+  var dismissedAt = localStorage.getItem('quizToastDismissed');
+  if (dismissedAt && (Date.now() - Number(dismissedAt)) < 7 * 24 * 60 * 60 * 1000) return;
+
+  var shown = false;
+
+  function onScroll() {
+    if (shown) return;
+    var scrollPct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    if (scrollPct > 0.25) {
+      shown = true;
+      toast.classList.add('visible');
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      toast.classList.remove('visible');
+      toast.classList.add('dismissed');
+      localStorage.setItem('quizToastDismissed', String(Date.now()));
+    });
+  }
+})();
