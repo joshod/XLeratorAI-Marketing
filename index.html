@@ -10,6 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .featured-products .product-image {
+      height: 220px;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
 
@@ -23,7 +29,7 @@
           <span class="nav-dropdown-trigger">Solutions <span class="nav-arrow"></span></span>
           <div class="nav-dropdown-menu">
             <a href="solutions.html">Solutions<span class="dropdown-desc">AI solutions, staffing &amp; products</span></a>
-            <a href="lab.html">Lab &amp; Products<span class="dropdown-desc">PMO &amp; Strategy Accelerators</span></a>
+            <a href="lab.html">Lab &amp; Products<span class="dropdown-desc">PMO, Strategy &amp; Portfolio Accelerators</span></a>
             <a href="data-hosting.html">Data &amp; Hosting<span class="dropdown-desc">Security, compliance &amp; infrastructure</span></a>
           </div>
         </div>
@@ -38,7 +44,7 @@
           <span class="nav-dropdown-trigger">Company <span class="nav-arrow"></span></span>
           <div class="nav-dropdown-menu">
             <a href="about.html">About<span class="dropdown-desc">Our team &amp; mission</span></a>
-            <a href="board.html">Board<span class="dropdown-desc">Advisory board &amp; investors</span></a>
+            <a href="board.html">Board<span class="dropdown-desc">Board of directors</span></a>
           </div>
         </div>
         <a href="survey.html">Are You Ready?</a>
@@ -145,7 +151,7 @@
               </div>
             </div>
           </div>
-          <div class="floating-tag br">🏆 40% faster reporting</div>
+          <div class="floating-tag br">📊 40% less manual reporting</div>
         </div>
       </div>
     </section>
@@ -155,7 +161,7 @@
     <section class="section" style="padding:40px 32px;">
       <div class="section-inner" style="text-align:center;">
         <p style="font-size:0.78rem;font-family:'Syne',sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0;">
-          Trusted by leaders in Healthcare · Financial Services · Manufacturing · Technology
+          Active engagements in Healthcare · Financial Services · Manufacturing · Technology
         </p>
       </div>
     </section>
@@ -212,31 +218,31 @@
     <section class="section section-alt">
       <div class="section-inner">
         <div class="section-label">How We Work</div>
-        <h2 style="color:var(--white);margin-bottom:16px;">From working session to working product in 30 days.</h2>
+        <h2 style="color:var(--white);margin-bottom:16px;">From first demo to deployed product.</h2>
         <p style="max-width:580px;">
-          Our delivery model is purpose-built for speed without sacrificing quality. Every engagement
-          follows the same proven framework — so clients know exactly what to expect.
+          Our engagement model is intentionally transparent. You see the product working before you
+          commit — and your feedback shapes every iteration before deployment.
         </p>
         <div class="steps">
           <div class="step">
             <div class="step-num">1</div>
-            <h3>Discovery Session</h3>
-            <p>A 2-hour structured working session to map your process, data, and goals. In-person or remote.</p>
+            <h3>Live Demo</h3>
+            <p>See the suite working with real workflows. Understand fit before any commitment.</p>
           </div>
           <div class="step">
             <div class="step-num">2</div>
-            <h3>Build in the Lab</h3>
-            <p>Our team designs, builds, and iterates in the XLeratorAI Lab using your inputs and our accelerator catalog.</p>
+            <h3>Refine Together</h3>
+            <p>Your feedback drives the next iteration. We improve, then demo again to confirm alignment.</p>
           </div>
           <div class="step">
             <div class="step-num">3</div>
-            <h3>POC &amp; Review</h3>
-            <p>Two review sessions to refine the prototype. You see real outputs with your real data before committing.</p>
+            <h3>Dedicated Sandbox</h3>
+            <p>Your team evaluates the product internally, at your own pace, with your own data.</p>
           </div>
           <div class="step">
             <div class="step-num">4</div>
             <h3>Deploy &amp; Scale</h3>
-            <p>Ship as SaaS, on-prem, or hybrid. Optional next-phase scope definition included in every engagement.</p>
+            <p>We support deployment into your environment — cloud, on-prem, or hybrid.</p>
           </div>
         </div>
 
@@ -244,21 +250,21 @@
     </section>
 
     <!-- ══ FEATURED PRODUCTS ══ -->
-    <section class="section">
+    <section class="section featured-products">
       <div class="section-inner">
         <div class="section-label">Featured Products</div>
         <h2 style="color:var(--white);margin-bottom:8px;">Built in the Lab. Battle-tested with clients.</h2>
         <p style="margin-bottom:0;max-width:580px;">
           Our flagship accelerators are production-ready solutions, not demos. Each one was born from a
-          real client need and refined through multiple engagements.
+          real client need and refined through active enterprise engagements.
         </p>
-        <div class="grid two" style="margin-top:40px;">
+        <div class="grid three" style="margin-top:40px;">
           <div class="card product-card">
-            <img src="img/pmo-accelerator.png" alt="AI PMO Accelerator" class="product-image" />
+            <img src="img/pmo-accelerator.png" alt="AI Portfolio Intelligence" class="product-image" />
             <div class="product-card-body">
               <div class="product-tag">Portfolio Management</div>
-              <h3>AI PMO Accelerator</h3>
-              <p>A full portfolio management engine that turns scattered project data into real-time insights, automated health scoring, and executive-ready dashboards — without manual reporting.</p>
+              <h3>AI Portfolio Intelligence</h3>
+              <p>A real-time portfolio monitoring engine that turns scattered project data into automated health scoring, cost variance alerts, and executive-ready dashboards — without manual reporting.</p>
               <ul class="product-features">
                 <li>Portfolio health scoring with RED / YELLOW / GREEN status</li>
                 <li>Automated cost variance detection and budget tracking</li>
@@ -269,16 +275,31 @@
             </div>
           </div>
           <div class="card product-card">
-            <img src="img/strategy-accelerator.png" alt="AI Strategy Accelerator" class="product-image" />
+            <img src="img/strategy-accelerator.png" alt="AI Strategy Generator" class="product-image" />
             <div class="product-card-body">
               <div class="product-tag">Strategic Planning</div>
-              <h3>AI Strategy Accelerator</h3>
+              <h3>AI Strategy Generator</h3>
               <p>A guided, AI-driven workflow that takes you from industry research to a completed 18-month strategy with a prioritized, AI-scored project portfolio — in days, not months.</p>
               <ul class="product-features">
                 <li>Live industry and competitive intelligence research</li>
                 <li>Upload your previous strategy for continuity and context</li>
                 <li>AI-generated 18-month strategic plan</li>
                 <li>Project scoring, portfolio ranking, and PMO integration</li>
+              </ul>
+              <a href="lab.html" class="link-arrow">View Full Details</a>
+            </div>
+          </div>
+          <div class="card product-card">
+            <img src="img/dependencyiq-graph.png" alt="DependencyIQ" class="product-image" />
+            <div class="product-card-body">
+              <div class="product-tag">Dependency Management</div>
+              <h3>DependencyIQ</h3>
+              <p>Every organization has dependencies that nobody documented — living in spreadsheets, email threads, and institutional memory. DependencyIQ surfaces them automatically before they become project-killing surprises.</p>
+              <ul class="product-features">
+                <li>AI-detected dependencies across your entire portfolio</li>
+                <li>Blast radius analysis — see what breaks if a project slips</li>
+                <li>Confidence scoring on every identified relationship</li>
+                <li>Predictive alerts before issues cascade</li>
               </ul>
               <a href="lab.html" class="link-arrow">View Full Details</a>
             </div>
@@ -290,24 +311,24 @@
     <!-- ══ CLIENT RESULTS ══ -->
     <section class="section section-alt">
       <div class="section-inner">
-        <div class="section-label">Client Results</div>
-        <h2 style="color:var(--white);margin-bottom:48px;">Measurable outcomes. Real organizations.</h2>
+        <div class="section-label">What to Expect</div>
+        <h2 style="color:var(--white);margin-bottom:48px;">Designed to deliver measurable outcomes.</h2>
         <div class="grid three">
           <div class="stat-card card">
             <div class="stat-num"><span class="highlight">40%</span></div>
-            <p>Reduction in manual PMO reporting time for a major financial services firm after deploying the AI PMO Accelerator.</p>
+            <p>Target reduction in manual PMO reporting time — the AI Portfolio Intelligence engine is designed to eliminate the status-update cycle entirely.</p>
           </div>
           <div class="stat-card card">
             <div class="stat-num"><span class="highlight">3×</span></div>
-            <p>Faster intake and approval cycle time for a manufacturing company using a custom AI workflow.</p>
+            <p>Faster intake and approval cycle times using AI-driven workflow automation — without rebuilding your existing tools or processes.</p>
           </div>
           <div class="stat-card card">
             <div class="stat-num"><span class="highlight">2 days</span></div>
-            <p>Time to generate a fully-researched 18-month strategic plan for a healthcare provider — previously a multi-month effort.</p>
+            <p>Time to generate a fully-researched 18-month strategic plan using the AI Strategy Generator — previously a multi-month effort.</p>
           </div>
         </div>
         <div style="text-align:center;margin-top:48px;">
-          <a href="success.html" class="btn-outline">Read All Case Studies →</a>
+          <a href="success.html" class="btn-outline">See How We Engage →</a>
         </div>
       </div>
     </section>
@@ -341,8 +362,9 @@
         </div>
         <div class="footer-col">
           <h4>Products</h4>
-          <a href="lab.html">AI PMO Accelerator</a>
-          <a href="lab.html">AI Strategy Accelerator</a>
+          <a href="lab.html">AI Strategy Generator</a>
+          <a href="lab.html">AI Portfolio Intelligence</a>
+          <a href="lab.html">DependencyIQ</a>
           <a href="lab.html">The Lab</a>
         </div>
         <div class="footer-col">
