@@ -909,6 +909,7 @@ main { padding-top: 80px; }
 .pricing-card { padding: 36px 28px; position: relative; }
 .pricing-card.featured { border-color: var(--blue); box-shadow: 0 0 40px rgba(31,123,255,0.1); }
 .pricing-card.featured::before { opacity: 1; }
+.pricing-card.premium-cloud { border: 1px solid var(--blue); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); }
 .price-tag { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--text); line-height: 1; margin: 16px 0 4px; }
 .price-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 24px; }
 .price-list { list-style: none; margin-bottom: 28px; }
