@@ -59,6 +59,113 @@
     @media (max-width: 900px) {
       .engage-steps { grid-template-columns: 1fr; }
     }
+
+    /* ── Industry card buttons ── */
+    .eval-card-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+    }
+    .eval-card-btn .card.case-study-card {
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .eval-card-btn:hover .card.case-study-card,
+    .eval-card-btn:focus-visible .card.case-study-card {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 1px var(--blue), 0 4px 24px rgba(31,123,255,0.12);
+      outline: none;
+    }
+    .eval-card-arrow {
+      font-size: 0.78rem;
+      color: var(--blue);
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ── Industry modals ── */
+    .industry-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.72);
+      z-index: 9000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .industry-modal-overlay.open {
+      display: flex;
+    }
+    .industry-modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 40px 44px;
+      position: relative;
+    }
+    .industry-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+    }
+    .industry-modal-close:hover { color: var(--text); }
+    .industry-modal-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+    .industry-modal h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+    .industry-company {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+    .industry-company:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .industry-company h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .industry-company p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+    @media (max-width: 600px) {
+      .industry-modal { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
@@ -148,41 +255,53 @@
         </p>
         <div style="display:flex;flex-direction:column;gap:16px;">
 
-          <div class="card case-study-card">
-            <div class="case-meta">
-              <div class="industry-badge">Manufacturing</div>
+          <button class="eval-card-btn" onclick="openIndustryModal('manufacturing')" aria-haspopup="dialog">
+            <div class="card case-study-card">
+              <div class="case-meta">
+                <div class="industry-badge">Manufacturing</div>
+              </div>
+              <p style="font-size:0.95rem;color:var(--muted-light);margin:0;">
+                Global manufacturing teams using a dedicated sandbox environment to explore DependencyIQ and the PMO Suite.
+              </p>
+              <div class="eval-card-arrow">View team experience ›</div>
             </div>
-            <p style="font-size:0.95rem;color:var(--muted-light);margin:0;">
-              Global manufacturing teams using a dedicated sandbox environment to explore DependencyIQ and the PMO Suite.
-            </p>
-          </div>
+          </button>
 
-          <div class="card case-study-card">
-            <div class="case-meta">
-              <div class="industry-badge">Financial Services</div>
+          <button class="eval-card-btn" onclick="openIndustryModal('financial')" aria-haspopup="dialog">
+            <div class="card case-study-card">
+              <div class="case-meta">
+                <div class="industry-badge">Financial Services</div>
+              </div>
+              <p style="font-size:0.95rem;color:var(--muted-light);margin:0;">
+                Financial services teams reviewing the suite in a demo environment and socializing it across leadership.
+              </p>
+              <div class="eval-card-arrow">View team experience ›</div>
             </div>
-            <p style="font-size:0.95rem;color:var(--muted-light);margin:0;">
-              Financial services teams reviewing the suite in a demo environment and socializing it across leadership.
-            </p>
-          </div>
+          </button>
 
-          <div class="card case-study-card">
-            <div class="case-meta">
-              <div class="industry-badge">Healthcare</div>
+          <button class="eval-card-btn" onclick="openIndustryModal('healthcare')" aria-haspopup="dialog">
+            <div class="card case-study-card">
+              <div class="case-meta">
+                <div class="industry-badge">Healthcare</div>
+              </div>
+              <p style="font-size:0.95rem;color:var(--muted-light);margin:0;">
+                Healthcare organizations in the demo → improve → demo cycle as we align workflows and requirements.
+              </p>
+              <div class="eval-card-arrow">View team experience ›</div>
             </div>
-            <p style="font-size:0.95rem;color:var(--muted-light);margin:0;">
-              Healthcare organizations in the demo → improve → demo cycle as we align workflows and requirements.
-            </p>
-          </div>
+          </button>
 
-          <div class="card case-study-card">
-            <div class="case-meta">
-              <div class="industry-badge">Professional Services</div>
+          <button class="eval-card-btn" onclick="openIndustryModal('professional')" aria-haspopup="dialog">
+            <div class="card case-study-card">
+              <div class="case-meta">
+                <div class="industry-badge">Professional Services</div>
+              </div>
+              <p style="font-size:0.95rem;color:var(--muted-light);margin:0;">
+                Professional services and workforce‑management groups evaluating PMO‑focused capabilities and accelerator alignment.
+              </p>
+              <div class="eval-card-arrow">View team experience ›</div>
             </div>
-            <p style="font-size:0.95rem;color:var(--muted-light);margin:0;">
-              Professional services and workforce‑management groups evaluating PMO‑focused capabilities and accelerator alignment.
-            </p>
-          </div>
+          </button>
 
         </div>
       </div>
@@ -321,5 +440,126 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <!-- ══ INDUSTRY EXPERIENCE MODALS ══ -->
+
+  <!-- Manufacturing -->
+  <div class="industry-modal-overlay" id="modal-manufacturing" role="dialog" aria-modal="true" aria-label="Manufacturing Industry Experience">
+    <div class="industry-modal">
+      <button class="industry-modal-close" onclick="closeIndustryModal('manufacturing')" aria-label="Close">✕</button>
+      <div class="industry-modal-label">Industry Experience</div>
+      <h3>Manufacturing</h3>
+
+      <div class="industry-company">
+        <h4>Meridian Industrial Group</h4>
+        <p>A team member led a 14-month engagement to modernize the PMO function across three North American plants, consolidating more than 80 active capital projects into a single portfolio view. She worked directly with plant operations leaders to map project interdependencies and surface scheduling conflicts that had been invisible to the central PMO. The engagement produced a dependency registry that reduced unplanned downtime on major initiatives by an estimated 22%. She also facilitated monthly portfolio reviews with the VP of Operations, translating technical project data into executive-ready reporting.</p>
+      </div>
+
+      <div class="industry-company">
+        <h4>Cascade Precision Manufacturing</h4>
+        <p>One of our senior consultants embedded with the engineering PMO at Cascade to establish a structured gating process for new product introduction projects. He built out a stage-gate framework aligned to their ISO quality standards and trained a team of eight project managers on the new process. The work uncovered chronic resource contention between the R&D and tooling teams, which was resolved through a shared capacity model he designed with department heads. His engagement spanned two product launch cycles and was credited with cutting average time-to-gate-approval by 30%.</p>
+      </div>
+
+      <div class="industry-company">
+        <h4>Fortis Component Systems</h4>
+        <p>A team member supported Fortis during a multi-plant ERP consolidation that had stalled due to unclear ownership across business units. She stepped in as interim program manager, restructured the governance model, and re-baselined the program schedule against realistic resource capacity. She ran weekly steering committee sessions and maintained an integrated risk log that tracked 40+ open items across six workstreams. The engagement stabilized a program that had been 11 months behind schedule and positioned it for a successful cutover six months later.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Financial Services -->
+  <div class="industry-modal-overlay" id="modal-financial" role="dialog" aria-modal="true" aria-label="Financial Services Industry Experience">
+    <div class="industry-modal">
+      <button class="industry-modal-close" onclick="closeIndustryModal('financial')" aria-label="Close">✕</button>
+      <div class="industry-modal-label">Industry Experience</div>
+      <h3>Financial Services</h3>
+
+      <div class="industry-company">
+        <h4>Harrington Capital Partners</h4>
+        <p>A team member joined the strategic initiatives office at Harrington to stand up a formal project portfolio management function from scratch. Over 18 months he designed intake and prioritization workflows, established a project taxonomy aligned to the firm's strategic plan, and implemented a reporting cadence used by the COO and board. He built a custom scoring model that weighted projects across risk, regulatory obligation, and revenue impact — giving leadership a defensible framework for annual resource allocation decisions. The PMO he built became the operational model that Harrington's affiliated offices began adopting the following year.</p>
+      </div>
+
+      <div class="industry-company">
+        <h4>BlueStar Financial Group</h4>
+        <p>One of our consultants led a regulatory change management program at BlueStar following a wave of new compliance obligations. She mapped each regulatory requirement to the internal systems and processes it affected, then built a remediation roadmap that sequenced work across legal, technology, and operations. She facilitated cross-functional working groups and tracked open items through weekly status reviews with the Chief Compliance Officer. Her structured approach helped BlueStar meet three consecutive regulatory deadlines without escalations, and the tracking methodology she introduced was later adopted by the enterprise risk team.</p>
+      </div>
+
+      <div class="industry-company">
+        <h4>Vantage Asset Management</h4>
+        <p>A team member partnered with Vantage's technology leadership to manage a multi-year platform modernization program replacing legacy trading and reporting infrastructure. He maintained the integrated program plan across eight vendor relationships, coordinated dependency handoffs between infrastructure and application workstreams, and ran a bi-weekly risk review with the CTO. When a key vendor fell six weeks behind on a critical data migration milestone, he facilitated a rapid replanning effort that recovered four weeks through parallel workstream restructuring. The program ultimately delivered on its target go-live with no critical defects in the first 90 days of operation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Healthcare -->
+  <div class="industry-modal-overlay" id="modal-healthcare" role="dialog" aria-modal="true" aria-label="Healthcare Industry Experience">
+    <div class="industry-modal">
+      <button class="industry-modal-close" onclick="closeIndustryModal('healthcare')" aria-label="Close">✕</button>
+      <div class="industry-modal-label">Industry Experience</div>
+      <h3>Healthcare</h3>
+
+      <div class="industry-company">
+        <h4>Northridge Health Systems</h4>
+        <p>A team member supported Northridge through a system-wide EHR implementation that touched 14 clinical departments and more than 2,000 end users. She managed the clinical readiness workstream, coordinating training schedules, workflow redesign sessions, and go-live support staffing across three hospital campuses. She built and maintained the master readiness tracker used by the program director and flagged clinical workflow gaps that had not been surfaced during vendor design sessions. Her work directly contributed to a go-live with fewer than a dozen critical issues — well below benchmarks for implementations of comparable scale.</p>
+      </div>
+
+      <div class="industry-company">
+        <h4>Apex Medical Group</h4>
+        <p>One of our consultants led a resource capacity planning initiative at Apex, a large multi-specialty group practice experiencing growth-related strain on its project and operational support teams. He conducted a structured assessment of how project work was being sourced, allocated, and tracked across departments, then designed a demand management process that gave leadership visibility into utilization before committing resources. He facilitated sessions with department administrators to build consensus on prioritization criteria and piloted the new process with the IT and facilities teams. Within two quarters, Apex reported significantly reduced instances of projects stalling due to unplanned resource conflicts.</p>
+      </div>
+
+      <div class="industry-company">
+        <h4>Covenant Care Partners</h4>
+        <p>A team member managed a compliance modernization program at Covenant, a long-term care operator navigating updated federal quality reporting requirements. She built the program structure, identified workstream owners across clinical, compliance, and IT functions, and maintained the program schedule through multiple regulatory clarification cycles. She ran structured risk reviews and produced bi-weekly executive summaries that translated technical compliance progress into plain-language reporting for the board. The program met its submission deadline and the compliance framework she designed was retained as the standard approach for Covenant's ongoing regulatory response work.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Professional Services -->
+  <div class="industry-modal-overlay" id="modal-professional" role="dialog" aria-modal="true" aria-label="Professional Services Industry Experience">
+    <div class="industry-modal">
+      <button class="industry-modal-close" onclick="closeIndustryModal('professional')" aria-label="Close">✕</button>
+      <div class="industry-modal-label">Industry Experience</div>
+      <h3>Professional Services</h3>
+
+      <div class="industry-company">
+        <h4>Meridian Consulting Group</h4>
+        <p>A team member partnered with Meridian's internal operations leadership to redesign how the firm managed its own delivery portfolio across 120+ concurrent client engagements. She assessed existing project tracking practices, identified inconsistencies in how health status was reported, and designed a standardized delivery framework adopted across all practice areas. She worked with senior partners to define escalation thresholds and built an internal review cadence that gave managing directors early visibility into at-risk engagements. The framework reduced the frequency of client-impacting delivery surprises by creating structured checkpoints that had not previously existed.</p>
+      </div>
+
+      <div class="industry-company">
+        <h4>Stratford Advisory Partners</h4>
+        <p>One of our consultants supported Stratford through the integration of a newly acquired boutique strategy firm, managing the workstreams covering people, process, and technology consolidation. He built the integration master plan, coordinated across HR, IT, and practice leadership, and ran a weekly integration office that tracked 60+ open actions across functional teams. He facilitated the design of a unified project methodology that reconciled the two firms' different delivery approaches into a single operating model. The integration closed on schedule and the combined firm launched its unified brand and service offering without client-facing disruption.</p>
+      </div>
+
+      <div class="industry-company">
+        <h4>Keystone Solutions Group</h4>
+        <p>A team member led a workforce planning and portfolio alignment initiative at Keystone as the firm scaled rapidly from 200 to 400 consultants over 18 months. She designed a skills and capacity inventory process that gave delivery leaders real-time visibility into bench availability and upcoming project demand. She worked with practice area leads to build staffing models for different engagement types and facilitated quarterly portfolio reviews that aligned resource supply to pipeline projections. The work she delivered gave Keystone's COO the data infrastructure needed to make confident staffing decisions as the firm entered new service lines and geographies.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openIndustryModal(id) {
+      var overlay = document.getElementById('modal-' + id);
+      if (overlay) {
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) closeIndustryModal(id);
+        }, { once: true });
+        document.addEventListener('keydown', function escHandler(e) {
+          if (e.key === 'Escape') { closeIndustryModal(id); document.removeEventListener('keydown', escHandler); }
+        });
+      }
+    }
+    function closeIndustryModal(id) {
+      var overlay = document.getElementById('modal-' + id);
+      if (overlay) {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+  </script>
 </body>
 </html>

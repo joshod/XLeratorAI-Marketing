@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio and Development Suite – XLeratorAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="The XLeratorAI Portfolio and Development Suite — eight integrated AI tools built to accelerate strategy, portfolio management, and delivery." />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+
+    /* ── DIAGRAM SECTION ── */
+    .diagram-section {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .diagram-wrap {
+      position: relative;
+      display: inline-block;
+      max-width: 680px;
+      width: 100%;
+      user-select: none;
+    }
+    .diagram-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    /* ── HOTSPOT OVERLAYS ── */
+    .hs {
+      position: absolute;
+      cursor: default;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.15s;
+    }
+    .hs:hover { background: rgba(255,255,255,0.08); }
+
+    /* ── TOOLTIP ── */
+    #suite-tooltip {
+      position: fixed;
+      background: #0e1e3a;
+      border: 1px solid rgba(58,143,255,0.35);
+      border-radius: 10px;
+      padding: 14px 18px;
+      max-width: 260px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.88);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.12s;
+      z-index: 9000;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    #suite-tooltip.visible { opacity: 1; }
+    #suite-tooltip strong {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    #suite-tooltip ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin: 0;
+    }
+    #suite-tooltip li {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.65);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.45;
+    }
+    #suite-tooltip li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: #4a9fff;
+      font-weight: 700;
+    }
+
+    /* ── TOOL GRID BELOW DIAGRAM ── */
+    .suite-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .suite-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+    }
+    .suite-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .suite-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 700px) {
+      .diagram-wrap { max-width: 100%; }
+      #suite-tooltip { max-width: 200px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><img src="img/logo-medium.png" alt="XLeratorAI" /></a>
+      <nav class="main-nav">
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">Solutions <span class="nav-arrow"></span></span>
+          <div class="nav-dropdown-menu">
+            <a href="solutions.html">Solutions<span class="dropdown-desc">AI solutions, staffing &amp; products</span></a>
+            <a href="lab.html">Lab &amp; Products<span class="dropdown-desc">PMO, Strategy &amp; Portfolio Accelerators</span></a>
+            <a href="data-hosting.html">Data &amp; Hosting<span class="dropdown-desc">Security, compliance &amp; infrastructure</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">Why XLeratorAI <span class="nav-arrow"></span></span>
+          <div class="nav-dropdown-menu">
+            <a href="approach.html">Our Approach<span class="dropdown-desc">How we accelerate outcomes</span></a>
+            <a href="success.html">Client Success<span class="dropdown-desc">Case studies &amp; results</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">Company <span class="nav-arrow"></span></span>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About<span class="dropdown-desc">Our team &amp; mission</span></a>
+            <a href="board.html">Board<span class="dropdown-desc">Board of directors</span></a>
+          </div>
+        </div>
+        <a href="survey.html">Are You Ready?</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="btn-cta">Schedule a Session</a>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-group-label">Solutions</span>
+      <a href="solutions.html">Solutions</a>
+      <a href="lab.html">Lab &amp; Products</a>
+      <a href="data-hosting.html">Data &amp; Hosting</a>
+    </div>
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-group-label">Why XLeratorAI</span>
+      <a href="approach.html">Our Approach</a>
+      <a href="success.html">Client Success</a>
+    </div>
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-group-label">Company</span>
+      <a href="about.html">About</a>
+      <a href="board.html">Board</a>
+    </div>
+    <a href="survey.html">Are You Ready?</a>
+    <a href="contact.html" class="mobile-nav-cta">Schedule a Session</a>
+  </div>
+
+  <main>
+
+    <!-- ══ PAGE HERO ══ -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="section-label">Products</div>
+        <h1>Portfolio and Development Suite</h1>
+        <p style="max-width:640px;">
+          Eight integrated AI tools built around a central Data Orchestrator — covering everything
+          from strategy generation and portfolio prioritization to dependency mapping, blueprint
+          creation, and autonomous development. Each tool is capable on its own; together they form
+          a complete end-to-end operating system for enterprise AI delivery.
+        </p>
+        <p style="max-width:640px;margin-top:16px;font-size:0.9rem;color:var(--muted);">
+          Hover over any tool in the diagram below to explore its core capabilities.
+        </p>
+      </div>
+    </section>
+
+    <!-- ══ INTERACTIVE DIAGRAM ══ -->
+    <section class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">Suite Architecture</div>
+        <h2 style="color:var(--white);margin-bottom:12px;">How the Suite Fits Together</h2>
+        <p style="max-width:600px;margin-bottom:40px;">
+          The Data Orchestrator sits at the center of the suite — every data movement, every
+          ingest, and every export flows through it. The surrounding tools each handle a distinct
+          function while remaining connected through this shared data layer.
+        </p>
+
+        <div class="diagram-section">
+          <div class="diagram-wrap" id="diagramWrap">
+            <img src="img/portfolio-suite-diagram.png" alt="XLeratorAI Portfolio and Development Suite — hub and spoke diagram" draggable="false" />
+
+            <!-- Hotspots: percentage-based left/top/width/height relative to the image container -->
+            <!-- Strategy Generator — top-left -->
+            <div class="hs" data-tool="strategy"
+              style="left:1%;top:2%;width:28%;height:23%;"
+              onmouseenter="showTip(event,'strategy')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <!-- Portfolio Builder — top-center -->
+            <div class="hs" data-tool="builder"
+              style="left:34%;top:0%;width:32%;height:22%;"
+              onmouseenter="showTip(event,'builder')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <!-- Portfolio Intelligence — top-right -->
+            <div class="hs" data-tool="intelligence"
+              style="left:65%;top:2%;width:33%;height:23%;"
+              onmouseenter="showTip(event,'intelligence')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <!-- DependencyIQ — right -->
+            <div class="hs" data-tool="dependency"
+              style="left:73%;top:37%;width:27%;height:24%;"
+              onmouseenter="showTip(event,'dependency')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <!-- Blueprint Generator — bottom-right -->
+            <div class="hs" data-tool="blueprint"
+              style="left:64%;top:68%;width:34%;height:29%;"
+              onmouseenter="showTip(event,'blueprint')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <!-- Developer Agent — bottom-center -->
+            <div class="hs" data-tool="devagent"
+              style="left:34%;top:77%;width:32%;height:22%;"
+              onmouseenter="showTip(event,'devagent')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <!-- Portfolio Monitor — bottom-left -->
+            <div class="hs" data-tool="monitor"
+              style="left:1%;top:68%;width:28%;height:29%;"
+              onmouseenter="showTip(event,'monitor')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <!-- Learn & Optimize — left -->
+            <div class="hs" data-tool="learn"
+              style="left:0%;top:37%;width:27%;height:24%;"
+              onmouseenter="showTip(event,'learn')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <!-- Data Orchestrator — center -->
+            <div class="hs" data-tool="hub"
+              style="left:36%;top:37%;width:28%;height:26%;"
+              onmouseenter="showTip(event,'hub')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══ TOOL SUMMARIES ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-label">The Tools</div>
+        <h2 style="color:var(--white);margin-bottom:12px;">What's in the Suite</h2>
+        <p style="max-width:600px;">
+          Each tool in the suite is purpose-built for a specific phase of enterprise AI delivery —
+          from setting strategy to building and monitoring the work.
+        </p>
+
+        <div class="suite-grid">
+
+          <div class="suite-card">
+            <h4>Data Orchestrator</h4>
+            <p>The central data bus. Every ingest and every export flows through a single point of control — no tool connects to external systems independently.</p>
+          </div>
+
+          <div class="suite-card">
+            <h4>Strategy Generator</h4>
+            <p>An AI-guided wizard that researches your industry and produces an approved 18-month AI strategy, distributed downstream automatically on sign-off.</p>
+          </div>
+
+          <div class="suite-card">
+            <h4>Portfolio Builder</h4>
+            <p>Scores and ranks a full set of AI project candidates against your approved strategy, generates business cases, and exports to your project management platform.</p>
+          </div>
+
+          <div class="suite-card">
+            <h4>Portfolio Intelligence</h4>
+            <p>Real-time PMO health dashboard with AI-generated findings, cost variance detection, and blast radius analysis powered by DependencyIQ.</p>
+          </div>
+
+          <div class="suite-card">
+            <h4>DependencyIQ</h4>
+            <p>Graph engine that maps projects, systems, and teams as nodes with typed dependency edges — enabling blast radius analysis for any change or delay.</p>
+          </div>
+
+          <div class="suite-card">
+            <h4>Blueprint Generator</h4>
+            <p>Conversational AI intake that transforms business requirements into structured blueprints, build specs, and automatically created Epics and Stories.</p>
+          </div>
+
+          <div class="suite-card">
+            <h4>Developer Agent</h4>
+            <p>Polls your project management platform for assigned work, executes build tasks, writes code, and raises pull requests — all without manual handoff.</p>
+          </div>
+
+          <div class="suite-card">
+            <h4>Portfolio Monitor</h4>
+            <p>Observability layer that captures every event across the suite, tracks KPIs and latency in real time, and routes alerts to email, Slack, Teams, or PagerDuty.</p>
+          </div>
+
+          <div class="suite-card">
+            <h4>Learn &amp; Optimize</h4>
+            <p>Collects outcome signals from across the suite, adjusts scoring weights based on real results, and surfaces optimization insights back to Strategy Generator and Portfolio Builder.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══ -->
+    <section class="section" style="padding:80px 32px;">
+      <div class="cta-banner">
+        <h2>See the suite in action.</h2>
+        <p>Schedule a session and we'll walk through the tools that are most relevant to your team and your workflows.</p>
+        <p style="font-size:0.88rem;color:var(--muted);margin-top:-8px;">No commitment required — just a real look at what the suite does.</p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn-primary">Schedule a Session</a>
+          <a href="lab.html" class="btn-ghost">Back to Products →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="img/logo-medium.png" alt="XLeratorAI" />
+          <p>AI-powered accelerators that transform complex business processes into fast, scalable, executive-ready solutions.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <a href="solutions.html">AI Solutions</a>
+          <a href="solutions.html">AI Staffing</a>
+          <a href="solutions.html">AI Products</a>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="lab.html">AI Strategy Generator</a>
+          <a href="lab.html">AI Portfolio Intelligence</a>
+          <a href="lab.html">DependencyIQ</a>
+          <a href="portfolio-suite.html" class="active">Portfolio Suite</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="approach.html">Our Approach</a>
+          <a href="data-hosting.html">Data &amp; Hosting</a>
+          <a href="board.html">Board</a>
+          <a href="success.html">Client Success</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 XLeratorAI. All rights reserved.</p>
+        <p>Built with speed. Delivered with clarity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <div id="suite-tooltip"></div>
+
+  <script>
+    const SUITE_DATA = {
+      hub: {
+        name: 'Data Orchestrator',
+        caps: [
+          'Central data bus — all ingest and push operations route through a single point of control',
+          'No tool connects to external sources independently; every data movement is mediated',
+          'Fires structured event signals to Portfolio Monitor and Learn & Optimize on every run'
+        ]
+      },
+      strategy: {
+        name: 'Strategy Generator',
+        caps: [
+          'AI-guided wizard that researches your industry and generates an approved 18-month strategy',
+          'Multi-step approval workflow ensures human sign-off before any distribution',
+          'Automatically distributes the approved strategy downstream to Portfolio Builder'
+        ]
+      },
+      builder: {
+        name: 'Portfolio Builder',
+        caps: [
+          'Scores and ranks a full set of AI project candidates against your approved strategy',
+          'Generates structured intake forms and business cases for prioritized projects',
+          'Exports approved portfolios to Jira, Azure DevOps, Clarity, or CSV on approval'
+        ]
+      },
+      intelligence: {
+        name: 'Portfolio Intelligence',
+        caps: [
+          'Real-time PMO health dashboard with AI-generated findings and automated risk alerts',
+          'Cost variance detection and automated health scoring across all active projects',
+          'Embedded blast radius analysis showing downstream impact of any project change'
+        ]
+      },
+      dependency: {
+        name: 'DependencyIQ',
+        caps: [
+          'Graph engine mapping projects, systems, and teams as nodes with typed dependency edges',
+          'Blast radius analysis quantifying the downstream impact of any change or delay',
+          'Data source registry that centralizes all external connection management for the suite'
+        ]
+      },
+      blueprint: {
+        name: 'Blueprint Generator',
+        caps: [
+          'Conversational AI intake that transforms business requirements into structured blueprints',
+          'Generates build specifications, acceptance criteria, and implementation roadmaps',
+          'Creates Epics and Stories in your project management platform automatically on approval'
+        ]
+      },
+      devagent: {
+        name: 'Developer Agent',
+        caps: [
+          'Polls your project management platform for assigned work and executes build tasks autonomously',
+          'Writes code, runs tests, and raises pull requests without manual handoff',
+          'Reports completion events back to the portfolio layer for real-time status visibility'
+        ]
+      },
+      monitor: {
+        name: 'Portfolio Monitor',
+        caps: [
+          'Observability layer capturing every data movement and system event across the suite',
+          'Real-time KPI tracking, latency monitoring, and automated anomaly detection',
+          'Configurable alert routing to email, Slack, Teams, or PagerDuty'
+        ]
+      },
+      learn: {
+        name: 'Learn & Optimize',
+        caps: [
+          'Continuously collects outcome signals from every tool across the suite',
+          'Adjusts scoring weights based on real-world results and company-specific patterns',
+          'Surfaces optimization insights back to Strategy Generator and Portfolio Builder'
+        ]
+      }
+    };
+
+    const tip = document.getElementById('suite-tooltip');
+
+    function showTip(e, id) {
+      const d = SUITE_DATA[id];
+      if (!d) return;
+      const items = d.caps.map(c => `<li>${c}</li>`).join('');
+      tip.innerHTML = `<strong>${d.name}</strong><ul>${items}</ul>`;
+      tip.classList.add('visible');
+      moveTip(e);
+    }
+
+    function moveTip(e) {
+      const x = Math.min(e.clientX + 18, window.innerWidth - 278);
+      const y = Math.max(e.clientY - 10, 8);
+      tip.style.left = x + 'px';
+      tip.style.top  = y + 'px';
+    }
+
+    function hideTip() {
+      tip.classList.remove('visible');
+    }
+  </script>
+
+</body>
+</html>

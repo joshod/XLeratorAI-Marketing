@@ -2,18 +2,407 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>XLeratorAI – Accelerate Clarity. Accelerate Execution.</title>
+  <title>XLeratorAI – We Build AI Products With Enterprise Clients, Not Just For Them.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="XLeratorAI builds AI-powered accelerators that transform complex business processes into fast, scalable, executive-ready solutions — in weeks, not months." />
+  <meta name="description" content="XLeratorAI builds AI products at enterprise speed, co-created with the clients who use them. Four months in, two Client Workspaces active, v2.0 shipping May 2026." />
   <link rel="icon" type="image/png" href="img/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .featured-products .product-image {
-      height: 220px;
-      object-fit: cover;
+
+    /* ── HERO ENGAGEMENT FLOW ── */
+    .hero-badge { font-size: 0.78rem; }
+
+    .engage-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 12px;
+    }
+    .ef-row {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .ef-row:last-child { border-bottom: none; }
+    .ef-icon {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(31,123,255,0.12);
+      border: 1.5px solid rgba(31,123,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .ef-icon.accent {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      border-color: transparent;
+    }
+    .ef-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .ef-sub {
+      font-size: 0.66rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .ef-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      background: rgba(0,204,153,0.1);
+      border: 1px solid rgba(0,204,153,0.25);
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: var(--cyan);
+      margin-left: 8px;
+    }
+
+    /* ── STORY SECTION ── */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-top: 40px;
+    }
+    .story-text {
+      font-size: 0.97rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+    .story-text p { margin-bottom: 20px; }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-text strong { color: var(--white); font-weight: 600; }
+    .story-milestones { display: flex; flex-direction: column; gap: 0; }
+    .milestone {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .milestone:last-child { border-bottom: none; }
+    .milestone-date {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-top: 2px;
+    }
+    .milestone-text h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .milestone-text p { font-size: 0.78rem; color: var(--muted); margin: 0; line-height: 1.5; }
+    .m-live {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.62rem; font-weight: 700;
+      background: rgba(0,204,153,0.1); border: 1px solid rgba(0,204,153,0.3); color: var(--cyan);
+      border-radius: 20px; padding: 2px 8px; margin-left: 8px;
+    }
+    .m-soon {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.62rem; font-weight: 700;
+      background: rgba(255,170,0,0.1); border: 1px solid rgba(255,170,0,0.25); color: #e6a800;
+      border-radius: 20px; padding: 2px 8px; margin-left: 8px;
+    }
+    .industry-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .industry-pill {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.65rem; font-weight: 700;
+      background: rgba(31,123,255,0.08); border: 1px solid rgba(31,123,255,0.2);
+      color: var(--blue); border-radius: 20px; padding: 3px 10px;
+    }
+
+    /* ── ENGAGEMENT MODEL ── */
+    .engage-model-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-top: 40px;
+    }
+    .engage-model-text p {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .engage-model-text p strong { color: var(--white); font-weight: 600; }
+    .engage-model-text p:last-child { margin-bottom: 0; }
+
+    .engage-steps-vertical {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+    .engage-steps-vertical::before {
+      content: '';
+      position: absolute;
+      top: 24px; bottom: 24px; left: 19px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), var(--cyan));
+      opacity: 0.25;
+    }
+    .esv-step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 16px 0;
+      position: relative;
+    }
+    .esv-num {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid rgba(31,123,255,0.4);
+      color: var(--blue);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .esv-num.active {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      border-color: transparent;
+      color: #fff;
+    }
+    .esv-content h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+      padding-top: 8px;
+    }
+    .esv-content p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .esv-content .env-note {
+      display: inline-block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: var(--blue);
+      background: rgba(31,123,255,0.08);
+      border: 1px solid rgba(31,123,255,0.2);
+      border-radius: 20px;
+      padding: 2px 8px;
+      margin-top: 6px;
+    }
+    .esv-content .env-note.green {
+      color: var(--cyan);
+      background: rgba(0,204,153,0.08);
+      border-color: rgba(0,204,153,0.2);
+    }
+
+    /* ── DIFFERENTIATORS (condensed) ── */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .diff-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .diff-card:hover {
+      border-color: rgba(31,123,255,0.3);
+      box-shadow: 0 0 32px rgba(31,123,255,0.08);
+    }
+    .diff-card-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+    .diff-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .diff-card p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+    .diff-card p strong { color: var(--white); font-weight: 600; }
+    .diff-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 700;
+    }
+    .status-pill.live {
+      background: rgba(0,204,153,0.1); border: 1px solid rgba(0,204,153,0.3); color: var(--cyan);
+    }
+    .status-pill.live::before { content: '●'; font-size: 0.55rem; }
+    .status-pill.coming {
+      background: rgba(255,170,0,0.08); border: 1px solid rgba(255,170,0,0.25); color: #e6a800;
+    }
+    .status-pill.coming::before { content: '⏱'; font-size: 0.65rem; }
+    .diff-link {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      color: var(--blue); text-decoration: none;
+    }
+    .diff-link:hover { text-decoration: underline; }
+
+    /* ── FLAGSHIP TEASER ── */
+    .flagship-teaser {
+      background: var(--card);
+      border: 1px solid var(--border-blue);
+      border-radius: 24px;
+      padding: 44px 48px;
+      box-shadow: 0 0 60px rgba(31,123,255,0.08);
+      position: relative;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    .flagship-teaser::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(31,123,255,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .flagship-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(135deg, rgba(31,123,255,0.15), rgba(0,204,153,0.1));
+      border: 1px solid rgba(31,123,255,0.3); border-radius: 20px;
+      padding: 5px 14px; margin-bottom: 18px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem;
+      font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue);
+    }
+    .flagship-badge::before { content: '★'; font-size: 0.65rem; }
+    .flagship-teaser h3 { font-size: 1.6rem; color: var(--white); margin-bottom: 10px; }
+    .flagship-teaser .sub {
+      font-size: 0.9rem; color: var(--muted); max-width: 580px;
+      margin-bottom: 28px; line-height: 1.7;
+    }
+    .suite-highlights {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px;
+    }
+    .sh-card {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px 14px;
+    }
+    .sh-card h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem;
+      font-weight: 700; color: var(--white); margin-bottom: 5px;
+    }
+    .sh-card p { font-size: 0.7rem; color: var(--muted); line-height: 1.45; margin: 0; }
+    .flagship-cta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .btn-flagship {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: #fff; padding: 13px 26px; border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.86rem; font-weight: 700;
+      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-flagship:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── MOMENTUM ── */
+    .momentum-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;
+    }
+    .momentum-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 28px 26px; position: relative; overflow: hidden;
+    }
+    .momentum-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+    .momentum-num {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.8rem; font-weight: 800;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1; margin-bottom: 10px;
+    }
+    .momentum-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.88rem;
+      font-weight: 700; color: var(--white); margin-bottom: 8px;
+    }
+    .momentum-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; margin: 0; }
+
+    /* ── BELIEVERS ── */
+    .believers-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;
+    }
+    .believer-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 20px;
+      padding: 32px 28px; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .believer-card:hover {
+      border-color: rgba(31,123,255,0.3); box-shadow: 0 0 32px rgba(31,123,255,0.07);
+    }
+    .believer-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+    .believer-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem;
+      font-weight: 700; color: var(--white); margin-bottom: 10px;
+    }
+    .believer-card p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; margin: 0 0 18px; }
+    .believer-link {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem;
+      font-weight: 700; color: var(--blue); text-decoration: none;
+    }
+    .believer-link:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .engage-model-grid { grid-template-columns: 1fr; gap: 32px; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .suite-highlights { grid-template-columns: repeat(2, 1fr); }
+      .flagship-teaser { padding: 28px; }
+      .momentum-grid { grid-template-columns: 1fr; }
+      .believers-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .suite-highlights { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -21,14 +410,12 @@
 
   <header class="site-header">
     <div class="nav-container">
-      <a href="index.html" class="logo">
-        <img src="img/logo-medium.png" alt="XLeratorAI" />
-      </a>
+      <a href="index.html" class="logo"><img src="img/logo-medium.png" alt="XLeratorAI" /></a>
       <nav class="main-nav">
         <div class="nav-dropdown">
           <span class="nav-dropdown-trigger">Solutions <span class="nav-arrow"></span></span>
           <div class="nav-dropdown-menu">
-            <a href="solutions.html">Solutions<span class="dropdown-desc">AI solutions, staffing &amp; products</span></a>
+            <a href="solutions.html">Solutions<span class="dropdown-desc">How we work with you</span></a>
             <a href="lab.html">Lab &amp; Products<span class="dropdown-desc">PMO, Strategy &amp; Portfolio Accelerators</span></a>
             <a href="data-hosting.html">Data &amp; Hosting<span class="dropdown-desc">Security, compliance &amp; infrastructure</span></a>
           </div>
@@ -83,264 +470,388 @@
     <section class="hero">
       <div class="hero-inner">
         <div class="hero-content">
-          <div class="hero-badge">
-            <span class="dot"></span>
-            Now accepting new clients — Q2 2026
-          </div>
           <h1>
-            Accelerate <span class="accent">clarity.</span><br />
-            Accelerate <span class="accent">execution.</span>
+            We Build AI Products<br />
+            With Enterprise Clients.<br />
+            <span class="accent">Not Just For Them.</span>
           </h1>
           <p class="hero-sub">
-            XLeratorAI builds AI-powered accelerators that turn complex, expensive, manual business
-            processes into fast, scalable, executive-ready solutions — often in as little as 30 days.
+            Our AI Portfolio &amp; Delivery Suite is the accelerator that sparked the most interest.
+            It is what's running in active Client Workspaces at enterprise clients today.
+            We build with clients, refine with their feedback, and ship products that actually fit.
+            Weeks, not years.
           </p>
           <div class="hero-actions">
-            <a href="contact.html" class="btn-primary">Schedule a Working Session</a>
-            <a href="lab.html" class="btn-ghost">Explore the Lab →</a>
-          </div>
-          <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="number">30<span>d</span></div>
-              <div class="label">Avg. time to working prototype</div>
-            </div>
-            <div class="hero-stat">
-              <div class="number">3<span>×</span></div>
-              <div class="label">Faster cycle times for clients</div>
-            </div>
-            <div class="hero-stat">
-              <div class="number">40<span>%</span></div>
-              <div class="label">Reduction in manual reporting</div>
-            </div>
+            <a href="contact.html" class="btn-primary">Schedule a Session</a>
+            <a href="approach.html" class="btn-ghost">See Our Approach →</a>
           </div>
         </div>
 
         <div class="hero-visual">
-          <div class="floating-tag tl">⚡ Strategy generated in 2 days</div>
           <div class="hero-card">
             <div class="hero-card-header">
-              <span class="hero-card-title">Portfolio Dashboard — Live</span>
-              <span class="status-badge">● LIVE</span>
+              <span class="hero-card-title">How We Work With You</span>
+              <span class="status-badge">● PROVEN</span>
             </div>
-            <div class="metric-row">
-              <div class="metric-box">
-                <span class="val green">46</span>
-                <span class="mlabel">On Track</span>
+            <div class="engage-flow">
+              <div class="ef-row">
+                <div class="ef-icon">💡</div>
+                <div>
+                  <div class="ef-title">Accelerator Demo</div>
+                  <div class="ef-sub">XLeratorAI Workspace. Real product, first session.</div>
+                </div>
               </div>
-              <div class="metric-box">
-                <span class="val yellow">18</span>
-                <span class="mlabel">At Risk</span>
+              <div class="ef-row">
+                <div class="ef-icon">🔄</div>
+                <div>
+                  <div class="ef-title">Refine Together</div>
+                  <div class="ef-sub">Your feedback shapes the next version, delivered in days</div>
+                </div>
               </div>
-              <div class="metric-box">
-                <span class="val red">16</span>
-                <span class="mlabel">Critical</span>
+              <div class="ef-row">
+                <div class="ef-icon">✓</div>
+                <div>
+                  <div class="ef-title">Demo Again</div>
+                  <div class="ef-sub">Confirm alignment before any commitment</div>
+                </div>
               </div>
-            </div>
-            <div class="progress-section">
-              <div class="progress-item">
-                <div class="progress-header"><span>Q1 Budget Utilization</span><span>72%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div>
+              <div class="ef-row">
+                <div class="ef-icon accent">🏢</div>
+                <div>
+                  <div class="ef-title">Client Workspace <span class="ef-badge">● Active</span></div>
+                  <div class="ef-sub">Your white-labeled environment. Your team, your data.</div>
+                </div>
               </div>
-              <div class="progress-item">
-                <div class="progress-header"><span>Strategic Alignment Score</span><span>88%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
-              </div>
-              <div class="progress-item">
-                <div class="progress-header"><span>Portfolio Completion</span><span>61%</span></div>
-                <div class="progress-bar"><div class="progress-fill" style="width:61%"></div></div>
+              <div class="ef-row">
+                <div class="ef-icon">🚀</div>
+                <div>
+                  <div class="ef-title">Private Cloud Deploy</div>
+                  <div class="ef-sub">Container deployed into your infrastructure when ready</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="floating-tag br">📊 40% less manual reporting</div>
         </div>
       </div>
     </section>
 
-    <!-- ══ LOGOS / TRUST BAR ══ -->
-    <div class="section-divider"></div>
-    <section class="section" style="padding:40px 32px;">
-      <div class="section-inner" style="text-align:center;">
-        <p style="font-size:0.78rem;font-family:'Syne',sans-serif;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0;">
-          Active engagements in Healthcare · Financial Services · Manufacturing · Technology
-        </p>
+    <!-- ══ THE STORY ══ -->
+    <section class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">Who We Are</div>
+        <h2 style="color:var(--white);margin-bottom:8px;">A Four-Month-Old Startup Doing Something Remarkable</h2>
+        <p style="max-width:660px;">We didn't set out to build software and sell it. We set out to find the right conversations and let those conversations build the right products.</p>
+
+        <div class="story-grid">
+          <div class="story-text">
+            <p>
+              We started with a clear thesis: enterprise teams are sitting on complex processes, disconnected systems,
+              and strategies that never make it to execution. AI can close that gap, but only if it's built
+              alongside the people who live inside those problems every day.
+            </p>
+            <p>
+              Our sales network led us to PMO and portfolio leaders first. That's where the pain was loudest.
+              Our most mature accelerator, the <strong>AI Portfolio &amp; Delivery Suite</strong>, is what
+              sparked the most excitement. So that's where we focused: demoing in our XLeratorAI Workspace,
+              listening to what was missing, and <strong>adding features in days, not sprints</strong>.
+            </p>
+            <p>
+              The clients we found didn't just evaluate what we built. <strong>They helped us build it.</strong>
+              Every session made the product sharper. Every piece of feedback went straight back into the
+              XLeratorAI Workspace. Then we demoed again. Then we set up their own Client Workspace.
+              That's the model. And it works.
+            </p>
+            <p>
+              Two enterprise clients now have active Client Workspaces. A third is close.
+              We have enough collective insight to define v2.0. We're building it right now.
+            </p>
+          </div>
+
+          <div class="story-milestones">
+            <div class="milestone">
+              <div class="milestone-date">Jan 2026</div>
+              <div class="milestone-text">
+                <h5>Founded</h5>
+                <p>Core accelerators built. XLeratorAI Workspace operational. First enterprise demos delivered.</p>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-date">Feb 2026</div>
+              <div class="milestone-text">
+                <h5>Design Partners Identified</h5>
+                <p>3–5 enterprise clients selected to co-create the product through structured sessions.</p>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-date">Mar 2026</div>
+              <div class="milestone-text">
+                <h5>Iteration Cycles Begin</h5>
+                <p>Client feedback → new features in days. Second and third demos. Model validated in practice.</p>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-date">Apr 2026</div>
+              <div class="milestone-text">
+                <h5>Two Client Workspaces<span class="m-live">● Active</span></h5>
+                <p>Manufacturing and Financial Services clients in dedicated Client Workspaces.</p>
+                <div class="industry-pills">
+                  <span class="industry-pill">Manufacturing</span>
+                  <span class="industry-pill">Financial Services</span>
+                </div>
+              </div>
+            </div>
+            <div class="milestone">
+              <div class="milestone-date">May 2026</div>
+              <div class="milestone-text">
+                <h5>v2.0 Demo Ready<span class="m-soon">⏱ End of May</span></h5>
+                <p>Blueprint Generator and Developer Agent integrated. Healthcare client approaching Client Workspace.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-    <div class="section-divider"></div>
 
-    <!-- ══ WHAT WE DO ══ -->
+    <!-- ══ ENGAGEMENT MODEL ══ -->
     <section class="section">
       <div class="section-inner">
-        <div class="section-label">What We Do</div>
-        <h2 style="color:var(--white);max-width:600px;margin-bottom:16px;">
-          We turn complexity into clarity — at the speed of AI.
-        </h2>
-        <p style="max-width:640px;margin-bottom:0;">
-          Most organizations are sitting on mountains of messy data, disconnected processes, and strategic plans
-          that gather dust. XLeratorAI plugs in AI accelerators that transform that chaos into clean insights,
-          prioritized actions, and leadership-ready outputs — without a multi-year transformation program.
-        </p>
-        <div class="grid three">
-          <div class="card">
-            <div class="icon-circle">🎯</div>
-            <h3>Strategic Planning</h3>
-            <p>Generate a fully-researched 18-month strategy by combining your prior plans with live industry intelligence. Prioritize your portfolio with AI-scored projects aligned to your goals.</p>
-          </div>
-          <div class="card">
-            <div class="icon-circle">📊</div>
-            <h3>Operational Intelligence</h3>
-            <p>Automate PMO reporting, detect cost variances in real time, and surface portfolio health across every project — without spreadsheets or manual status updates.</p>
-          </div>
-          <div class="card">
-            <div class="icon-circle">🔧</div>
-            <h3>Custom AI Workflows</h3>
-            <p>We design bespoke AI-driven workflows for intake, approval, escalation, and analysis — cutting cycle times by 2–3× and eliminating the handoff friction that slows organizations down.</p>
-          </div>
-          <div class="card">
-            <div class="icon-circle">👥</div>
-            <h3>AI-Enabled Staffing</h3>
-            <p>Project managers and technologists trained in our AI bootcamp, ready to embed in your team and deliver using our accelerator toolkit from day one.</p>
-          </div>
-          <div class="card">
-            <div class="icon-circle">🚀</div>
-            <h3>Rapid Prototyping</h3>
-            <p>Working prototypes in 30 days. Two focused working sessions, iterative reviews, and a final deployment-ready product — SaaS, on-prem, or hybrid.</p>
-          </div>
-          <div class="card">
-            <div class="icon-circle">🔬</div>
-            <h3>Lab &amp; R&amp;D</h3>
-            <p>Our internal development lab continuously builds and refines a catalog of pre-built accelerators, reducing custom build time and client risk.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ HOW WE WORK ══ -->
-    <section class="section section-alt">
-      <div class="section-inner">
         <div class="section-label">How We Work</div>
-        <h2 style="color:var(--white);margin-bottom:16px;">From first demo to deployed product.</h2>
-        <p style="max-width:580px;">
-          Our engagement model is intentionally transparent. You see the product working before you
-          commit — and your feedback shapes every iteration before deployment.
-        </p>
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <h3>Live Demo</h3>
-            <p>See the suite working with real workflows. Understand fit before any commitment.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">2</div>
-            <h3>Refine Together</h3>
-            <p>Your feedback drives the next iteration. We improve, then demo again to confirm alignment.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">3</div>
-            <h3>Dedicated Sandbox</h3>
-            <p>Your team evaluates the product internally, at your own pace, with your own data.</p>
-          </div>
-          <div class="step">
-            <div class="step-num">4</div>
-            <h3>Deploy &amp; Scale</h3>
-            <p>We support deployment into your environment — cloud, on-prem, or hybrid.</p>
-          </div>
-        </div>
+        <h2 style="color:var(--white);margin-bottom:8px;">The Model That Got Us Here</h2>
+        <p style="max-width:660px;">This is the model that took the AI Portfolio &amp; Delivery Suite from accelerator to active Client Workspaces in four months. The same process applies to every accelerator we build, across every industry.</p>
 
-      </div>
-    </section>
+        <div class="engage-model-grid">
+          <div class="engage-model-text">
+            <p>
+              We don't show up with a finished product and ask clients to buy it.
+              We show up with a <strong>working accelerator</strong> in our XLeratorAI Workspace.
+              Something real, something they can react to. We build the conversation from there.
+            </p>
+            <p>
+              That first session almost always produces a list of things to improve. We take that list,
+              make the changes in our Workspace, and <strong>come back in days</strong>, not weeks.
+              The second demo is a different experience. By then, the client recognizes their own feedback
+              in the product.
+            </p>
+            <p>
+              When they're ready, we spin up a <strong>Client Workspace</strong>: a white-labeled,
+              dedicated environment with their branding, their data, their team. No commitment required.
+              Just a structured evaluation with something that's already been shaped around their needs.
+            </p>
+            <p>
+              When they say go, we containerize and deploy to their private cloud.
+              That's the full journey, and it's repeatable for any accelerator we build.
+            </p>
+            <p style="margin-top:24px;">
+              <a href="approach.html" style="color:var(--blue);text-decoration:none;font-size:0.88rem;font-weight:600;">
+                See our full approach →
+              </a>
+            </p>
+          </div>
 
-    <!-- ══ FEATURED PRODUCTS ══ -->
-    <section class="section featured-products">
-      <div class="section-inner">
-        <div class="section-label">Featured Products</div>
-        <h2 style="color:var(--white);margin-bottom:8px;">Built in the Lab. Battle-tested with clients.</h2>
-        <p style="margin-bottom:0;max-width:580px;">
-          Our flagship accelerators are production-ready solutions, not demos. Each one was born from a
-          real client need and refined through active enterprise engagements.
-        </p>
-        <div class="grid three" style="margin-top:40px;">
-          <div class="card product-card">
-            <img src="img/pmo-accelerator.png" alt="AI Portfolio Intelligence" class="product-image" />
-            <div class="product-card-body">
-              <div class="product-tag">Portfolio Management</div>
-              <h3>AI Portfolio Intelligence</h3>
-              <p>A real-time portfolio monitoring engine that turns scattered project data into automated health scoring, cost variance alerts, and executive-ready dashboards — without manual reporting.</p>
-              <ul class="product-features">
-                <li>Portfolio health scoring with RED / YELLOW / GREEN status</li>
-                <li>Automated cost variance detection and budget tracking</li>
-                <li>Work item, bug, and milestone analysis across all projects</li>
-                <li>Executive dashboards that update automatically</li>
-              </ul>
-              <a href="lab.html" class="link-arrow">View Full Details</a>
+          <div class="engage-steps-vertical">
+            <div class="esv-step">
+              <div class="esv-num">1</div>
+              <div class="esv-content">
+                <h5>Accelerator Demo</h5>
+                <p>Live demo in the XLeratorAI Workspace. Real product. Structured feedback from your team.</p>
+                <span class="env-note">XLeratorAI Workspace</span>
+              </div>
             </div>
-          </div>
-          <div class="card product-card">
-            <img src="img/strategy-accelerator.png" alt="AI Strategy Generator" class="product-image" />
-            <div class="product-card-body">
-              <div class="product-tag">Strategic Planning</div>
-              <h3>AI Strategy Generator</h3>
-              <p>A guided, AI-driven workflow that takes you from industry research to a completed 18-month strategy with a prioritized, AI-scored project portfolio — in days, not months.</p>
-              <ul class="product-features">
-                <li>Live industry and competitive intelligence research</li>
-                <li>Upload your previous strategy for continuity and context</li>
-                <li>AI-generated 18-month strategic plan</li>
-                <li>Project scoring, portfolio ranking, and PMO integration</li>
-              </ul>
-              <a href="lab.html" class="link-arrow">View Full Details</a>
+            <div class="esv-step">
+              <div class="esv-num">2</div>
+              <div class="esv-content">
+                <h5>Refine in Our Workspace</h5>
+                <p>We take your feedback and improve the accelerator. Changes delivered in days, not sprints.</p>
+                <span class="env-note">XLeratorAI Workspace</span>
+              </div>
             </div>
-          </div>
-          <div class="card product-card">
-            <img src="img/dependencyiq-graph.png" alt="DependencyIQ" class="product-image" />
-            <div class="product-card-body">
-              <div class="product-tag">Dependency Management</div>
-              <h3>DependencyIQ</h3>
-              <p>Every organization has dependencies that nobody documented — living in spreadsheets, email threads, and institutional memory. DependencyIQ surfaces them automatically before they become project-killing surprises.</p>
-              <ul class="product-features">
-                <li>AI-detected dependencies across your entire portfolio</li>
-                <li>Blast radius analysis — see what breaks if a project slips</li>
-                <li>Confidence scoring on every identified relationship</li>
-                <li>Predictive alerts before issues cascade</li>
-              </ul>
-              <a href="lab.html" class="link-arrow">View Full Details</a>
+            <div class="esv-step">
+              <div class="esv-num">3</div>
+              <div class="esv-content">
+                <h5>Demo Again</h5>
+                <p>Second session confirms alignment. You see your feedback reflected before any commitment.</p>
+                <span class="env-note">XLeratorAI Workspace</span>
+              </div>
+            </div>
+            <div class="esv-step">
+              <div class="esv-num active">4</div>
+              <div class="esv-content">
+                <h5>Client Workspace</h5>
+                <p>Your white-labeled environment with your branding, your data, and your team's evaluation on your terms.</p>
+                <span class="env-note green">Client Workspace</span>
+              </div>
+            </div>
+            <div class="esv-step">
+              <div class="esv-num">5</div>
+              <div class="esv-content">
+                <h5>Private Cloud Deploy</h5>
+                <p>When you're ready, we containerize and deploy into your private cloud infrastructure.</p>
+                <span class="env-note green">Your Infrastructure</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ══ CLIENT RESULTS ══ -->
+    <!-- ══ WHAT THE APPROACH CREATED ══ -->
     <section class="section section-alt">
       <div class="section-inner">
-        <div class="section-label">What to Expect</div>
-        <h2 style="color:var(--white);margin-bottom:48px;">Designed to deliver measurable outcomes.</h2>
-        <div class="grid three">
-          <div class="stat-card card">
-            <div class="stat-num"><span class="highlight">40%</span></div>
-            <p>Target reduction in manual PMO reporting time — the AI Portfolio Intelligence engine is designed to eliminate the status-update cycle entirely.</p>
+        <div class="section-label">Built This Way</div>
+        <h2 style="color:var(--white);margin-bottom:8px;">Listening Carefully Builds Things Nobody Else Has</h2>
+        <p style="max-width:660px;">
+          Our PMO clients shaped the AI Portfolio &amp; Delivery Suite through real sessions,
+          and in doing so, told us what was missing in the market. Two capabilities emerged
+          that are now part of the Suite, and that we haven't seen anywhere else.
+        </p>
+
+        <div class="diff-grid">
+          <div class="diff-card">
+            <span class="diff-card-icon">🔗</span>
+            <h4>DependencyIQ</h4>
+            <p>
+              No enterprise tool maps your <strong>full operational ecosystem</strong> in one place:
+              process models, context diagrams, systems, capabilities, and active projects. DependencyIQ then uses
+              AI to infer where risk is hiding and recommend specific steps to reduce it.
+              Your team sees the full picture before any decision is made.
+            </p>
+            <div class="diff-card-footer">
+              <span class="status-pill live">Live: In Active Use</span>
+              <a href="lab.html" class="diff-link">Learn more →</a>
+            </div>
           </div>
-          <div class="stat-card card">
-            <div class="stat-num"><span class="highlight">3×</span></div>
-            <p>Faster intake and approval cycle times using AI-driven workflow automation — without rebuilding your existing tools or processes.</p>
+          <div class="diff-card">
+            <span class="diff-card-icon">🤖</span>
+            <h4>Developer Agent</h4>
+            <p>
+              Assign work in Jira. The Developer Agent reads your backlog and executes a full development
+              cycle from wireframe to pull request, with a <strong>human approval gate at every step</strong>.
+              It's not a code-completion tool. It's autonomous development with your team in control
+              from start to finish.
+            </p>
+            <div class="diff-card-footer">
+              <span class="status-pill coming">Demo Ready: May 2026</span>
+              <a href="lab.html" class="diff-link">Learn more →</a>
+            </div>
           </div>
-          <div class="stat-card card">
-            <div class="stat-num"><span class="highlight">2 days</span></div>
-            <p>Time to generate a fully-researched 18-month strategic plan using the AI Strategy Generator — previously a multi-month effort.</p>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:48px;">
-          <a href="success.html" class="btn-outline">See How We Engage →</a>
         </div>
       </div>
     </section>
 
-    <!-- ══ CTA BANNER ══ -->
+    <!-- ══ FLAGSHIP TEASER ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-label">What the Approach Produced</div>
+        <h2 style="color:var(--white);margin-bottom:8px;">Our Flagship Product: The Full Picture</h2>
+        <p style="max-width:660px;">
+          Everything above: the Client Workspaces, the v2.0 release, DependencyIQ, the Developer Agent.
+          It all lives here. Eight integrated AI tools covering the full delivery lifecycle, built from
+          real client sessions, now in active enterprise use.
+        </p>
+
+        <div class="flagship-teaser">
+          <div class="flagship-badge">Flagship Product: v2.0 Demo Ready May 2026</div>
+          <h3>AI Portfolio &amp; Delivery Suite</h3>
+          <p class="sub">
+            Eight integrated AI tools covering the full delivery lifecycle, from 18-month strategy
+            generation to autonomous development with human-in-the-loop governance at every step.
+          </p>
+          <div class="suite-highlights">
+            <div class="sh-card">
+              <h5>🧭 AI Strategy &amp; Portfolio</h5>
+              <p>18-month strategy from real industry intelligence, translated to a prioritized project portfolio.</p>
+            </div>
+            <div class="sh-card">
+              <h5>📊 Portfolio Intelligence</h5>
+              <p>Real-time PMO health with AI findings, risk signals, and blast radius analysis.</p>
+            </div>
+            <div class="sh-card">
+              <h5>🔗 DependencyIQ</h5>
+              <p>Full ecosystem mapping from process models to active projects, with AI risk inference.</p>
+            </div>
+            <div class="sh-card">
+              <h5>⚡ Blueprint Generator</h5>
+              <p>Conversational AI turns requirements into Epics and Stories. No manual spec work.</p>
+            </div>
+          </div>
+          <div class="flagship-cta">
+            <a href="lab.html" class="btn-flagship">Explore the Full Suite →</a>
+            <a href="contact.html" class="btn-ghost">Schedule a Demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ MOMENTUM ══ -->
+    <section class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">Momentum</div>
+        <h2 style="color:var(--white);margin-bottom:8px;">Where We Are Right Now</h2>
+        <p style="max-width:640px;">Four months in. Real clients. Real workspaces. A product built from real feedback, and a v2.0 that takes everything we learned and raises the bar.</p>
+        <div class="momentum-grid">
+          <div class="momentum-card">
+            <div class="momentum-num">2</div>
+            <h4>Active Client Workspaces</h4>
+            <p>Manufacturing and Financial Services clients have dedicated white-labeled workspaces running now, built from their own feedback and refined through our engagement model.</p>
+            <div class="industry-pills" style="margin-top:12px;">
+              <span class="industry-pill">Manufacturing</span>
+              <span class="industry-pill">Financial Services</span>
+            </div>
+          </div>
+          <div class="momentum-card">
+            <div class="momentum-num">1</div>
+            <h4>Client Workspace Approaching</h4>
+            <p>A Healthcare client is in active demo sessions, moving toward their own dedicated Client Workspace within the next few weeks.</p>
+            <div class="industry-pills" style="margin-top:12px;">
+              <span class="industry-pill">Healthcare</span>
+            </div>
+          </div>
+          <div class="momentum-card">
+            <div class="momentum-num">30</div>
+            <h4>Days to v2.0 Demo</h4>
+            <p>Blueprint Generator and Developer Agent fully integrated into the suite. Requirements complete, build underway. Demo ready by end of May 2026.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ BELIEVERS ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-label">Why People Believe</div>
+        <h2 style="color:var(--white);margin-bottom:8px;">The Team, the Board, and the Network</h2>
+        <p style="max-width:660px;">We're four months old. The people around us aren't waiting to see how this plays out. They already know.</p>
+        <div class="believers-grid">
+          <div class="believer-card">
+            <span class="believer-icon">🧠</span>
+            <h4>A Seasoned Team</h4>
+            <p>Decades of enterprise architecture, PMO leadership, data lineage, and AI delivery. We built XLeratorAI because we've lived the problems it solves, in large organizations, under real constraints.</p>
+            <a href="about.html" class="believer-link">Meet the team →</a>
+          </div>
+          <div class="believer-card">
+            <span class="believer-icon">🏛️</span>
+            <h4>A Board That Believes</h4>
+            <p>Our board members aren't passive advisors. They understand enterprise transformation, they've seen what happens when it's done poorly, and they committed because they believe this is the right product at the right moment.</p>
+            <a href="board.html" class="believer-link">Meet the board →</a>
+          </div>
+          <div class="believer-card">
+            <span class="believer-icon">🤝</span>
+            <h4>A Network That Evangelizes</h4>
+            <p>Industry leaders at other companies are introducing us to their clients. Not because we asked. Because they see something in this product that makes their clients trust them more for sharing it.</p>
+            <a href="success.html" class="believer-link">See client success →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA ══ -->
     <section class="section" style="padding:80px 32px;">
       <div class="cta-banner">
-        <h2>Ready to accelerate?</h2>
-        <p>Schedule a working session and see your process transformed in 30 days.</p>
+        <h2>We'll show you something real.</h2>
+        <p>Not a deck. A working accelerator in our XLeratorAI Workspace, shaped around your use case. Schedule a session and see what four months of focused building looks like.</p>
         <div class="cta-actions">
-          <a href="contact.html" class="btn-primary">Schedule a Working Session</a>
-          <a href="solutions.html" class="btn-ghost">Explore Solutions →</a>
+          <a href="contact.html" class="btn-primary">Schedule a Session</a>
+          <a href="solutions.html" class="btn-ghost">How We Work With You →</a>
         </div>
       </div>
     </section>
@@ -356,14 +867,16 @@
         </div>
         <div class="footer-col">
           <h4>Solutions</h4>
-          <a href="solutions.html">AI Solutions</a>
-          <a href="solutions.html">AI Staffing</a>
-          <a href="solutions.html">AI Products</a>
+          <a href="solutions.html">How We Work With You</a>
+          <a href="solutions.html">Custom Accelerator Build</a>
+          <a href="solutions.html">Lab Products</a>
+          <a href="solutions.html">Embedded Team</a>
         </div>
         <div class="footer-col">
           <h4>Products</h4>
+          <a href="portfolio-suite.html">Portfolio &amp; Delivery Suite</a>
           <a href="lab.html">AI Strategy Generator</a>
-          <a href="lab.html">AI Portfolio Intelligence</a>
+          <a href="lab.html">AI Portfolio Builder</a>
           <a href="lab.html">DependencyIQ</a>
           <a href="lab.html">The Lab</a>
         </div>
