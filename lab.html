@@ -397,6 +397,351 @@
     }
     .accel-card .cap-tags { margin-bottom: 0; }
 
+    /* ── FEATURED ACCELERATOR SPOTLIGHT ── */
+    .featured-accelerator {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid rgba(31,123,255,0.28);
+      border-radius: 20px;
+      padding: 44px 40px;
+      margin-bottom: 52px;
+      position: relative;
+      overflow: hidden;
+    }
+    .featured-accelerator::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 65% 50%, rgba(31,123,255,0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .in-dev-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #10b981;
+      margin-bottom: 14px;
+    }
+    .in-dev-badge::before { content: '●'; font-size: 0.45rem; }
+    .featured-accel-text .industry-label { margin-bottom: 10px; }
+    .featured-accel-text h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .featured-accel-text .featured-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .featured-accel-image img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 20px 56px rgba(0,0,0,0.35);
+    }
+
+    /* ── SECONDARY ACCELERATORS LIST ── */
+    .secondary-accel-heading {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .secondary-accel-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px 36px;
+      margin-bottom: 40px;
+    }
+    .secondary-accel-item .industry-label { margin-bottom: 6px; }
+    .secondary-accel-item h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+    .secondary-accel-item p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .secondary-accel-interest {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .secondary-accel-interest p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    /* ── SUITE DIAGRAM ── */
+    .diagram-section {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .diagram-wrap {
+      position: relative;
+      display: inline-block;
+      max-width: 680px;
+      width: 100%;
+      user-select: none;
+    }
+    .diagram-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .hs {
+      position: absolute;
+      cursor: default;
+      border-radius: 8px;
+      background: transparent;
+      transition: background 0.15s;
+    }
+    .hs:hover { background: rgba(255,255,255,0.08); }
+    #suite-tooltip {
+      position: fixed;
+      background: #0e1e3a;
+      border: 1px solid rgba(58,143,255,0.35);
+      border-radius: 10px;
+      padding: 14px 18px;
+      max-width: 260px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.88);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.12s;
+      z-index: 9000;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+    }
+    #suite-tooltip.visible { opacity: 1; }
+    #suite-tooltip strong {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    #suite-tooltip ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin: 0;
+    }
+    #suite-tooltip li {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.65);
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.45;
+    }
+    #suite-tooltip li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: #4a9fff;
+      font-weight: 700;
+    }
+
+    /* ── SUITE TOOL GRID ── */
+    .suite-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .suite-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blue);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+    }
+    .suite-card h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .suite-card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ── SUITE CTA ROW ── */
+    .suite-cta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .btn-suite-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #1e3a8a, #3a8fff);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.18s, transform 0.18s;
+    }
+    .btn-suite-pdf:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── PDF MODAL ── */
+    .pdf-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,10,24,0.82);
+      z-index: 8000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .pdf-modal-overlay.open { display: flex; }
+    .pdf-modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 36px 32px;
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .pdf-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .pdf-modal-close:hover { color: var(--white); }
+    .pdf-modal h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .pdf-modal .pdf-modal-sub {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .pdf-form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+    .pdf-form-field label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .pdf-form-field input,
+    .pdf-form-field select {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 10px 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .pdf-form-field input:focus,
+    .pdf-form-field select:focus { border-color: var(--blue); }
+    .pdf-form-field select option { background: #0e1e3a; }
+    .pdf-form-submit {
+      width: 100%;
+      margin-top: 8px;
+      background: linear-gradient(135deg, #1e3a8a, #3a8fff);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 13px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: opacity 0.18s;
+    }
+    .pdf-form-submit:hover { opacity: 0.88; }
+    .pdf-modal-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 12px;
+      text-align: center;
+    }
+    .pdf-success {
+      display: none;
+      text-align: center;
+      padding: 16px 0 8px;
+    }
+    .pdf-success p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+    .pdf-success strong { color: var(--white); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .build-pipeline { grid-template-columns: repeat(2, 1fr); gap: 32px; }
@@ -405,14 +750,18 @@
       .speed-banner { grid-template-columns: 1fr; gap: 32px; }
       .speed-divider { width: 80px; height: 1px; margin: 0 auto; }
       .partnership-grid { grid-template-columns: 1fr; gap: 32px; }
-      .flagship-highlights { grid-template-columns: 1fr; }
-      .flagship-teaser { padding: 32px; }
-      .flagship-teaser h2 { font-size: 1.5rem; }
-      .accelerator-grid { grid-template-columns: repeat(2, 1fr); }
+      .featured-accelerator { grid-template-columns: 1fr; gap: 32px; }
+      .featured-accel-image { order: -1; }
+      .secondary-accel-list { grid-template-columns: repeat(2, 1fr); }
+      .diagram-wrap { max-width: 100%; }
     }
     @media (max-width: 600px) {
-      .accelerator-grid { grid-template-columns: 1fr; }
+      .secondary-accel-list { grid-template-columns: 1fr; }
       .build-pipeline { grid-template-columns: 1fr; }
+      #suite-tooltip { max-width: 200px; font-size: 12px; }
+      .pdf-modal { padding: 32px 20px 24px; }
+      .featured-accelerator { padding: 28px 20px; }
+      .featured-accel-text h3 { font-size: 1.3rem; }
     }
   </style>
 </head>
@@ -523,35 +872,6 @@
           </div>
         </div>
 
-        <div class="own-tools-callout">
-          <div class="own-tools-icon">🔁</div>
-          <div>
-            <h4>We Use Our Own Products to Build Our Products</h4>
-            <p>
-              The <strong>Blueprint Generator</strong> and <strong>Developer Agent</strong> are part of our
-              AI Portfolio &amp; Delivery Suite — and they're exactly what our teams use in the Lab every day.
-              When a client gives us feedback, Blueprint Generator structures it. Developer Agent executes it.
-              That loop is why we move at a pace most teams can't match.
-            </p>
-          </div>
-        </div>
-
-        <div class="speed-banner">
-          <div class="speed-stat">
-            <div class="big-num">1–2</div>
-            <p>weeks from accelerator<br/>to demo-ready product</p>
-          </div>
-          <div class="speed-divider"></div>
-          <div class="speed-stat">
-            <div class="big-num">0</div>
-            <p>manual handoffs between<br/>blueprint and pull request</p>
-          </div>
-          <div class="speed-divider"></div>
-          <div class="speed-stat">
-            <div class="big-num">∞</div>
-            <p>client feedback loops —<br/>until it's production-ready</p>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -568,12 +888,12 @@
         <div class="partnership-grid">
           <div class="partnership-story">
             <p>
-              Our flagship <strong>AI Portfolio &amp; Delivery Suite</strong> began as three separate
+              The <strong>AI Portfolio &amp; Delivery Suite</strong> is the delivery framework we built because we needed it, and our clients confirmed they did too. It began as three separate
               accelerators: an AI Strategy Generator, an AI Portfolio Builder, and a Portfolio Intelligence
               dashboard. Each one solved a real problem. None of them were products yet.
             </p>
             <p>
-              Through structured client sessions — live demos, rapid iteration, sandbox evaluations —
+              Through structured client sessions — live demos, rapid iteration, workspace evaluations —
               those accelerators grew. Client feedback shaped the roadmap. The Blueprint Generator
               captured what needed to change. The Developer Agent executed the changes fast.
               New capabilities were added. What started as three tools became an integrated,
@@ -615,7 +935,7 @@
             <div class="engage-row">
               <div class="engage-row-num">4</div>
               <div class="engage-row-text">
-                <h5>Client Sandbox</h5>
+                <h5>Client Workspace</h5>
                 <p>Your team evaluates with your own data in a dedicated environment.</p>
               </div>
             </div>
@@ -631,56 +951,62 @@
       </div>
     </section>
 
-    <!-- ══ FLAGSHIP TEASER (compact) ══ -->
+    <!-- ══ SUITE ARCHITECTURE ══ -->
     <section class="section section-alt">
       <div class="section-inner">
-        <div class="section-label">Flagship Product</div>
-        <h2 style="color:var(--white);margin-bottom:40px;">The Suite That Started in the Lab</h2>
+        <div class="section-label">Suite Architecture</div>
+        <h2 style="color:var(--white);margin-bottom:12px;">How the Suite Fits Together</h2>
+        <p style="max-width:600px;margin-bottom:40px;">
+          The Data Orchestrator sits at the center of the suite. Every data movement, every
+          ingest, and every export flows through it. The surrounding tools each handle a distinct
+          function while remaining connected through this shared data layer.
+        </p>
 
-        <div class="flagship-teaser">
-          <div class="flagship-badge">Flagship Product — Generally Available</div>
-          <h2>AI Portfolio &amp; Delivery Suite</h2>
-          <p class="sub">
-            Eight integrated AI tools covering the full delivery lifecycle — from 18-month strategy
-            generation to autonomous development. Built in our own Lab, shaped by enterprise clients,
-            and powered by the same Blueprint Generator and Developer Agent our teams use every day.
-          </p>
+        <div class="diagram-section">
+          <div class="diagram-wrap" id="diagramWrap">
+            <img src="img/portfolio-suite-diagram.png" alt="XLeratorAI Portfolio and Development Suite — hub and spoke diagram" draggable="false" />
 
-          <div class="flagship-highlights">
-            <div class="fh-card">
-              <div class="fh-icon">🧭</div>
-              <div>
-                <h4>AI Strategy &amp; Portfolio</h4>
-                <p>Generate an 18-month strategy grounded in industry intelligence, then translate it into a prioritized project portfolio automatically.</p>
-              </div>
-            </div>
-            <div class="fh-card">
-              <div class="fh-icon">📊</div>
-              <div>
-                <h4>Portfolio Intelligence</h4>
-                <p>Real-time PMO health dashboard with AI-generated findings, risk signals, and blast radius analysis across your entire portfolio.</p>
-              </div>
-            </div>
-            <div class="fh-card blue-tint">
-              <div class="fh-icon">⚡</div>
-              <div>
-                <h4>Blueprint Generator + Developer Agent</h4>
-                <p>Conversational AI turns requirements into Epics and Stories. The Developer Agent writes the code, runs tests, and raises pull requests — no handoff required.</p>
-              </div>
-            </div>
-            <div class="fh-card">
-              <div class="fh-icon">🔗</div>
-              <div>
-                <h4>DependencyIQ</h4>
-                <p>Graph engine mapping every project, system, and team dependency. Run blast radius analysis before any change touches production.</p>
-              </div>
-            </div>
+            <div class="hs" data-tool="strategy"
+              style="left:1%;top:2%;width:28%;height:23%;"
+              onmouseenter="showTip(event,'strategy')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <div class="hs" data-tool="builder"
+              style="left:34%;top:0%;width:32%;height:22%;"
+              onmouseenter="showTip(event,'builder')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <div class="hs" data-tool="intelligence"
+              style="left:65%;top:2%;width:33%;height:23%;"
+              onmouseenter="showTip(event,'intelligence')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <div class="hs" data-tool="dependency"
+              style="left:73%;top:37%;width:27%;height:24%;"
+              onmouseenter="showTip(event,'dependency')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <div class="hs" data-tool="blueprint"
+              style="left:64%;top:68%;width:34%;height:29%;"
+              onmouseenter="showTip(event,'blueprint')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <div class="hs" data-tool="devagent"
+              style="left:34%;top:77%;width:32%;height:22%;"
+              onmouseenter="showTip(event,'devagent')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <div class="hs" data-tool="monitor"
+              style="left:1%;top:68%;width:28%;height:29%;"
+              onmouseenter="showTip(event,'monitor')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <div class="hs" data-tool="learn"
+              style="left:0%;top:37%;width:27%;height:24%;"
+              onmouseenter="showTip(event,'learn')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+
+            <div class="hs" data-tool="hub"
+              style="left:36%;top:37%;width:28%;height:26%;"
+              onmouseenter="showTip(event,'hub')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
           </div>
+        </div>
 
-          <div class="flagship-cta">
-            <a href="portfolio-suite.html" class="btn-flagship">Explore the Full Suite →</a>
-            <a href="contact.html" class="btn-ghost">Schedule a Demo</a>
-          </div>
+        <div class="suite-cta">
+          <button class="btn-suite-pdf" onclick="openPdfModal()">Download Suite Overview ↓</button>
+          <a href="contact.html" class="btn-ghost">Schedule a Demo</a>
         </div>
       </div>
     </section>
@@ -692,186 +1018,97 @@
         <h2 style="color:var(--white);margin-bottom:12px;">Accelerators Moving to Product</h2>
         <p style="max-width:700px;margin-bottom:40px;">
           These accelerators are already working — now going through our client interaction sessions.
-          Each one follows the same path as our flagship: Blueprint → Agent → Demo → Sandbox → Deploy.
+          Each one follows the same path through our delivery framework: Blueprint → Agent → Demo → Workspace → Deploy.
         </p>
 
-        <div class="accelerator-grid">
-
-          <!-- RETAIL -->
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Retail</div>
-                <h4>AI Allocation Engine</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Optimize inventory allocation across stores and channels using AI-driven demand forecasting and replenishment strategies.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">Demand Forecasting</span>
-              <span class="cap-tag">Store Allocation</span>
-              <span class="cap-tag">Replenishment</span>
-            </div>
-          </div>
-
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Retail</div>
-                <h4>AI Markdown Analysis Engine</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Analyze pricing and markdown strategies to maximize margin recovery and sell-through rates across product categories.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">Price Optimization</span>
-              <span class="cap-tag">Sell-Through Analysis</span>
-              <span class="cap-tag">Margin Recovery</span>
-            </div>
-          </div>
-
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Retail</div>
-                <h4>Agentic Commerce Support</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Unified commerce protocol adapters for agentic AI-powered customer interactions across channels.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">UCP Protocol</span>
-              <span class="cap-tag">Channel Adapters</span>
-              <span class="cap-tag">AI Agents</span>
-            </div>
-          </div>
-
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Retail</div>
-                <h4>Shopify Apps &amp; Extensions</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Custom Shopify applications and extensions powered by AI for store management, analytics, and automation.</p>
+        <!-- ── FEATURED: SHOPIFY ── -->
+        <div class="featured-accelerator">
+          <div class="featured-accel-text">
+            <span class="in-dev-badge">In Active Development</span>
+            <div class="industry-label">Retail</div>
+            <h3>Shopify Apps &amp; Extensions</h3>
+            <p class="featured-desc">
+              We are building a suite of AI-powered Shopify applications and extensions for retail teams
+              who need more than the default platform provides. From intelligent store analytics and
+              automated inventory decisions to custom checkout experiences, these apps are built for
+              merchants who want AI that understands their operations. Every app ships with human review
+              built in — automated recommendations surface to your team for sign-off before anything
+              executes against your store.
+            </p>
             <div class="cap-tags">
               <span class="cap-tag">Store Analytics</span>
-              <span class="cap-tag">Automation</span>
+              <span class="cap-tag">Inventory Automation</span>
               <span class="cap-tag">Custom Extensions</span>
+              <span class="cap-tag">AI Recommendations</span>
+              <span class="cap-tag">Human-in-the-Loop</span>
             </div>
           </div>
+          <div class="featured-accel-image">
+            <img src="img/shopify-appstore.png" alt="XLeratorAI Shopify App Store" />
+          </div>
+        </div>
 
-          <!-- SUPPLY CHAIN -->
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Supply Chain</div>
-                <h4>AI EDI &amp; Vendor Compliance</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Analyze EDI transactions and vendor compliance with AI to identify discrepancies, chargebacks, and optimization opportunities.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">EDI Analysis</span>
-              <span class="cap-tag">Compliance Tracking</span>
-              <span class="cap-tag">Chargeback Prevention</span>
-            </div>
+        <!-- ── SECONDARY: ALL OTHERS ── -->
+        <p class="secondary-accel-heading">Also in the pipeline</p>
+        <div class="secondary-accel-list">
+
+          <div class="secondary-accel-item">
+            <div class="industry-label">Retail</div>
+            <h5>AI Allocation Engine</h5>
+            <p>Optimizes inventory allocation across stores and channels using AI-driven demand forecasting and replenishment strategies.</p>
           </div>
 
-          <!-- TRANSPORTATION -->
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Transportation</div>
-                <h4>AI Permit-Approved Route Mapping</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Generate optimal routes that comply with permit requirements using Google Maps integration and AI-driven compliance analysis.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">Google Maps Integration</span>
-              <span class="cap-tag">Permit Compliance</span>
-              <span class="cap-tag">Route Optimization</span>
-            </div>
+          <div class="secondary-accel-item">
+            <div class="industry-label">Retail</div>
+            <h5>AI Markdown Analysis Engine</h5>
+            <p>Analyzes pricing and markdown strategies to maximize margin recovery and sell-through rates across product categories.</p>
           </div>
 
-          <!-- REAL ESTATE -->
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Real Estate</div>
-                <h4>AI Home Appraisal &amp; Inspection</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Streamline property appraisals and inspections with AI-powered analysis, comparable market data, and automated reporting.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">Property Analysis</span>
-              <span class="cap-tag">Comparable Sales</span>
-              <span class="cap-tag">Inspection Reports</span>
-            </div>
+          <div class="secondary-accel-item">
+            <div class="industry-label">Retail</div>
+            <h5>Agentic Commerce Support</h5>
+            <p>Unified commerce protocol adapters for AI-powered customer interactions across channels.</p>
           </div>
 
-          <!-- LEGAL -->
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Legal</div>
-                <h4>AI Docket Scraping</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Automatically monitor and extract key information from court dockets, filings, and case schedules.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">Court Monitoring</span>
-              <span class="cap-tag">Filing Extraction</span>
-              <span class="cap-tag">Schedule Tracking</span>
-            </div>
+          <div class="secondary-accel-item">
+            <div class="industry-label">Supply Chain</div>
+            <h5>AI EDI &amp; Vendor Compliance</h5>
+            <p>Identifies EDI discrepancies, chargeback risks, and vendor compliance gaps using AI analysis of transaction data.</p>
           </div>
 
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Legal</div>
-                <h4>AI Case Research</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Accelerate legal research with AI-powered case law analysis, precedent discovery, and argument mapping.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">Case Law Analysis</span>
-              <span class="cap-tag">Precedent Search</span>
-              <span class="cap-tag">Argument Mapping</span>
-            </div>
+          <div class="secondary-accel-item">
+            <div class="industry-label">Transportation</div>
+            <h5>AI Permit-Approved Route Mapping</h5>
+            <p>Generates optimal routes that comply with permit requirements using Google Maps integration and AI compliance analysis.</p>
           </div>
 
-          <div class="accel-card">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Legal</div>
-                <h4>AI Lead Generation</h4>
-              </div>
-              <span class="cs-badge">Coming Soon</span>
-            </div>
-            <p>Identify potential clients and cases using AI-driven analysis of public records, filings, and legal databases.</p>
-            <div class="cap-tags">
-              <span class="cap-tag">Public Records</span>
-              <span class="cap-tag">Client Matching</span>
-              <span class="cap-tag">Opportunity Scoring</span>
-            </div>
+          <div class="secondary-accel-item">
+            <div class="industry-label">Real Estate</div>
+            <h5>AI Home Appraisal &amp; Inspection</h5>
+            <p>Streamlines property appraisals and inspections with AI-powered comparable market analysis and automated reporting.</p>
           </div>
 
-          <!-- INTEREST CARD -->
-          <div class="accel-card" style="border-style:dashed;border-color:rgba(31,123,255,0.2);background:rgba(31,123,255,0.03);">
-            <div class="accel-card-header">
-              <div>
-                <div class="industry-label">Your Industry</div>
-                <h4 style="color:var(--muted);">Have a Problem Worth Solving?</h4>
-              </div>
-            </div>
-            <p>If you have a process that needs AI, we can build a working accelerator and take it through our Lab process with you as the design partner.</p>
-            <a href="contact.html" class="btn-ghost" style="font-size:0.8rem;text-align:center;display:block;">Start the Conversation →</a>
+          <div class="secondary-accel-item">
+            <div class="industry-label">Legal</div>
+            <h5>AI Docket Scraping</h5>
+            <p>Monitors and extracts key information from court dockets, filings, and case schedules automatically.</p>
+          </div>
+
+          <div class="secondary-accel-item">
+            <div class="industry-label">Legal</div>
+            <h5>AI Case Research</h5>
+            <p>Accelerates legal research with AI-powered case law analysis, precedent discovery, and argument mapping.</p>
+          </div>
+
+          <div class="secondary-accel-item">
+            <div class="industry-label">Legal</div>
+            <h5>AI Lead Generation</h5>
+            <p>Identifies potential clients and cases through AI analysis of public records, filings, and legal databases.</p>
+          </div>
+
+          <div class="secondary-accel-interest">
+            <p>Have a process that needs AI? We can build a working accelerator and take it through our Lab process with you as the design partner.</p>
+            <a href="contact.html" class="btn-ghost" style="white-space:nowrap;">Start the Conversation →</a>
           </div>
 
         </div>
@@ -885,7 +1122,6 @@
         <p>Whether you're interested in the Portfolio &amp; Delivery Suite or one of our upcoming accelerators, we'll show you a working product — not slides.</p>
         <div class="cta-actions">
           <a href="contact.html" class="btn-primary">Schedule a Session</a>
-          <a href="portfolio-suite.html" class="btn-ghost">Explore the Suite →</a>
         </div>
       </div>
     </section>
@@ -907,7 +1143,7 @@
         </div>
         <div class="footer-col">
           <h4>Products</h4>
-          <a href="portfolio-suite.html">Portfolio &amp; Delivery Suite</a>
+          <a href="lab.html">Portfolio &amp; Delivery Suite</a>
           <a href="lab.html">AI Strategy Generator</a>
           <a href="lab.html">AI Portfolio Builder</a>
           <a href="lab.html">DependencyIQ</a>
@@ -931,5 +1167,192 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <!-- ══ PDF DOWNLOAD MODAL ══ -->
+  <div class="pdf-modal-overlay" id="pdfModalOverlay" onclick="closePdfModalOnOverlay(event)">
+    <div class="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle">
+      <button class="pdf-modal-close" onclick="closePdfModal()" aria-label="Close">&times;</button>
+
+      <div id="pdfFormView">
+        <h3 id="pdfModalTitle">Download the Suite Overview</h3>
+        <p class="pdf-modal-sub">Complete the short form below and the PDF will download immediately. We may follow up with relevant resources.</p>
+
+        <form id="pdfContactForm" onsubmit="handlePdfSubmit(event)">
+          <div class="pdf-form-field">
+            <label for="pdf-name">Full Name</label>
+            <input type="text" id="pdf-name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="pdf-form-field">
+            <label for="pdf-email">Work Email</label>
+            <input type="email" id="pdf-email" name="email" placeholder="jane@company.com" required />
+          </div>
+          <div class="pdf-form-field">
+            <label for="pdf-company">Company</label>
+            <input type="text" id="pdf-company" name="company" placeholder="Acme Corp" required />
+          </div>
+          <div class="pdf-form-field">
+            <label for="pdf-role">Your Role</label>
+            <select id="pdf-role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="c-suite">C-Suite / Executive</option>
+              <option value="vp">VP / Director</option>
+              <option value="pmo">PMO / Portfolio Manager</option>
+              <option value="technology">Technology / Engineering</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="pdf-form-submit">Download PDF</button>
+        </form>
+        <p class="pdf-modal-note">No spam. Your information is used only to send relevant XLeratorAI content.</p>
+      </div>
+
+      <div class="pdf-success" id="pdfSuccessView">
+        <p style="font-size:2rem;margin-bottom:12px;">&#10003;</p>
+        <p><strong>Your download has started.</strong><br/>Thank you. A member of our team may reach out with additional resources tailored to your role.</p>
+        <button class="pdf-form-submit" style="margin-top:20px;" onclick="closePdfModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="suite-tooltip"></div>
+
+  <script>
+    /* ── Diagram tooltip ── */
+    const SUITE_DATA = {
+      hub: {
+        name: 'Data Orchestrator',
+        caps: [
+          'Central data bus — all ingest and push operations route through a single point of control',
+          'No tool connects to external sources independently; every data movement is mediated',
+          'Fires structured event signals to Portfolio Monitor and Learn & Optimize on every run'
+        ]
+      },
+      strategy: {
+        name: 'Strategy Generator',
+        caps: [
+          'AI-guided wizard that researches your industry and generates an approved 18-month strategy',
+          'Multi-step approval workflow ensures human sign-off before any distribution',
+          'Automatically distributes the approved strategy downstream to Portfolio Builder'
+        ]
+      },
+      builder: {
+        name: 'Portfolio Builder',
+        caps: [
+          'Scores and ranks a full set of AI project candidates against your approved strategy',
+          'Generates structured intake forms and business cases for prioritized projects',
+          'Exports approved portfolios to Jira, Azure DevOps, Clarity, or CSV on approval'
+        ]
+      },
+      intelligence: {
+        name: 'Portfolio Intelligence',
+        caps: [
+          'Real-time PMO health dashboard with AI-generated findings and automated risk alerts',
+          'Cost variance detection and automated health scoring across all active projects',
+          'Embedded blast radius analysis showing downstream impact of any project change'
+        ]
+      },
+      dependency: {
+        name: 'DependencyIQ',
+        caps: [
+          'Graph engine mapping projects, systems, and teams as nodes with typed dependency edges',
+          'Blast radius analysis quantifying the downstream impact of any change or delay',
+          'Data source registry that centralizes all external connection management for the suite'
+        ]
+      },
+      blueprint: {
+        name: 'Blueprint Generator',
+        caps: [
+          'Conversational AI intake that transforms business requirements into structured blueprints',
+          'Generates build specifications, acceptance criteria, and implementation roadmaps',
+          'Creates Epics and Stories in your project management platform automatically on approval'
+        ]
+      },
+      devagent: {
+        name: 'Developer Agent',
+        caps: [
+          'Polls your project management platform for assigned work and executes build tasks autonomously',
+          'Writes code, runs tests, and raises pull requests without manual handoff',
+          'Reports completion events back to the portfolio layer for real-time status visibility'
+        ]
+      },
+      monitor: {
+        name: 'Portfolio Monitor',
+        caps: [
+          'Observability layer capturing every data movement and system event across the suite',
+          'Real-time KPI tracking, latency monitoring, and automated anomaly detection',
+          'Configurable alert routing to email, Slack, Teams, or PagerDuty'
+        ]
+      },
+      learn: {
+        name: 'Learn & Optimize',
+        caps: [
+          'Continuously collects outcome signals from every tool across the suite',
+          'Adjusts scoring weights based on real-world results and company-specific patterns',
+          'Surfaces optimization insights back to Strategy Generator and Portfolio Builder'
+        ]
+      }
+    };
+
+    const tip = document.getElementById('suite-tooltip');
+
+    function showTip(e, id) {
+      const d = SUITE_DATA[id];
+      if (!d) return;
+      tip.innerHTML = `<strong>${d.name}</strong><ul>${d.caps.map(c => `<li>${c}</li>`).join('')}</ul>`;
+      tip.classList.add('visible');
+      moveTip(e);
+    }
+    function moveTip(e) {
+      const x = Math.min(e.clientX + 18, window.innerWidth - 278);
+      const y = Math.max(e.clientY - 10, 8);
+      tip.style.left = x + 'px';
+      tip.style.top  = y + 'px';
+    }
+    function hideTip() { tip.classList.remove('visible'); }
+
+    /* ── PDF modal ── */
+    function openPdfModal() {
+      document.getElementById('pdfFormView').style.display = 'block';
+      document.getElementById('pdfSuccessView').style.display = 'none';
+      document.getElementById('pdfContactForm').reset();
+      document.getElementById('pdfModalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePdfModal() {
+      document.getElementById('pdfModalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closePdfModalOnOverlay(e) {
+      if (e.target === document.getElementById('pdfModalOverlay')) closePdfModal();
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closePdfModal();
+    });
+
+    function handlePdfSubmit(e) {
+      e.preventDefault();
+      const data = {
+        name:    document.getElementById('pdf-name').value,
+        email:   document.getElementById('pdf-email').value,
+        company: document.getElementById('pdf-company').value,
+        role:    document.getElementById('pdf-role').value,
+        source:  'suite-overview-pdf',
+        ts:      new Date().toISOString()
+      };
+      console.log('PDF lead captured:', data);
+      /* Wire to your form endpoint (Formspree, HubSpot, etc.) here if needed:
+         fetch('https://your-endpoint.com/lead', { method:'POST',
+           headers:{'Content-Type':'application/json'}, body:JSON.stringify(data) }); */
+      const a = document.createElement('a');
+      a.href = 'portfolio-suite-overview.pdf';
+      a.download = 'XLeratorAI-Portfolio-Suite-Overview.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      document.getElementById('pdfFormView').style.display = 'none';
+      document.getElementById('pdfSuccessView').style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>

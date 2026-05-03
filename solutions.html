@@ -117,8 +117,8 @@
     }
     .path-bullets li {
       display: flex;
-      align-items: flex-start;
-      gap: 12px;
+      align-items: baseline;
+      gap: 10px;
       font-size: 0.88rem;
       color: var(--muted);
       line-height: 1.55;
@@ -132,11 +132,15 @@
       color: var(--blue);
       font-weight: 700;
       flex-shrink: 0;
-      margin-top: 1px;
     }
     .path-bullets li strong {
       color: var(--white);
       font-weight: 600;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .path-bullets li .path-desc {
+      flex: 1;
     }
     .path-cta {
       display: flex;
@@ -296,10 +300,10 @@
         <div class="section-label">Solutions</div>
         <h1>How We Work<br/>With You</h1>
         <p style="max-width:620px;">
-          Every engagement starts the same way — a conversation about where you are and what
+          Every engagement starts the same way. with a conversation about where you are and what
           you need. From there, three paths forward. No bloated SOWs, no 12-month roadmaps
           before you see something real.
-        </p>
+        </p>  
       </div>
     </section>
 
@@ -310,7 +314,7 @@
         <h2 style="color:var(--white);margin-bottom:8px;">Find Your Starting Point</h2>
         <p style="max-width:640px;">
           Most clients aren't sure which path is right before we talk. That's expected.
-          These three modes describe how engagements typically take shape — often, they evolve from one into another.
+          These three modalities describe how engagements typically take shape. Often, they evolve from one into another.
         </p>
 
         <div class="path-stack">
@@ -325,18 +329,18 @@
             </div>
             <div class="path-right">
               <p class="lead">
-                You have a specific process, problem, or opportunity — and you need a working solution fast.
+                You have a specific process, problem, or opportunity and you need a working solution fast.
                 We design and build a custom AI accelerator with you, starting from discovery and ending
-                with a deployed, client-validated product. No guessing, no scope creep — just a clear
+                with a deployed, client-validated product. No guessing, no scope creep, just a clear
                 build cycle with real milestones.
               </p>
               <h4>What's included</h4>
               <ul class="path-bullets">
-                <li><strong>Discovery sessions</strong> to map your process, data, and goals</li>
-                <li><strong>Accelerator design</strong> using our Blueprint Generator — requirements become Epics and Stories automatically</li>
-                <li><strong>Working prototype</strong> in weeks, not months, built with our Developer Agent</li>
-                <li><strong>Structured review cycles</strong> — demo, refine, demo again before anything goes to sandbox</li>
-                <li><strong>Sandbox evaluation</strong> in your environment, with your data, on your timeline</li>
+                <li><strong>Discovery sessions</strong><span class="path-desc"> – to map your process, data, and goals</span></li>
+                <li><strong>Accelerator design</strong><span class="path-desc"> – using our Blueprint Generator, requirements become Epics and Stories automatically</span></li>
+                <li><strong>Working prototype</strong><span class="path-desc"> – in weeks, not months, built with our Developer Agent</span></li>
+                <li><strong>Review cycles</strong><span class="path-desc"> – demo, refine, demo again before anything goes to workspace</span></li>
+                <li><strong>Client workspaces</strong><span class="path-desc"> – in your environment, with your data, on your timeline</span></li>
               </ul>
               <div class="path-cta">
                 <a href="contact.html" class="btn-primary">Start the Conversation</a>
@@ -355,17 +359,18 @@
             </div>
             <div class="path-right">
               <p class="lead">
-                If your problem maps to something already in the Lab, you don't need a custom build —
-                you need a fast path to a working product. Our flagship Portfolio &amp; Delivery Suite
-                and our pipeline of industry accelerators are built for exactly this. You still go
-                through our engagement model: demo, refine, sandbox, deploy. You just start further ahead.
+                If your problem maps to something already in the Lab, you don't need a custom build.
+                You need a fast path to a working product. The Portfolio &amp; Delivery Suite is the delivery framework
+                we built because we needed it, confirmed by client after client. Together with our pipeline of
+                industry accelerators, it is built for exactly this. You still go through our engagement model:
+                demo, refine, workspace, deploy. You just start further ahead.
               </p>
               <h4>What's available</h4>
               <ul class="path-bullets">
-                <li><strong>AI Portfolio &amp; Delivery Suite</strong> — strategy, portfolio, dependency, and autonomous development in one integrated platform</li>
-                <li><strong>Industry accelerators</strong> in active development across Retail, Legal, Supply Chain, Real Estate, and Transportation</li>
-                <li><strong>Client sandbox</strong> before any commitment — evaluate with your own data in your own environment</li>
-                <li><strong>Continuous improvement</strong> included — our teams keep iterating with you after deployment</li>
+                <li><strong>AI Portfolio &amp; Delivery Suite</strong><span class="path-desc"> – strategy, portfolio, dependency, and autonomous development in one integrated platform</span></li>
+                <li><strong>Industry accelerators</strong><span class="path-desc"> – in active development across Retail, Legal, Supply Chain, Real Estate, and Transportation</span></li>
+                <li><strong>Client workspace</strong><span class="path-desc"> – before any commitment, evaluate with your own data in your own environment</span></li>
+                <li><strong>Continuous improvement</strong><span class="path-desc"> – our teams keep iterating with you after deployment</span></li>
               </ul>
               <div class="path-cta">
                 <a href="lab.html" class="btn-primary">Explore Lab &amp; Products</a>
@@ -385,16 +390,16 @@
             <div class="path-right">
               <p class="lead">
                 Sometimes the right move is augmenting your team with people who already know how to
-                work with AI — not just talk about it. We place project managers and technologists
+                work with AI, not just talk about it. We place project managers and technologists
                 who have been trained on our accelerator toolkit and delivery practices. This is a
-                conversation, not a catalog — every placement is shaped around what your team actually needs.
+                conversation, not a catalog. Every placement is shaped around what your team actually needs.
               </p>
               <h4>How it works</h4>
               <ul class="path-bullets">
-                <li><strong>AI bootcamp-trained</strong> — every person placed has worked with our accelerator toolkit and prompt engineering practices</li>
-                <li><strong>PMs and technologists</strong> with real AI delivery experience, not just certifications</li>
-                <li><strong>Full-service model</strong> — we handle recruiting, training, onboarding, and vendor management</li>
-                <li><strong>Flexible engagement</strong> — the structure is built around your team, your timeline, and your work</li>
+                <li><strong>AI bootcamp trained</strong><span class="path-desc"> – every person has completed our accelerator toolkit and best practices</span></li>
+                <li><strong>PMs and technologists</strong><span class="path-desc"> – with real AI delivery experience, not just certifications</span></li>
+                <li><strong>Full-service model</strong><span class="path-desc"> – we handle recruiting, training, onboarding, and vendor management</span></li>
+                <li><strong>Flexible engagement</strong><span class="path-desc"> – the structure is built around your team, your timeline, and your work</span></li>
               </ul>
               <div class="path-cta">
                 <a href="contact.html" class="btn-primary">Let's Talk</a>
@@ -412,7 +417,7 @@
         <div class="section-label">Getting Started</div>
         <h2 style="color:var(--white);margin-bottom:12px;">Every Engagement Starts the Same Way</h2>
         <p style="max-width:660px;">
-          We don't lead with a proposal. We lead with a conversation — and within a few sessions,
+          We don't lead with a proposal. We lead with a conversation and within a few sessions,
           you'll have a clear picture of the right path, the right scope, and what you can expect to see first.
         </p>
 
@@ -420,17 +425,17 @@
           <div class="starts-card">
             <div class="step-num">1</div>
             <h4>Discovery Conversation</h4>
-            <p>A focused session to understand your process, your data landscape, and what success looks like. No commitment, no sales pressure — just clarity on fit.</p>
+            <p>A focused session to understand your process, your data landscape, and what success looks like. No commitment, no sales pressure, just clarity on fit.</p>
           </div>
           <div class="starts-card">
             <div class="step-num">2</div>
             <h4>Path Recommendation</h4>
-            <p>We tell you which path makes sense and why — whether that's a custom build, an existing product, or embedded talent. Sometimes it's a combination.</p>
+            <p>We tell you which path makes sense and why. Whether that's a custom build, an existing product, or embedded talent. Sometimes it's a combination.</p>
           </div>
           <div class="starts-card">
             <div class="step-num">3</div>
             <h4>You See Something Real</h4>
-            <p>Within weeks — not months — you're looking at a working prototype or live demo. Real screens, real data, real feedback. That's where we start every engagement.</p>
+            <p>Within weeks, not months, you're looking at a working prototype or live demo. Real screens, real data, real feedback. That's where we start every engagement.</p>
           </div>
         </div>
 
@@ -474,7 +479,7 @@
         </div>
         <div class="footer-col">
           <h4>Products</h4>
-          <a href="portfolio-suite.html">Portfolio &amp; Delivery Suite</a>
+          <a href="lab.html">Portfolio &amp; Delivery Suite</a>
           <a href="lab.html">AI Strategy Generator</a>
           <a href="lab.html">AI Portfolio Builder</a>
           <a href="lab.html">DependencyIQ</a>
