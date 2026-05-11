@@ -163,8 +163,41 @@
       line-height: 1.7;
       margin: 0;
     }
+    .industry-client-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+    .industry-client-table th {
+      text-align: left;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .industry-client-table td {
+      padding: 8px 10px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+    .industry-client-table td:first-child {
+      font-weight: 600;
+      color: var(--white);
+      white-space: nowrap;
+      width: 28%;
+    }
+    .industry-client-table tr:last-child td {
+      border-bottom: none;
+    }
     @media (max-width: 600px) {
       .industry-modal { padding: 28px 20px; }
+      .industry-client-table td:first-child { white-space: normal; width: auto; }
     }
   </style>
 </head>
@@ -481,16 +514,73 @@
       <div class="industry-company" style="margin-bottom: 16px; padding-bottom: 16px;">
         <h4>1. Banking &amp; Electronic Payments</h4>
         <p>Our team has extensive experience designing and implementing integrated electronic payment infrastructures across major banking institutions, including SWIFT, FedWire, and ACH systems.</p>
+        <table class="industry-client-table">
+          <thead>
+            <tr><th>Client</th><th>Engagement / Project Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Republic Bankcorp</td>
+              <td>Design and implementation of integrated electronic payment systems including SWIFT, FedWire, and ACH platforms.</td>
+            </tr>
+            <tr>
+              <td>Republic Banc Shares</td>
+              <td>Integrated electronic payment systems encompassing SWIFT, Fedwire, and ACH, delivering end-to-end payment processing capabilities.</td>
+            </tr>
+            <tr>
+              <td>Boatmen's Bank</td>
+              <td>Integrated electronic payment systems including SWIFT, Fedwire, and ACH to modernize core payment infrastructure.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="industry-company" style="margin-bottom: 16px; padding-bottom: 16px;">
         <h4>2. Check Imaging &amp; High-Volume Payment Processing</h4>
         <p>We have delivered large-scale check imaging and processing solutions for some of the nation's largest financial institutions and the Federal Reserve, including Check 21-compliant platforms.</p>
+        <table class="industry-client-table">
+          <thead>
+            <tr><th>Client</th><th>Engagement / Project Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bank of America</td>
+              <td>Large-volume check processing solutions supporting high-throughput retail and commercial banking operations.</td>
+            </tr>
+            <tr>
+              <td>Bank of New York</td>
+              <td>Enhanced imaging solution for high-volume check processing and Check 21 compliance.</td>
+            </tr>
+            <tr>
+              <td>JP Morgan Chase</td>
+              <td>Enhanced imaging solution for high-volume check processing and Check 21 compliance.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="industry-company" style="margin-bottom: 16px; padding-bottom: 16px;">
         <h4>3. Digital Transformation &amp; Process Automation</h4>
         <p>We have partnered with investment managers, banks, and financial technology firms to automate complex business processes, modernize data infrastructure, and transform client-facing digital experiences.</p>
+        <table class="industry-client-table">
+          <thead>
+            <tr><th>Client</th><th>Engagement / Project Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SEI Investments</td>
+              <td>Data warehousing architecture and SMA (Separately Managed Accounts) customer portal application development.</td>
+            </tr>
+            <tr>
+              <td>Nuveen Investments</td>
+              <td>BPM automation of client onboarding and compliance review processes, reducing cycle times and improving auditability.</td>
+            </tr>
+            <tr>
+              <td>WSFS Bank</td>
+              <td>BPM automation of client onboarding processes to streamline new account workflows and improve the client experience.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <div class="industry-company" style="margin-bottom: 16px; padding-bottom: 16px;">
