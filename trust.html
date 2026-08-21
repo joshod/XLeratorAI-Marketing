@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Trust &amp; Compliance – XLeratorAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="How XLeratorAI builds every accelerator: a SOC 2 Type II-aligned security standard and an AI development best practices framework, applied to our own products and available for your environment too." />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+
+    .animate-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .animate-in.visible { opacity: 1; transform: translateY(0); }
+    .animate-in.delay-1 { transition-delay: 0.1s; }
+    .animate-in.delay-2 { transition-delay: 0.2s; }
+    .animate-in.delay-3 { transition-delay: 0.22s; }
+    .animate-in.delay-4 { transition-delay: 0.3s; }
+    .animate-in.delay-5 { transition-delay: 0.32s; }
+    .animate-in.delay-6 { transition-delay: 0.4s; }
+
+    /* Hero animated SVG */
+    .page-hero { position: relative; overflow: hidden; }
+    .hero-svg-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; pointer-events: none; }
+    .page-hero-inner { position: relative; z-index: 1; }
+
+    @keyframes meshShift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -20px) scale(1.05); }
+      50% { transform: translate(-20px, 15px) scale(0.97); }
+      75% { transform: translate(15px, 25px) scale(1.03); }
+    }
+    @keyframes meshShift2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(-25px, 20px) scale(1.04); }
+      66% { transform: translate(20px, -15px) scale(0.98); }
+    }
+
+    /* Security inline badges (shared pattern with data-hosting.html) */
+    .security-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .security-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.68rem; font-weight: 600;
+      color: var(--blue); background: var(--blue-glow); border: 1px solid var(--border-blue);
+      border-radius: 999px; padding: 4px 12px; letter-spacing: 0.02em;
+    }
+
+    /* Control category card list */
+    .control-card ul { list-style: none; margin: 14px 0 0; display: flex; flex-direction: column; gap: 9px; }
+    .control-card li { display: flex; align-items: flex-start; gap: 9px; font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+    .control-card li::before { content: '✓'; color: var(--blue); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    /* Cadence band */
+    .cadence-band {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border-blue);
+      border-radius: 24px;
+      padding: 44px 48px;
+      box-shadow: var(--shadow-md), 0 0 40px rgba(31,123,255,0.06);
+    }
+    .cadence-band h2 { margin-bottom: 14px; }
+    .cadence-band p { font-size: 0.92rem; line-height: 1.75; margin-bottom: 14px; }
+    .cadence-band p:last-child { margin-bottom: 0; }
+    .cadence-band p strong { color: var(--text); font-weight: 600; }
+    .cadence-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cadence-stat {
+      background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px;
+      padding: 20px 16px; text-align: center;
+    }
+    .cadence-stat .num {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--text); line-height: 1;
+    }
+    .cadence-stat .lbl { font-size: 0.72rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+    /* Standard-mapping strip */
+    .standard-strip { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .standard-chip {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.72rem; font-weight: 700;
+      color: var(--text-mid); background: var(--card); border: 1px solid var(--border);
+      border-radius: 999px; padding: 6px 14px;
+    }
+
+    /* Practice-not-product banner */
+    .practice-banner {
+      background: linear-gradient(135deg, rgba(31,123,255,0.08), rgba(0,204,153,0.05));
+      border: 1px solid rgba(31,123,255,0.2);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-top: 40px;
+    }
+    .practice-banner h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .practice-banner p { font-size: 0.88rem; color: var(--muted); margin: 0; line-height: 1.7; max-width: 720px; }
+
+    /* Honesty note */
+    .honesty-note {
+      border-left: 3px solid var(--border-blue); padding: 4px 0 4px 20px; margin-top: 40px; max-width: 780px;
+    }
+    .honesty-note p { font-size: 0.84rem; color: var(--muted-light); line-height: 1.7; }
+
+    @media (max-width: 900px) {
+      .cadence-band { grid-template-columns: 1fr; gap: 28px; padding: 32px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><img src="img/logo-medium.png" alt="XLeratorAI" /></a>
+      <nav class="main-nav">
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">Solutions <span class="nav-arrow"></span></span>
+          <div class="nav-dropdown-menu">
+            <a href="solutions.html">Solutions<span class="dropdown-desc">AI solutions, staffing &amp; products</span></a>
+            <a href="lab.html">Lab &amp; Products<span class="dropdown-desc">PMO, Strategy &amp; Portfolio Accelerators</span></a>
+            <a href="data-hosting.html">Data &amp; Hosting<span class="dropdown-desc">Security, compliance &amp; infrastructure</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">Why XLeratorAI <span class="nav-arrow"></span></span>
+          <div class="nav-dropdown-menu">
+            <a href="approach.html">Our Approach<span class="dropdown-desc">How we accelerate outcomes</span></a>
+            <a href="trust.html" class="active">Trust &amp; Compliance<span class="dropdown-desc">SOC 2 Type II &amp; AI best practices</span></a>
+            <a href="success.html">Client Success<span class="dropdown-desc">Case studies &amp; results</span></a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-trigger">Company <span class="nav-arrow"></span></span>
+          <div class="nav-dropdown-menu">
+            <a href="about.html">About<span class="dropdown-desc">Our team &amp; mission</span></a>
+            <a href="board.html">Board<span class="dropdown-desc">Board of directors</span></a>
+          </div>
+        </div>
+        <a href="survey.html">Are You Ready?</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a href="contact.html" class="btn-cta">Schedule a Session</a>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-group-label">Solutions</span>
+      <a href="solutions.html">Solutions</a>
+      <a href="lab.html">Lab &amp; Products</a>
+      <a href="data-hosting.html">Data &amp; Hosting</a>
+    </div>
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-group-label">Why XLeratorAI</span>
+      <a href="approach.html">Our Approach</a>
+      <a href="trust.html" class="active">Trust &amp; Compliance</a>
+      <a href="success.html">Client Success</a>
+    </div>
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-group-label">Company</span>
+      <a href="about.html">About</a>
+      <a href="board.html">Board</a>
+    </div>
+    <a href="survey.html">Are You Ready?</a>
+    <a href="contact.html" class="mobile-nav-cta">Schedule a Session</a>
+  </div>
+
+  <main>
+
+    <!-- ══ PAGE HERO ══ -->
+    <section class="page-hero">
+      <svg class="hero-svg-bg" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="mesh1" cx="30%" cy="40%" r="45%">
+            <stop offset="0%" stop-color="#1a6fe8" stop-opacity="0.07" />
+            <stop offset="100%" stop-color="#1a6fe8" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="mesh2" cx="70%" cy="60%" r="40%">
+            <stop offset="0%" stop-color="#0099cc" stop-opacity="0.06" />
+            <stop offset="100%" stop-color="#0099cc" stop-opacity="0" />
+          </radialGradient>
+        </defs>
+        <ellipse cx="360" cy="240" rx="400" ry="280" fill="url(#mesh1)" style="animation: meshShift 20s ease-in-out infinite;" />
+        <ellipse cx="840" cy="360" rx="350" ry="250" fill="url(#mesh2)" style="animation: meshShift2 25s ease-in-out infinite;" />
+        <g opacity="0.25">
+          <circle cx="200" cy="150" r="2" fill="#1a6fe8">
+            <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="700" cy="200" r="2" fill="#1a6fe8">
+            <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.5s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="950" cy="130" r="1.5" fill="#0099cc">
+            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="6s" repeatCount="indefinite" />
+          </circle>
+          <line x1="200" y1="150" x2="700" y2="200" stroke="#1a6fe8" stroke-width="0.5" opacity="0.12" />
+          <line x1="700" y1="200" x2="950" y2="130" stroke="#1a6fe8" stroke-width="0.5" opacity="0.1" />
+        </g>
+      </svg>
+      <div class="page-hero-inner">
+        <div class="section-label">Trust &amp; Compliance</div>
+        <h1>This Is How We Build.<br /><span class="accent">Every Time.</span></h1>
+        <p style="max-width:680px;">
+          Every XLeratorAI accelerator, ours, a client's, or a reseller partner's white-labeled
+          product, is built against the same two internal standards: a SOC 2 Type II-aligned
+          security checklist and an AI development best practices framework mapped to NIST AI RMF,
+          ISO 42001, and the OWASP LLM Top 10. This isn't a tier you opt into. It's the baseline.
+        </p>
+        <div style="display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;">
+          <a href="solutions.html#security-governance" class="btn-primary">Bring This to Your Environment →</a>
+          <a href="data-hosting.html" class="btn-ghost">See Data &amp; Hosting →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ HOW WE APPROACH TRUST ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-label animate-in">How We Approach Trust</div>
+        <h2 class="animate-in" style="margin-bottom:8px;">Adherence Is a Practice, Not a Checkbox</h2>
+        <p class="animate-in" style="max-width:760px;">
+          We don't treat security and responsible AI as a one-time audit to pass. Every accelerator in
+          our AI Portfolio &amp; Delivery Suite is measured every year against the same two internal
+          standards, and every finding, fixed or still open, is tracked, not hidden.
+        </p>
+        <div class="standard-strip animate-in delay-1">
+          <span class="standard-chip">SOC 2 Trust Services Criteria</span>
+          <span class="standard-chip">NIST AI Risk Management Framework</span>
+          <span class="standard-chip">ISO/IEC 42001</span>
+          <span class="standard-chip">OWASP LLM Top 10</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SOC2-ALIGNED CONTROLS ══ -->
+    <section class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label animate-in">SOC 2 Type II Aligned Controls</div>
+        <h2 class="animate-in" style="margin-bottom:8px;">The Controls Behind Every Accelerator</h2>
+        <p class="animate-in" style="max-width:760px;">
+          These aren't aspirational. Each control below is implemented in the running codebase across
+          every accelerator, verified by counting real route decorators and API responses, not by
+          reading documentation and assuming it matches reality.
+        </p>
+        <div class="grid three">
+          <div class="card control-card animate-in delay-1">
+            <div class="card-icon">🔐</div>
+            <h3>Authentication &amp; Session Security</h3>
+            <p>Every route requires authentication except explicitly public health checks. Session tokens are CSPRNG-generated, stored hashed, and expire on a server-enforced TTL.</p>
+          </div>
+          <div class="card control-card animate-in delay-2">
+            <div class="card-icon">🏢</div>
+            <h3>Tenant Data Isolation</h3>
+            <p>Every query touching client data filters by company server-side, derived from the authenticated session, never from a client-suppliable parameter.</p>
+          </div>
+          <div class="card control-card animate-in delay-3">
+            <div class="card-icon">🔑</div>
+            <h3>Credential Encryption &amp; Key Rotation</h3>
+            <p>Third-party credentials are encrypted at rest with AES-256-GCM. The master key supports scheduled rotation without a coordinated downtime window.</p>
+          </div>
+          <div class="card control-card animate-in delay-4">
+            <div class="card-icon">🚪</div>
+            <h3>Single Gateway for External Systems</h3>
+            <p>One service holds every external credential and makes every outbound call to systems like Jira, GitHub, and ServiceNow. No accelerator reaches out on its own.</p>
+          </div>
+          <div class="card control-card animate-in delay-5">
+            <div class="card-icon">📋</div>
+            <h3>Audit Logging, Retention &amp; Alerting</h3>
+            <p>Security-relevant events are logged with redaction applied before storage, retained on a defined schedule, and monitored for failed-login patterns.</p>
+          </div>
+          <div class="card control-card animate-in delay-6">
+            <div class="card-icon">📦</div>
+            <h3>Automated Dependency Scanning</h3>
+            <p>Every dependency across every accelerator is scanned continuously for known vulnerabilities, with pinned versions to keep builds reproducible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ AI BEST PRACTICES ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-label animate-in">AI Development Best Practices</div>
+        <h2 class="animate-in" style="margin-bottom:8px;">Governance Built Into How We Build AI</h2>
+        <p class="animate-in" style="max-width:760px;">
+          AI features get the same rigor as security controls. We screen what goes into a model,
+          disclose what comes out of one, and keep a human in the loop at the stages that matter.
+        </p>
+        <div class="grid three">
+          <div class="card control-card animate-in delay-1">
+            <div class="card-icon">🛡️</div>
+            <h3>Prompt Injection Screening</h3>
+            <p>Free text pulled from external systems (tickets, comments, uploaded documents) is screened for injection patterns before it ever reaches a model prompt.</p>
+          </div>
+          <div class="card control-card animate-in delay-2">
+            <div class="card-icon">🏷️</div>
+            <h3>AI-Generated Content Disclosure</h3>
+            <p>Anywhere AI output is shown to a user, the interface says so, plainly, next to the content, not buried in a terms page.</p>
+          </div>
+          <div class="card control-card animate-in delay-3">
+            <div class="card-icon">🧑‍💼</div>
+            <h3>Human-in-the-Loop by Design</h3>
+            <p>Every autonomous pipeline, from Blueprint Generator through the AI Developer Agent, includes a quality gate a person reviews before anything ships.</p>
+          </div>
+          <div class="card control-card animate-in delay-4">
+            <div class="card-icon">📜</div>
+            <h3>Model Provenance &amp; Versioning</h3>
+            <p>Which model produced which output is tracked and reproducible, not left to whatever happened to be configured at the time.</p>
+          </div>
+          <div class="card control-card animate-in delay-5">
+            <div class="card-icon">⚖️</div>
+            <h3>Responsible AI Principles</h3>
+            <p>A documented internal standard covers model safety, explainability, and ethical use, reviewed the same way our security standard is.</p>
+          </div>
+          <div class="card control-card animate-in delay-6">
+            <div class="card-icon">👁️</div>
+            <h3>Continuous AI Monitoring</h3>
+            <p>AI-touching code paths are re-examined every review cycle specifically for this class of risk, not assumed safe because they passed once.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ REVIEW CADENCE ══ -->
+    <section class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label animate-in">Review Cadence</div>
+        <h2 class="animate-in" style="margin-bottom:32px;">Continuous by Design</h2>
+        <div class="cadence-band animate-in">
+          <div>
+            <h2>There Will Always Be Findings. That's the Point</h2>
+            <p>
+              Security and AI governance standards change every year, and so do our accelerators.
+              We don't treat a clean review as a finish line. We treat it as a snapshot, one we take
+              again on a fixed annual cycle, closing what we can, and documenting honestly what stays
+              open and why.
+            </p>
+            <p>
+              <strong>2026 is our Year 1 baseline.</strong> Both standards were reviewed end-to-end
+              across all nine core accelerators, real gaps were fixed in the codebase, not just
+              written down, and the rest became a tracked backlog for the next cycle.
+            </p>
+          </div>
+          <div class="cadence-stats">
+            <div class="cadence-stat">
+              <div class="num">2026</div>
+              <div class="lbl">Year 1 Baseline Review</div>
+            </div>
+            <div class="cadence-stat">
+              <div class="num">Annual</div>
+              <div class="lbl">Review Cycle</div>
+            </div>
+            <div class="cadence-stat">
+              <div class="num">9</div>
+              <div class="lbl">Accelerators In Scope</div>
+            </div>
+            <div class="cadence-stat">
+              <div class="num">2</div>
+              <div class="lbl">Standards Tracked</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="security-tags animate-in delay-1" style="margin-top:32px;">
+          <span class="security-tag">SOC 2 Type II Aligned</span>
+          <span class="security-tag">AI Best Practices Aligned</span>
+          <span class="security-tag">AES-256 Encryption</span>
+          <span class="security-tag">Prompt Injection Screening</span>
+          <span class="security-tag">Annual Review Cycle</span>
+        </div>
+
+        <div class="practice-banner animate-in delay-2">
+          <h3>A Practice, Not a Product</h3>
+          <p>
+            This page describes how we build: for ourselves, for clients, and for reseller partners.
+            It isn't something you purchase on top of an accelerator; it's already inside every one we
+            ship. The separate, real offer is applying this same standard to what you're already
+            running, which is a different conversation, covered on our Solutions page.
+          </p>
+        </div>
+
+        <div class="honesty-note animate-in delay-3">
+          <p>
+            "Aligned" means our engineering practices are measured against SOC 2 Type II control
+            objectives and recognized AI governance frameworks through structured internal review. It
+            is not a claim of independent third-party certification. For engagements that require
+            formal audit evidence or a signed data processing agreement, tell us in the conversation
+            and we'll walk through exactly what we have.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA BANNER ══ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="cta-banner animate-in">
+          <h2>Want This Standard in Your Own Environment?</h2>
+          <p>
+            Every accelerator we build starts from this bar. If your team wants the same standard
+            applied to what you're already running, your code, your AI systems, your development
+            practices, that's a conversation, not a checkbox.
+          </p>
+          <div class="cta-actions">
+            <a href="solutions.html#security-governance" class="btn-primary">See How We'd Apply It →</a>
+            <a href="contact.html" class="btn-ghost">Talk to Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="img/logo-medium.png" alt="XLeratorAI" class="footer-logo" />
+          <p>AI-powered accelerators that transform complex business processes into fast, scalable, executive-ready
+            solutions.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <a href="solutions.html">How We Work With You</a>
+          <a href="solutions.html">Custom Accelerator Build</a>
+          <a href="solutions.html">Lab Products</a>
+          <a href="solutions.html">Embedded Team</a>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="lab.html">Portfolio &amp; Delivery Suite</a>
+          <a href="lab.html">AI Strategy Generator</a>
+          <a href="lab.html">AI Portfolio Builder</a>
+          <a href="lab.html">DependencyIQ</a>
+          <a href="lab.html">The Lab</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About</a>
+          <a href="approach.html">Our Approach</a>
+          <a href="trust.html">Trust &amp; Compliance</a>
+          <a href="data-hosting.html">Data &amp; Hosting</a>
+          <a href="board.html">Board</a>
+          <a href="success.html">Client Success</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 XLeratorAI. All rights reserved.</p>
+        <p>Built with speed. Delivered with clarity.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+      document.querySelectorAll('.animate-in').forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
