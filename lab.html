@@ -123,33 +123,6 @@
       font-weight: 700;
     }
 
-    /* ── SPEED STATS ── */
-    .speed-banner {
-      background: linear-gradient(135deg, rgba(31,123,255,0.08), rgba(0,204,153,0.05));
-      border: 1px solid rgba(31,123,255,0.2);
-      border-radius: 16px;
-      padding: 36px 48px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr auto 1fr;
-      gap: 24px;
-      align-items: center;
-      margin-top: 48px;
-    }
-    .speed-stat { text-align: center; }
-    .speed-stat .big-num {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 2.6rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .speed-stat p { font-size: 0.82rem; color: var(--muted); margin: 0; }
-    .speed-divider { width: 1px; height: 80px; background: var(--border); }
-
     /* ── CLIENT PARTNERSHIP ── */
     .partnership-grid {
       display: grid;
@@ -210,117 +183,6 @@
       margin: 0;
       line-height: 1.5;
     }
-
-    /* ── FLAGSHIP TEASER (compact) ── */
-    .flagship-teaser {
-      background: var(--card);
-      border: 1px solid var(--border-blue);
-      border-radius: 24px;
-      padding: 48px 52px;
-      box-shadow: 0 0 60px rgba(31,123,255,0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    .flagship-teaser::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 320px;
-      height: 320px;
-      background: radial-gradient(circle, rgba(31,123,255,0.09) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .flagship-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, rgba(31,123,255,0.15), rgba(0,204,153,0.1));
-      border: 1px solid rgba(31,123,255,0.3);
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 20px;
-    }
-    .flagship-badge::before { content: '★'; font-size: 0.7rem; }
-    .flagship-teaser h2 {
-      font-size: 1.9rem;
-      color: var(--white);
-      margin-bottom: 14px;
-      line-height: 1.2;
-    }
-    .flagship-teaser .sub {
-      font-size: 0.93rem;
-      color: var(--muted);
-      max-width: 600px;
-      margin-bottom: 32px;
-      line-height: 1.7;
-    }
-    .flagship-highlights {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      margin-bottom: 36px;
-    }
-    .fh-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px 22px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-    }
-    .fh-card.blue-tint {
-      background: rgba(31,123,255,0.05);
-      border-color: rgba(31,123,255,0.25);
-    }
-    .fh-icon {
-      font-size: 1.4rem;
-      line-height: 1;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .fh-card h4 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.83rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 5px;
-    }
-    .fh-card.blue-tint h4 { color: var(--blue); }
-    .fh-card p {
-      font-size: 0.76rem;
-      color: var(--muted);
-      line-height: 1.5;
-      margin: 0;
-    }
-    .flagship-cta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn-flagship {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      color: #fff;
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-    }
-    .btn-flagship:hover { opacity: 0.88; transform: translateY(-1px); }
 
     /* ── ACCELERATOR CARDS (Coming Soon) ── */
     .industry-label {
@@ -526,62 +388,131 @@
       height: auto;
       border-radius: 12px;
     }
-    .hs {
-      position: absolute;
-      cursor: default;
-      border-radius: 8px;
-      background: transparent;
-      transition: background 0.15s;
-    }
-    .hs:hover { background: rgba(255,255,255,0.08); }
-    #suite-tooltip {
-      position: fixed;
-      background: #0e1e3a;
-      border: 1px solid rgba(58,143,255,0.35);
-      border-radius: 10px;
-      padding: 14px 18px;
-      max-width: 260px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      line-height: 1.5;
-      color: rgba(255,255,255,0.88);
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.12s;
-      z-index: 9000;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    }
-    #suite-tooltip.visible { opacity: 1; }
-    #suite-tooltip strong {
-      display: block;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 13.5px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    #suite-tooltip ul {
-      padding-left: 0;
-      list-style: none;
+
+    /* ── APP GROUPS (grouped, always-visible, click-to-expand — replaces the old hover-only diagram hotspots, which showed nothing on touch devices) ── */
+    .app-groups {
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      margin: 0;
+      gap: 44px;
+      margin-top: 56px;
     }
-    #suite-tooltip li {
-      font-size: 11.5px;
-      color: rgba(255,255,255,0.65);
-      padding-left: 14px;
-      position: relative;
-      line-height: 1.45;
+    .app-group-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
     }
-    #suite-tooltip li::before {
-      content: '›';
-      position: absolute;
-      left: 0;
-      color: #4a9fff;
+    .app-group-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .app-group-header h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .app-group-header p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+    .app-group-flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.76rem;
       font-weight: 700;
+      color: var(--muted);
     }
+    .app-group-flow .flow-arrow { color: var(--blue); font-weight: 400; }
+    .app-group-flow .flow-note {
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .app-group-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .app-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .app-card.open, .app-card:hover { border-color: var(--app-accent, rgba(31,123,255,0.3)); }
+    .app-card-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+    }
+    .app-card-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      background: var(--app-accent-bg, rgba(31,123,255,0.1));
+      border: 1px solid var(--app-accent, rgba(31,123,255,0.25));
+    }
+    .app-card-text { flex: 1; min-width: 0; }
+    .app-card-name {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .app-card-oneliner { display: block; font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .app-card-chevron { color: var(--muted); transition: transform 0.2s; flex-shrink: 0; }
+    .app-card.open .app-card-chevron { transform: rotate(180deg); }
+    .app-card-detail { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .app-card.open .app-card-detail { max-height: 260px; }
+    .app-card-detail ul {
+      list-style: none;
+      padding: 0 18px 18px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .app-card-detail li {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.55;
+      padding-left: 16px;
+      position: relative;
+    }
+    .app-card-detail li::before { content: '→'; position: absolute; left: 0; color: var(--blue); font-weight: 700; }
 
     /* ── SUITE TOOL GRID ── */
     .suite-grid {
@@ -899,7 +830,14 @@
               those accelerators grew. Client feedback shaped the roadmap. The Blueprint Generator
               captured what needed to change. The Developer Agent executed the changes fast.
               New capabilities were added. What started as three tools became an integrated,
-              production-ready suite of eight.
+              production-ready suite of nine.
+            </p>
+            <p>
+              The suite kept growing the same way. CortexIQ joined as the platform's context layer,
+              keeping real environment and architecture facts current so Blueprint Generator and the
+              Developer Agent never build against a guess. ITSMI joined to close the loop on the other
+              side: reporting what actually happened to every ServiceNow ticket that became engineering
+              work, and what didn't.
             </p>
             <p>
               That same model is what every accelerator in the Lab goes through. Clients aren't
@@ -968,49 +906,235 @@
           Intelligence, our first white-labeled reseller product, in weeks instead of months.
         </p>
         <p style="max-width:600px;margin-bottom:40px;font-size:0.85rem;color:var(--muted);">
-          Hover over any product to see its core capabilities. For the full picture, download the Suite Overview below.
+          Click any product below to see its core capabilities. For the full picture, download the Suite Overview below.
         </p>
 
         <div class="diagram-section">
           <div class="diagram-wrap" id="diagramWrap">
-            <img src="img/portfolio-suite-diagram.png" alt="XLeratorAI Portfolio and Development Suite, hub and spoke diagram" draggable="false" />
-
-            <div class="hs" data-tool="strategy"
-              style="left:1.4%;top:9%;width:27%;height:35.6%;"
-              onmouseenter="showTip(event,'strategy')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
-
-            <div class="hs" data-tool="builder"
-              style="left:30.7%;top:3.1%;width:29.6%;height:26.9%;"
-              onmouseenter="showTip(event,'builder')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
-
-            <div class="hs" data-tool="intelligence"
-              style="left:62.6%;top:9%;width:31.6%;height:33.7%;"
-              onmouseenter="showTip(event,'intelligence')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
-
-            <div class="hs" data-tool="dependency"
-              style="left:68.5%;top:32.4%;width:29.6%;height:30.8%;"
-              onmouseenter="showTip(event,'dependency')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
-
-            <div class="hs" data-tool="blueprint"
-              style="left:61.3%;top:55.9%;width:34.8%;height:34.7%;"
-              onmouseenter="showTip(event,'blueprint')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
-
-            <div class="hs" data-tool="devagent"
-              style="left:31.4%;top:65.6%;width:33.5%;height:31.7%;"
-              onmouseenter="showTip(event,'devagent')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
-
-            <div class="hs" data-tool="monitor"
-              style="left:1.4%;top:55.9%;width:32.2%;height:34.7%;"
-              onmouseenter="showTip(event,'monitor')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
-
-            <div class="hs" data-tool="learn"
-              style="left:1.4%;top:30.5%;width:30.3%;height:33.7%;"
-              onmouseenter="showTip(event,'learn')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
-
-            <div class="hs" data-tool="hub"
-              style="left:34%;top:34.4%;width:28.3%;height:32.7%;"
-              onmouseenter="showTip(event,'hub')" onmouseleave="hideTip()" onmousemove="moveTip(event)"></div>
+            <img src="img/portfolio-suite-diagram.png" alt="XLeratorAI's nine accelerators arranged around Data Orchestrator, the central hub mediating every data flow" draggable="false" />
           </div>
+        </div>
+
+        <div class="app-groups">
+
+          <!-- ── GROUP 1: STRATEGY TO PORTFOLIO ── -->
+          <div class="app-group">
+            <div class="app-group-header">
+              <span class="app-group-num">1</span>
+              <div>
+                <h3>Strategy to Portfolio</h3>
+                <p>Plan, prioritize, monitor.</p>
+              </div>
+            </div>
+            <div class="app-group-cards">
+              <div class="app-card" style="--app-accent:#0d9488;--app-accent-bg:rgba(13,148,136,0.1);">
+                <button class="app-card-toggle" onclick="this.closest('.app-card').classList.toggle('open')">
+                  <span class="app-card-icon">🧭</span>
+                  <span class="app-card-text">
+                    <span class="app-card-name">Strategy Generator</span>
+                    <span class="app-card-oneliner">Builds the 18-month strategy everything downstream works from.</span>
+                  </span>
+                  <span class="app-card-chevron">⌄</span>
+                </button>
+                <div class="app-card-detail">
+                  <ul>
+                    <li>AI-guided research produces an approved 18-month strategy grounded in real industry intelligence.</li>
+                    <li>Human sign-off required before anything moves downstream.</li>
+                    <li>Automatically hands the approved strategy to Portfolio Builder.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="app-card" style="--app-accent:#8b5cf6;--app-accent-bg:rgba(139,92,246,0.1);">
+                <button class="app-card-toggle" onclick="this.closest('.app-card').classList.toggle('open')">
+                  <span class="app-card-icon">📋</span>
+                  <span class="app-card-text">
+                    <span class="app-card-name">Portfolio Builder</span>
+                    <span class="app-card-oneliner">Turns the strategy into a ranked, approved project portfolio.</span>
+                  </span>
+                  <span class="app-card-chevron">⌄</span>
+                </button>
+                <div class="app-card-detail">
+                  <ul>
+                    <li>Scores and ranks project candidates against the approved strategy across alignment, ROI, impact, and risk.</li>
+                    <li>Generates structured intake forms and business cases for each candidate.</li>
+                    <li>Once approved, pushes epics straight into Jira for Blueprint Generator to build.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="app-card" style="--app-accent:#0ea5e9;--app-accent-bg:rgba(14,165,233,0.1);">
+                <button class="app-card-toggle" onclick="this.closest('.app-card').classList.toggle('open')">
+                  <span class="app-card-icon">📊</span>
+                  <span class="app-card-text">
+                    <span class="app-card-name">Portfolio Intelligence</span>
+                    <span class="app-card-oneliner">Watches the live portfolio for risk, cost, and health, in real time.</span>
+                  </span>
+                  <span class="app-card-chevron">⌄</span>
+                </button>
+                <div class="app-card-detail">
+                  <ul>
+                    <li>Real-time PMO health dashboard with AI-generated findings and risk alerts.</li>
+                    <li>Cost variance detection across every active project.</li>
+                    <li>AI analysis and recommendations available for any project on demand.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── GROUP 2: PORTFOLIO TO CODE ── -->
+          <div class="app-group">
+            <div class="app-group-header">
+              <span class="app-group-num">2</span>
+              <div>
+                <h3>Portfolio to Code</h3>
+                <p>Approved roadmap work becomes shipped code.</p>
+              </div>
+            </div>
+            <div class="app-group-cards">
+              <div class="app-card" style="--app-accent:#10b981;--app-accent-bg:rgba(16,185,129,0.1);">
+                <button class="app-card-toggle" onclick="this.closest('.app-card').classList.toggle('open')">
+                  <span class="app-card-icon">⚡</span>
+                  <span class="app-card-text">
+                    <span class="app-card-name">Blueprint Generator</span>
+                    <span class="app-card-oneliner">Turns approved work into engineering-ready Epics and Stories.</span>
+                  </span>
+                  <span class="app-card-chevron">⌄</span>
+                </button>
+                <div class="app-card-detail">
+                  <ul>
+                    <li>Conversational, voice-capable intake refines rough requirements into structured build specs.</li>
+                    <li>Checked against CortexIQ's live environment context before anything moves forward.</li>
+                    <li>Loads Epics and Stories directly into Jira, ready for the Developer Agent.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="app-card" style="--app-accent:#f97316;--app-accent-bg:rgba(249,115,22,0.1);">
+                <button class="app-card-toggle" onclick="this.closest('.app-card').classList.toggle('open')">
+                  <span class="app-card-icon">🤖</span>
+                  <span class="app-card-text">
+                    <span class="app-card-name">AI Developer Agent</span>
+                    <span class="app-card-oneliner">Reads the story, writes the code, opens the pull request.</span>
+                  </span>
+                  <span class="app-card-chevron">⌄</span>
+                </button>
+                <div class="app-card-detail">
+                  <ul>
+                    <li>Polls Jira for assigned work, writes code, and runs tests autonomously.</li>
+                    <li>Checks CortexIQ's guardrails at the start of every story.</li>
+                    <li>A human reviews and merges the pull request. Nothing ships unattended.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── GROUP 3: REQUIREMENTS/TICKETS TO CODE ── -->
+          <div class="app-group">
+            <div class="app-group-header">
+              <span class="app-group-num">3</span>
+              <div>
+                <h3>Requirements/Tickets to Code</h3>
+                <p>The same build engine, started from a support ticket instead of a project.</p>
+              </div>
+            </div>
+            <div class="app-group-flow">
+              <span>🎫 ServiceNow</span>
+              <span class="flow-arrow">→</span>
+              <span>⚡ Blueprint Generator</span>
+              <span class="flow-arrow">→</span>
+              <span>🤖 AI Developer Agent</span>
+              <span class="flow-arrow">→</span>
+              <span>🎫 ServiceNow</span>
+              <span class="flow-note">Blueprint Generator and the AI Developer Agent are the same two apps from Portfolio to Code, above. Here they start from a ServiceNow ticket instead of an approved project, and Data Orchestrator writes the completion status back to ServiceNow automatically when it's done.</span>
+            </div>
+            <div class="app-group-cards">
+              <div class="app-card" style="--app-accent:#f59e0b;--app-accent-bg:rgba(245,158,11,0.1);">
+                <button class="app-card-toggle" onclick="this.closest('.app-card').classList.toggle('open')">
+                  <span class="app-card-icon">🎫</span>
+                  <span class="app-card-text">
+                    <span class="app-card-name">ITSMI</span>
+                    <span class="app-card-oneliner">Reports what actually happened to every ticket, and why.</span>
+                  </span>
+                  <span class="app-card-chevron">⌄</span>
+                </button>
+                <div class="app-card-detail">
+                  <ul>
+                    <li>Reports how ServiceNow tickets are actually managed: which became real engineering work, which didn't, and why.</li>
+                    <li>Tracks routing rate, build progress, and ticket class breakdown.</li>
+                    <li>Closes the loop: completion status writes back to ServiceNow automatically.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── GROUP 4: CONTEXT, DATA & RISK ── -->
+          <div class="app-group">
+            <div class="app-group-header">
+              <span class="app-group-num">4</span>
+              <div>
+                <h3>Context, Data &amp; Risk</h3>
+                <p>The cross-cutting layer every other group draws from.</p>
+              </div>
+            </div>
+            <div class="app-group-cards">
+              <div class="app-card" style="--app-accent:#1a6fe8;--app-accent-bg:rgba(31,123,255,0.1);">
+                <button class="app-card-toggle" onclick="this.closest('.app-card').classList.toggle('open')">
+                  <span class="app-card-icon">🔀</span>
+                  <span class="app-card-text">
+                    <span class="app-card-name">Data Orchestrator</span>
+                    <span class="app-card-oneliner">The only app that talks to the outside world. Everything else goes through here.</span>
+                  </span>
+                  <span class="app-card-chevron">⌄</span>
+                </button>
+                <div class="app-card-detail">
+                  <ul>
+                    <li>Holds every external credential and makes every outbound call: Jira, ServiceNow, GitHub, Ardoq, and more.</li>
+                    <li>No accelerator connects to an external system on its own, by architecture, not just policy.</li>
+                    <li>Every data movement between all 9 apps is mediated through one gateway.</li>
+                  </ul>
+                  <p style="padding:0 18px 16px;margin:0;">
+                    <a href="trust.html" style="color:var(--blue);text-decoration:none;font-size:0.78rem;font-weight:600;">See how we secure this architecture →</a>
+                  </p>
+                </div>
+              </div>
+              <div class="app-card" style="--app-accent:#1e3a5f;--app-accent-bg:rgba(30,58,95,0.1);">
+                <button class="app-card-toggle" onclick="this.closest('.app-card').classList.toggle('open')">
+                  <span class="app-card-icon">🧠</span>
+                  <span class="app-card-text">
+                    <span class="app-card-name">CortexIQ</span>
+                    <span class="app-card-oneliner">The platform's second brain: real environment facts, human-verified.</span>
+                  </span>
+                  <span class="app-card-chevron">⌄</span>
+                </button>
+                <div class="app-card-detail">
+                  <ul>
+                    <li>Pulls real architecture and environment data from Ardoq's enterprise topology and ServiceNow's CMDB.</li>
+                    <li>Keeps guardrails and environment facts current and human-verified, not just AI-assumed.</li>
+                    <li>Feeds Blueprint Generator, the AI Developer Agent, and DependencyIQ directly.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="app-card" style="--app-accent:#f43f5e;--app-accent-bg:rgba(244,63,94,0.1);">
+                <button class="app-card-toggle" onclick="this.closest('.app-card').classList.toggle('open')">
+                  <span class="app-card-icon">🕸️</span>
+                  <span class="app-card-text">
+                    <span class="app-card-name">DependencyIQ</span>
+                    <span class="app-card-oneliner">Finds the dependencies nobody documented, before they become a crisis.</span>
+                  </span>
+                  <span class="app-card-chevron">⌄</span>
+                </button>
+                <div class="app-card-detail">
+                  <ul>
+                    <li>Maps projects, systems, and teams as a dependency graph with typed relationships.</li>
+                    <li>Surfaces collisions, bottlenecks, and blast radius before a change causes a real problem.</li>
+                    <li>Built on CortexIQ's real topology data, not assumptions.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div class="suite-cta">
@@ -1024,10 +1148,10 @@
     <section class="section">
       <div class="section-inner">
         <div class="section-label">In the Lab</div>
-        <h2 style="color:var(--white);margin-bottom:12px;">Accelerators Moving to Product</h2>
+        <h2 style="color:var(--white);margin-bottom:12px;">Accelerators in Motion</h2>
         <p style="max-width:700px;margin-bottom:40px;">
-          These accelerators are already working, now going through our client interaction sessions.
-          Each one follows the same path through our delivery framework: Blueprint → Agent → Demo → Workspace → Deploy.
+          These accelerators are already working, now going through client proof-of-concept sessions.
+          Each one follows the same path through our delivery framework: Accelerator → POC → Demo → Workspace → Deploy.
         </p>
 
         <!-- ── FEATURED: SHOPIFY ── -->
@@ -1154,9 +1278,15 @@
         <div class="footer-col">
           <h4>Products</h4>
           <a href="lab.html">Portfolio &amp; Delivery Suite</a>
-          <a href="lab.html">AI Strategy Generator</a>
-          <a href="lab.html">AI Portfolio Builder</a>
+          <a href="lab.html">Strategy Generator</a>
+          <a href="lab.html">Portfolio Builder</a>
+          <a href="lab.html">Portfolio Intelligence</a>
+          <a href="lab.html">Blueprint Generator</a>
+          <a href="lab.html">AI Developer Agent</a>
+          <a href="lab.html">Data Orchestrator</a>
+          <a href="lab.html">CortexIQ</a>
           <a href="lab.html">DependencyIQ</a>
+          <a href="lab.html">ITSMI</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
@@ -1224,102 +1354,7 @@
     </div>
   </div>
 
-  <div id="suite-tooltip"></div>
-
   <script>
-    /* ── Diagram tooltip ── */
-    const SUITE_DATA = {
-      hub: {
-        name: 'Data Orchestrator',
-        caps: [
-          'Central data bus: all ingest and push operations route through a single point of control',
-          'No tool connects to external sources independently; every data movement is mediated',
-          'Fires structured event signals to Portfolio Monitor and Learn & Optimize on every run'
-        ]
-      },
-      strategy: {
-        name: 'Strategy Generator',
-        caps: [
-          'AI-guided wizard that researches your industry and generates an approved 18-month strategy',
-          'Multi-step approval workflow ensures human sign-off before any distribution',
-          'Automatically distributes the approved strategy downstream to Portfolio Builder'
-        ]
-      },
-      builder: {
-        name: 'Portfolio Builder',
-        caps: [
-          'Scores and ranks a full set of AI project candidates against your approved strategy',
-          'Generates structured intake forms and business cases for prioritized projects',
-          'Exports approved portfolios to Jira, Azure DevOps, Clarity, or CSV on approval'
-        ]
-      },
-      intelligence: {
-        name: 'Portfolio Intelligence',
-        caps: [
-          'Real-time PMO health dashboard with AI-generated findings and automated risk alerts',
-          'Cost variance detection and automated health scoring across all active projects',
-          'Embedded blast radius analysis showing downstream impact of any project change'
-        ]
-      },
-      dependency: {
-        name: 'DependencyIQ',
-        caps: [
-          'Graph engine mapping projects, systems, and teams as nodes with typed dependency edges',
-          'Blast radius analysis quantifying the downstream impact of any change or delay',
-          'Data source registry that centralizes all external connection management for the suite'
-        ]
-      },
-      blueprint: {
-        name: 'Blueprint Generator',
-        caps: [
-          'Conversational AI intake that transforms business requirements into structured blueprints',
-          'Generates build specifications, acceptance criteria, and implementation roadmaps',
-          'Creates Epics and Stories in your project management platform automatically on approval'
-        ]
-      },
-      devagent: {
-        name: 'Developer Agent',
-        caps: [
-          'Polls your project management platform for assigned work and executes build tasks autonomously',
-          'Writes code, runs tests, and raises pull requests without manual handoff',
-          'Reports completion events back to the portfolio layer for real-time status visibility'
-        ]
-      },
-      monitor: {
-        name: 'Portfolio Monitor',
-        caps: [
-          'Observability layer capturing every data movement and system event across the suite',
-          'Real-time KPI tracking, latency monitoring, and automated anomaly detection',
-          'Configurable alert routing to email, Slack, Teams, or PagerDuty'
-        ]
-      },
-      learn: {
-        name: 'Learn & Optimize',
-        caps: [
-          'Continuously collects outcome signals from every tool across the suite',
-          'Adjusts scoring weights based on real-world results and company-specific patterns',
-          'Surfaces optimization insights back to Strategy Generator and Portfolio Builder'
-        ]
-      }
-    };
-
-    const tip = document.getElementById('suite-tooltip');
-
-    function showTip(e, id) {
-      const d = SUITE_DATA[id];
-      if (!d) return;
-      tip.innerHTML = `<strong>${d.name}</strong><ul>${d.caps.map(c => `<li>${c}</li>`).join('')}</ul>`;
-      tip.classList.add('visible');
-      moveTip(e);
-    }
-    function moveTip(e) {
-      const x = Math.min(e.clientX + 18, window.innerWidth - 278);
-      const y = Math.max(e.clientY - 10, 8);
-      tip.style.left = x + 'px';
-      tip.style.top  = y + 'px';
-    }
-    function hideTip() { tip.classList.remove('visible'); }
-
     /* ── PDF modal ── */
     function openPdfModal() {
       document.getElementById('pdfFormView').style.display = 'block';
